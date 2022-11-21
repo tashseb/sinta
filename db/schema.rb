@@ -10,9 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_044354) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_081932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidates", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "status"
+    t.bigint "stage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stage_id"], name: "index_candidates_on_stage_id"
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.string "feedback"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "candidate_id", null: false
+    t.bigint "stage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_interviews_on_candidate_id"
+    t.index ["stage_id"], name: "index_interviews_on_stage_id"
+    t.index ["user_id"], name: "index_interviews_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "description"
+    t.bigint "stage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stage_id"], name: "index_questions_on_stage_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.boolean "completed", default: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_roles_on_user_id"
+  end
+
+  create_table "stages", force: :cascade do |t|
+    t.string "name"
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_stages_on_role_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +71,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_044354) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "position"
+    t.string "department"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "candidates", "stages"
+  add_foreign_key "interviews", "candidates"
+  add_foreign_key "interviews", "stages"
+  add_foreign_key "interviews", "users"
+  add_foreign_key "questions", "stages"
+  add_foreign_key "roles", "users"
+  add_foreign_key "stages", "roles"
 end
