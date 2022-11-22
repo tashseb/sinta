@@ -3,6 +3,7 @@ class RolesController < ApplicationController
 
   def index
     @roles = Role.all
+    @users = User.all
   end
 
   def new
@@ -18,9 +19,9 @@ class RolesController < ApplicationController
     end
   end
 
-
   def show
     @role = Role.find(params[:id])
+    @users = User.all
   end
 
   # def update
@@ -35,6 +36,8 @@ class RolesController < ApplicationController
   private
 
   def role_params
-    params.require(:role).permit(:title, :description, :completed )
+    params.require(:role).permit(:title, :description, :completed, :user_id)
   end
 end
+
+# page: 'qu'
