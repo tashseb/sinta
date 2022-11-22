@@ -692,6 +692,11 @@ source-map@^0.6.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
+stimulus-checkbox-select-all@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/stimulus-checkbox-select-all/-/stimulus-checkbox-select-all-5.1.0.tgz#44f02a730c29696a1910a555506f8a6fa4d4a1ff"
+  integrity sha512-YXhPEhvEN81+d2nYhEe9ZLxuHTWw+R57q/AOip0T8kpnPCIWM3cezIYFZK5HNNLf2XpkfPCzuM7bQI8b/xkfGg==
+
 supports-color@^8.0.0:
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-8.1.1.tgz#cd6fc17e28500cff56c1b86c0a7fd4a54a73005c"
