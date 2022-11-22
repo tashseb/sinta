@@ -1,10 +1,14 @@
 class StagesController < ApplicationController
-  # def create
-  #   @stage = Stage.new(stage_params)
-  #   if @stage.save
-  #   else
-  #   end
-  # end
+  def create
+    @stage = Stage.new(stage_params)
+    @role = Role.find(params[:role_id])
+    @stage.role = @role
+    if @stage.save
+      redirect to role_path(@role), status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   # def edit
   # end
