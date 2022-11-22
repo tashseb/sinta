@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   skip_before_action :authenticate_user!
-  
+
   def index
     @roles = Role.all
   end
@@ -18,9 +18,10 @@ class RolesController < ApplicationController
     end
   end
 
-  def show
-    @role = Role.find(params[:id]
-  end
+  # def show
+  #   @role = Role.find(params[:id]
+  #   @stages = Stage.new
+  # end
 
   # def update
   #   @role = Role.find(params[:id])
