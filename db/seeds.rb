@@ -1,7 +1,127 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "Destroying Users, Roles, Stages and Candidates, respectively."
+User.destroy_all
+Role.destroy_all
+Stage.destroy_all
+Candidate.destroy_all
+Question.destroy_all
+puts "Destroying data - DONE."
+
+puts "Creating users..."
+User.create!(
+  email: "mo@teamsinta.com", password: "lalala", first_name: "Mo",
+  last_name: "Shegow", position: "Recruiter", department: "Recruitment", photo: 'https://avatars.githubusercontent.com/u/114022804?v=4'
+)
+User.create!(
+  email: "tash@teamsinta.com", password: "lalala", first_name: "Tash",
+  last_name: "Cruz", position: "Software Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/13973128?v=4'
+)
+User.create!(
+  email: "sammy@teamsinta.com", password: "lalala", first_name: "Sammy",
+  last_name: "Kavanaugh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
+)
+User.create!(
+  email: "tom@teamsinta.com", password: "lalala", first_name: "Tom",
+  last_name: "Price", position: "Project Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
+)
+puts "Added #{User.all.count} users."
+
+puts "Adding Roles in the system..."
+Role.create!(
+  title: "Sales Engineer",
+  description: "Generating high-quality sales leads, following up after initial contact, securing and renewing orders.",
+  user_id: User.first.id
+)
+Role.create!(
+  title: "Front-End Engineer",
+  description: "Bachelor's degree with 3 years of experience. 1 year rich application experience with HTML, CSS and JS",
+  user_id: User.first.id
+)
+puts "Added #{Role.all.count} roles."
+
+puts 'Adding stages for the Sales Engineer role...'
+Stage.create!(name: "Screening", role: Role.first)
+Stage.create!(name: "Operational Interview", role: Role.first)
+Stage.create!(name: "Behavioral Interview", role: Role.first)
+Stage.create!(name: "Final Interview", role: Role.first)
+
+puts 'Adding stages for the Front-End Engineer role...'
+Stage.create!(name: "Screening", role: Role.last)
+Stage.create!(name: "Technical Interview", role: Role.last)
+Stage.create!(name: "Pair Programming", role: Role.last)
+Stage.create!(name: "CEO Interview", role: Role.last)
+Stage.create!(name: "Final Interview", role: Role.last)
+puts "Added #{Stage.all.count} stages in the system."
+
+puts 'Adding candidates for the Sales Engineering position...'
+# In the first stage
+Candidate.create!(
+  first_name: "Keita", last_name: "Wilson", status: 'accepted',
+  stage: Stage.first
+)
+Candidate.create!(
+  first_name: "Sunny", last_name: "Liu", status: 'accepted',
+  stage: Stage.first
+)
+Candidate.create!(
+  first_name: "Yulia", last_name: "Naumenko", status: 'pending',
+  stage: Stage.first
+)
+# Second stage
+Candidate.create!(
+  first_name: "Keita", last_name: "Wilson", status: 'accepted',
+  stage: Stage.first(2)[1]
+)
+Candidate.create!(
+  first_name: "Sunny", last_name: "Liu", status: 'pending',
+  stage: Stage.first(2)[1]
+)
+# Third stage
+Candidate.create!(
+  first_name: "Keita", last_name: "Wilson", status: 'pending',
+  stage: Stage.first(3)[2]
+)
+puts "Added #{Candidate.all.count} candidates in the system."
+
+puts "Adding interviews..."
+Interview.create!(
+  user: User.first, candidate: Candidate.find_by(first_name: "Keita"),
+  stage: Stage.first, rating: 4,
+  feedback: "Great sales experience. Highly motivated. Personable"
+)
+Interview.create!(
+  user: User.last, candidate: Candidate.find_by(first_name: "Sunny"),
+  stage: Stage.first, rating: 3,
+  feedback: "Fresh grad with Marketing degree. Seems eager to learn."
+)
+Interview.create!(
+  user: User.first, candidate: Candidate.find_by(first_name: "Keita"),
+  stage: Stage.first(2)[1], rating: 5,
+  feedback: "Extensive sales experience with AWS that is highly transferable to ABC company."
+)
+puts "Added #{Interview.all.count} interviews."
+
+puts "Addings questions for the Stages..."
+Question.create!(
+  stage: Stage.first,
+  description: "Could you tell me something about yourself?"
+)
+Question.create!(
+  stage: Stage.first,
+  description: "Could you tell me about your responsibilities in your current/previous role?"
+)
+Question.create!(
+  stage: Stage.first,
+  description: "Why do you want to leave your current position?"
+)
+Question.create!(
+  stage: Stage.first(2)[1],
+  description: "How do you meet deadlines under pressure?"
+)
+Question.create!(
+  stage: Stage.first(2)[1],
+  description: "How did you manage to achieve something while in conflict with a client?"
+)
+Question.create!(
+  stage: Stage.first(2)[1],
+  description: "Why do you want to be a part of our team?"
+)
