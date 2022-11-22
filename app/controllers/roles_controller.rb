@@ -22,16 +22,10 @@ class RolesController < ApplicationController
   def show
     @role = Role.find(params[:id])
     @users = User.all
+    @stage = Stage.new
+
   end
 
-  # def update
-  #   @role = Role.find(params[:id])
-  #   if @role.update(role_params)
-  #     redirect_to role_path(@role), status: :see_other
-  #   else
-  #     render , status: :unprocessable_entity
-  #   end
-  # end
 
   private
 
