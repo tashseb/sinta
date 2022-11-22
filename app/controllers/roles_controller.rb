@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   skip_before_action :authenticate_user!
-  
+
   def index
     @roles = Role.all
   end
@@ -19,7 +19,7 @@ class RolesController < ApplicationController
   end
 
   def show
-    @role = Role.find(params[:id]
+    @role = Role.find(params[:id])
   end
 
   # def update
