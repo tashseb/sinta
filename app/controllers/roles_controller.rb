@@ -18,10 +18,10 @@ class RolesController < ApplicationController
     end
   end
 
-  # def show
-  #   @role = Role.find(params[:id]
-  #   @stages = Stage.new
-  # end
+
+  def show
+    @role = Role.find(params[:id])
+  end
 
   # def update
   #   @role = Role.find(params[:id])
