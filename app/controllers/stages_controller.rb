@@ -1,4 +1,8 @@
 class StagesController < ApplicationController
+  def index
+    @stages = Stage.all
+  end
+
   def create
     @stage = Stage.new(stage_params)
     @role = Role.find(params[:role_id])
