@@ -18,6 +18,7 @@ class RolesController < ApplicationController
     end
   end
 
+
   def show
     @role = Role.find(params[:id])
   end
