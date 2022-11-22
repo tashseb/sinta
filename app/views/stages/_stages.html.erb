@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="stages-card">
+    <ul>
+      <% @role.stages.each do |stage| %>
+        <li>
+          <p><%= stage.name %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="stages-btn">
+    <button type="button" class="btn btn-primary">Add</button>
+  </div>
+</div>
