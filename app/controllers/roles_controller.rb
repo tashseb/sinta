@@ -23,6 +23,7 @@ class RolesController < ApplicationController
     @stage = Stage.new
   end
 
+
   private
 
   def role_params
