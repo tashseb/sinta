@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="pagetitle m-4">
+    <h1>Roles list</h1>
+  </div>
+  <div class="d-flex gap-3 ms-4">
+    <% @roles.each do |role| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"> <strong><%= role.title %></strong></h5>
+          <p class="card-text"><%= role.description %></p>
+          <div class="card-bottom d-flex justify-content-between bottom-0 start-3">
+            <%= link_to "More details", role_path(role) %>
+            <p><%= role.completed ? "Completed" : "To be completed" %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

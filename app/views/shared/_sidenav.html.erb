@@ -1,9 +1,31 @@
 <% if user_signed_in? %>
-  <div class="flex-nowrap">
     <div class="px-sm-2 px-0 bg-white border-end">
       <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100 justify-content-center">
         <%= image_tag("Sinta-ArtisticLogo-03.jpg", class: "rounded-circle my-3 mb-5 ms-3", width: "100px" ) %>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start gap-2" id="menu">
+          <li>
+            <a href="#" class="align-middle btn btn-link text-decoration-none"><i class="fa-solid fa-house"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#" class="align-middle btn btn-link text-decoration-none"><i class="fa-solid fa-clipboard-question"></i> Interviews</a>
+          </li>
+          <li>
+            <a href="#" class="align-middle btn btn-link text-decoration-none"><i class="fa-regular fa-pen-to-square"></i> Reviews</a>
+          </li>
+          <li>
+            <a href="#" class="align-middle btn btn-link text-decoration-none"><i class="fa-solid fa-user"></i> Candidates</a>
+          </li>
+          <li>
+            <i class="fa-regular fa-rectangle-list"></i><%= link_to "Roles", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
+          </li>
+        </ul>
+      <hr>
+      <%# need to implement user stuff here %>
+      <div class="dropdown pb-4">
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
           <li>
             <a href="#" class="align-middle btn btn-link text-decoration-none"><i class="fa-solid fa-house"></i> Dashboard</a>
           </li>
