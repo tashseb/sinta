@@ -1,4 +1,6 @@
 class RolesController < ApplicationController
+  skip_before_action :authenticate_user!
+  
   def index
     @roles = Role.all
   end
@@ -7,18 +9,18 @@ class RolesController < ApplicationController
     @role = Role.new
   end
 
-  # def create
-  #   @role = Role.new(role_params)
-  #   if @role.save
-  #     redirect_to role_path(@role), status: :see_other
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
+  def create
+    @role = Role.new(role_params)
+    if @role.save
+      redirect_to role_path(@role), status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
-  # def show
-  #   @role = Role.find(params[:id]
-  # end
+  def show
+    @role = Role.find(params[:id]
+  end
 
   # def update
   #   @role = Role.find(params[:id])
