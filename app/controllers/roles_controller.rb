@@ -26,7 +26,6 @@ class RolesController < ApplicationController
 
   end
 
-
   private
 
   def role_params
