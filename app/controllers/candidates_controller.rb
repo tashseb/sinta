@@ -1,18 +1,21 @@
 class CandidatesController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def index
-    @candidates = Candidate.all
-  end
-
-  # def create
-  #   @candidate = Candidate.find(params[:id])
-  #   if @candidate.save
-  #     redirect_to , status: :see_other
-  #   else
-  #     , status: :unprocessable_entity
-  #   end
+  # def index
+  #   @candidates = Candidate.all
   # end
+
+  def create
+    @candidate = Candidate.new(candidate_params)
+    @role = Role.find(params[:role_id])
+    @candidate.stage = @role.stages.order(created_at: :asc).first
+    @candidate.status = "pending"
+    if @candidate.save
+      redirect_to role_path(@role)
+    else
+      # , status: :unprocessable_entity
+    end
+  end
 
   # def show
   #   @candidate = Candidate.find(params[:id])
