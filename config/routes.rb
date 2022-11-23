@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/index'
+  get 'users/create'
   get 'roles/new'
   get 'roles/create'
   devise_for :users
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
     resources :candidates, only: %i[index create]
   end
   resources :stages, only: %i[edit update]
-  resources :candidates, only: %i[show update index]
-  resources :interviews, only: %i[show index update]
+
+  resources :candidates, only: %i[show update]
+  resources :interviews, only: %i[show index update create new]
 end

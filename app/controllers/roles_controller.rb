@@ -3,6 +3,7 @@ class RolesController < ApplicationController
 
   def index
     @roles = Role.all
+    @users = User.all
   end
 
   def new
@@ -22,11 +23,14 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
     @users = User.all
     @stage = Stage.new
+
   end
 
   private
 
   def role_params
-    params.require(:role).permit(:title, :description, :completed)
+    params.require(:role).permit(:title, :description, :completed, :user_id)
   end
 end
+
+# page: 'qu'

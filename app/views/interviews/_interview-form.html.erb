@@ -1,0 +1,10 @@
+<div class="container bg-white p-4">
+  <div class="d-grid gap-2 justify-content-md-start mb-3">
+    <%= link_to 'Back', root_path, class: 'btn btn-ghost'  %>
+  </div>
+  <h1 class="text-header">Select Your Interviewers!</h1>
+  <%= simple_form_for [@interview] do |f| %>
+    <%= f.association :stage, include_blank: false %>
+    <%= f.association :user, include_blank: false %>
+    <%= f.submit class: 'btn btn-primary mt-2' %>
+  <% end %>

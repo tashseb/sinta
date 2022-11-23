@@ -1,7 +1,18 @@
-<% @users.each do |user| %>
-  <%# <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 150px;"
-          alt="Avatar" /> %>
-  <%= image_tag current_user.photo, alt: "text", class: "avatar-bordered" %>
-  <h5 class="mb-2"><strong><%= user.first_name.capitalize %></strong></h5>
-  <p class="text-muted"><%= user.position.capitalize %><span class="badge bg-primary">PRO</span></p>
-<% end %>
+
+<div class="container mt-3">
+  <div class="stages-btn">
+    <button type="button" class="btn btn-primary">Add</button>
+  </div>
+  <div class="container">
+    <% @role.stages.each do |stage| %>
+      <% stage.interviews.each do |interview| %>
+        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 150px;"
+          alt="Avatar" />
+        <h5 class="mb-2"><strong><%= interview.user.first_name.capitalize %></strong></h5>
+        <p class="text-muted"><%= interview.user.position.capitalize %>
+          <span class="badge bg-primary">
+            <%= stage.name.capitalize %></span></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

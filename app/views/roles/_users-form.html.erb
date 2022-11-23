@@ -1,0 +1,4 @@
+<%= simple_form_for [@users, @role] do |f| %>
+  <%= f.association :user, include_blank: false %>
+  <%= f.submit class: 'btn btn-primary mt-2' %>
+<% end %>
