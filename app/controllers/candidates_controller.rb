@@ -10,7 +10,7 @@ class CandidatesController < ApplicationController
   #   @candidate = Candidate.new
   #   @candidate.stage = @role.stages.first
   #   if @candidate.save
-  #     #to-do create new interviews for the stage interviewers
+      #to-do create new interviews for the stage interviewers
   #     redirect_to , :new, status: :see_other
   #   else
   #     , status: :unprocessable_entity
