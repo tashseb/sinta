@@ -1,0 +1,25 @@
+.container-questions {
+  margin-top: 16px;
+  display: flex;
+  flex: wrap;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.card-stage-heading {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid $light-gray;
+  padding-bottom: 4px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.card-stage-questions {
+  background-color: white;
+  border: 2px solid $light-gray;
+  border-radius: 8px;
+  padding: 16px;
+  flex: 1;
+}

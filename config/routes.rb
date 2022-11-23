@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :stages, only: :create
     resources :candidates, only: %i[index create]
   end
-  resources :stages, only: %i[edit update]
+  resources :stages, only: %i[edit update] do
+    resources :questions, only: :create
+  end
 
   resources :candidates, only: %i[show update]
   resources :interviews, only: %i[show index update create new]
