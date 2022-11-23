@@ -23,7 +23,7 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
     @users = User.all
     @stage = Stage.new
-
+    @candidates = Candidate.all
   end
 
   private
