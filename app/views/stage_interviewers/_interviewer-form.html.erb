@@ -3,8 +3,7 @@
     <%= link_to 'Back', root_path, class: 'btn btn-ghost'  %>
   </div>
   <h1 class="text-header">Select Your Interviewers!</h1>
-  <%= simple_form_for [@interview] do |f| %>
-    <%= f.association :stage, include_blank: false %>
+  <%= simple_form_for [stage, StageInterviewer.new] do |f| %>
     <%= f.association :user, include_blank: false %>
     <%= f.submit class: 'btn btn-primary mt-2' %>
   <% end %>

@@ -1,10 +1,6 @@
 class CandidatesController < ApplicationController
   skip_before_action :authenticate_user!
 
-  # def index
-  #   @candidates = Candidate.all
-  # end
-
   def create
     @candidate = Candidate.new(candidate_params)
     @role = Role.find(params[:role_id])
