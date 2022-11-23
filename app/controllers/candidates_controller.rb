@@ -1,4 +1,6 @@
 class CandidatesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @candidates = Candidate.all
   end
