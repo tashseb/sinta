@@ -20,9 +20,9 @@ class RolesController < ApplicationController
 
   def show
     @role = Role.find(params[:id])
+    @users = User.all
     @stage = Stage.new
   end
-
 
   private
 
