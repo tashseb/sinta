@@ -8,7 +8,7 @@ class StagesController < ApplicationController
     @role = Role.find(params[:role_id])
     @stage.role = @role
     if @stage.save
-      redirect to role_path(@role), status: :see_other
+      redirect_to role_path(@role), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
