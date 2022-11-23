@@ -24,6 +24,7 @@ class RolesController < ApplicationController
     @users = User.all
     @stage = Stage.new
     @candidates = Candidate.all
+    @candidate = Candidate.new
   end
 
   private
