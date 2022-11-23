@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     resources :candidates, only: %i[index create]
   end
   resources :stages, only: %i[edit update]
-  resources :candidates, only: %i[show update]
+  resources :candidates, only: %i[show update index]
   resources :interviews, only: %i[show index update]
 end
