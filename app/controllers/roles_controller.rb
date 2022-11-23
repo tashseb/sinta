@@ -26,6 +26,8 @@ class RolesController < ApplicationController
     @candidates = Candidate.all
     @stages_questions = Stage.where(role: @role)
     @question = Question.new
+    @candidate = Candidate.new
+
   end
 
   private
