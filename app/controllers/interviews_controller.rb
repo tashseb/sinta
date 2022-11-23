@@ -2,10 +2,9 @@ class InterviewsController < ApplicationController
   skip_before_action :authenticate_user!
   # before_action :set_interview, only: %i[new create ]
 
-
-  # def index
-  #   @interviews = Interview.all
-  # end
+  def index
+    @interviews = Interview.all
+  end
 
   def show
     @interview = Interview.find(params[:id])
@@ -17,7 +16,7 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(interview_params)
-    @interview.stage.role = @role
+    @role = @interview.stage.role
     if @interview.save
       redirect_to role_path(@role), status: :see_other
     else
