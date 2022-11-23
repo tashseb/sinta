@@ -2,10 +2,12 @@
   <div class = "d-flex gap-3 ms-4"">
     <% @role.stages.each do |stage| %>
       <div class="d-flex gap-3 ms-4">
-        <div class= "card">
+        <div class= "card" style= "margin-bottom: 18px;">
           <span class="badge bg-dark">
-            <%= stage.name.capitalize %></span>
-          <%= link_to "Add new Team Member",  new_stage_stage_interviewer_path(stage), class: 'btn btn-primary' %>
+            <%= stage.name.capitalize %>
+            <span class="badge bg-blue">
+              <%= link_to "+",  new_stage_stage_interviewer_path(stage), class: 'btn btn-primary' %>
+            </span></span>
           <div class = "container">
             <% stage.users.each do |user| %>
               <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 150px; padding-top:10px"alt="Avatar" />
