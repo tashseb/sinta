@@ -1,7 +1,7 @@
-<div class="container mt-3">
-  <div class = "d-flex gap-3 ms-4"">
+<div class="container">
+  <div class = "d-flex gap-3 flex-wrap">
     <% @role.stages.each do |stage| %>
-      <div class="d-flex gap-3 ms-4">
+      <div class="d-flex ms-4">
         <div class= "card" style= "margin-bottom: 18px;">
           <span class="badge bg-dark">
             <%= stage.name.capitalize %>
