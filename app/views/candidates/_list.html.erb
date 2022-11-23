@@ -5,68 +5,24 @@
       Add a Candidate
     </button>
   </div>
-  <h3 class="pt-2"><%= @role.stages[0].name %></h3>
-  <div class="d-flex gap-3 pb-2">
-    <% @role.stages[0].candidates.each do |candidate| %>
-      <% if candidate.status == "accepted" %>
-      <% else %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body pb-0">
-            <h5 class="card-title"> <strong><%= "#{candidate.first_name} #{candidate.last_name}" %></strong></h5>
-            <div class="card-bottom">
-              <% if candidate.status == "accepted" %>
-                <p class="text-success">Passed</p>
-              <% else %>
+  <% @role.stages.each do |stage| %>
+    <h3 class="pt-2"><%= stage.name %></h3>
+    <div class="d-flex gap-3 pb-2">
+      <% stage.candidates.each do |candidate| %>
+        <% if candidate.status == "accepted" %>
+        <% else %>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body pb-0">
+              <h5 class="card-title"> <strong><%= "#{candidate.first_name} #{candidate.last_name}" %></strong></h5>
+              <div class="card-bottom">
                 <p><%= candidate.status  %></p>
-              <% end %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <hr>
-  <h3 class="pt-2"><%= @role.stages[1].name %></h3>
-  <div class="d-flex gap-3 pb-2">
-    <% @role.stages[1].candidates.each do |candidate| %>
-      <% if candidate.status == "accepted" %>
-      <% else %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body pb-0">
-            <h5 class="card-title"> <strong><%= "#{candidate.first_name} #{candidate.last_name}" %></strong></h5>
-            <div class="card-bottom">
-              <% if candidate.status == "accepted" %>
-                <p class="text-success">Passed</p>
-              <% else %>
-                <p><%= candidate.status  %></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <hr>
-  <h3 class="pt-2"><%= @role.stages[1].name %></h3>
-  <div class="d-flex gap-3 pb-2">
-    <% @role.stages[1].candidates.each do |candidate| %>
-      <% if candidate.status == "accepted" %>
-      <% else %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body pb-0">
-            <h5 class="card-title"> <strong><%= "#{candidate.first_name} #{candidate.last_name}" %></strong></h5>
-            <div class="card-bottom">
-              <% if candidate.status == "accepted" %>
-                <p class="text-success">Passed</p>
-              <% else %>
-                <p><%= candidate.status  %></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 <%# modal here  %>
 <div class="modal fade" id="candidates" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
