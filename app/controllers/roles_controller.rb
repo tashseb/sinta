@@ -18,23 +18,15 @@ class RolesController < ApplicationController
     end
   end
 
-  # def show
-  #   @role = Role.find(params[:id]
-  #   @stages = Stage.new
-  # end
-
-  # def update
-  #   @role = Role.find(params[:id])
-  #   if @role.update(role_params)
-  #     redirect_to role_path(@role), status: :see_other
-  #   else
-  #     render , status: :unprocessable_entity
-  #   end
-  # end
+  def show
+    @role = Role.find(params[:id])
+    @users = User.all
+    @stage = Stage.new
+  end
 
   private
 
   def role_params
-    params.require(:role).permit(:title, :description, :completed )
+    params.require(:role).permit(:title, :description, :completed)
   end
 end
