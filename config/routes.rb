@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :stages, only: %i[edit update] do
     resources :stage_interviewers,  only: %i[new create]
+    resources :questions, only: :create
   end
 
   resources :candidates, only: %i[show update]
