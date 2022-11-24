@@ -1,0 +1,47 @@
+.stage-container {
+  margin-top: 16px;
+  display: flex;
+  flex: wrap;
+  gap: 1rem;
+  flex-direction: column;
+
+}
+
+.stage-card-list {
+  display: flex;
+  flex: wrap;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+.stage-cards {
+  margin-top: 16px;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 16px;
+  width: 25%;
+  text-align: center;
+
+  li {
+    list-style: none;
+  }
+}
+
+.stage-add-card {
+
+}
+
+.stage-card-form {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+
+.stages-existing-card {
+  margin-top: 16px;
+  border: 2px solid red;
+  width: 50%;
+  height: 500px;
+}

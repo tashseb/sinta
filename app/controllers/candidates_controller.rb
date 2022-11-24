@@ -8,7 +8,7 @@ class CandidatesController < ApplicationController
     @candidate.status = "pending"
     if @candidate.save
       Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
-      redirect_to role_path(@role)
+      redirect_to role_path(@role, tab: "candidates")
     else
       # , status: :unprocessable_entity
     end

@@ -981,6 +981,7 @@ stimulus-checkbox-select-all@^5.1.0:
   resolved "https://registry.yarnpkg.com/stimulus-checkbox-select-all/-/stimulus-checkbox-select-all-5.1.0.tgz#44f02a730c29696a1910a555506f8a6fa4d4a1ff"
   integrity sha512-YXhPEhvEN81+d2nYhEe9ZLxuHTWw+R57q/AOip0T8kpnPCIWM3cezIYFZK5HNNLf2XpkfPCzuM7bQI8b/xkfGg==
 
+
 string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
@@ -994,6 +995,12 @@ supports-color@^5.5.0:
   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
   dependencies:
     has-flag "^3.0.0"
+
+stimulus-sortable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/stimulus-sortable/-/stimulus-sortable-4.0.0.tgz#bd713fc65c5620d6517648dc8fe9a09be9681bb0"
+  integrity sha512-tvM7YWLrfMqLrWKm58PQmTd8D3zynS2j7NO40MErD02OY+pnUWcP2Y4ZM26EtcCzEnxSYxTeCVx9wXkO8uabVA==
+
 
 supports-color@^8.0.0:
   version "8.1.1"
