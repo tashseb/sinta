@@ -1,22 +1,26 @@
 <div class="container">
-  <div class="stages-card">
-    <ul>
-      <% @role.stages.each do |stage| %>
-        <li>
-          <p><%= stage.name %></p>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <div data-controller="hide-div-stage">
-    <div class="stages-btn">
-      <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
+  <div class="stage-container">
+    <div class="stages-card">
+      <ul>
+        <% @role.stages.each do |stage| %>
+          <li>
+            <p><%= stage.name %></p>
+          </li>
+        <% end %>
+      </ul>
     </div>
-    <div data-hide-div-stage-target="div" style="display: none;">
-      <%= simple_form_for [@role, @stage] do |f| %>
-        <%= f.input :name %>
-        <%= f.submit %>
-      <% end %>
+    <div class="stages-existing-card">
+    </div>
+    <div class="stage-add-card" data-controller="hide-div-stage">
+      <div class="btn btn-primary">
+        <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
+      </div>
+      <div data-hide-div-stage-target="div" style="display: none;">
+        <%= simple_form_for [@role, @stage] do |f| %>
+          <%= f.input :name %>
+          <%= f.submit %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
