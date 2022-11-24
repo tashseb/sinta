@@ -4,7 +4,7 @@
   </div>
   <h1 class="text-header">Add New Role</h1>
   <%= simple_form_for @role do |f| %>
-    <%= f.input :title, collection: Role::BASE_ROLE%>
+    <%= f.input :title, collection: Role::BASE_ROLES.keys%>
     <%= f.input :description %>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <%= f.submit class: 'btn btn-flat mt-2' %>
