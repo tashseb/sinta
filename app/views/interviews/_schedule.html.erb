@@ -1,0 +1,5 @@
+<%= simple_form_for [stage, Interview.new] do |f| %>
+  <%= f.association :user, include_blank: false %>
+  <%# <%= f.input :date, as: :date, html5: true%>
+  <%= f.submit class: 'btn btn-primary mt-2' %>
+<% end %>

@@ -1,3 +1,5 @@
 <div class="container">
-  <%= render 'interviews/cards' %>
+  <% @interviews.each do |interview| %>
+    <%= render 'interviews/cards' interview:interview %>
+  <% end %>
 </div>

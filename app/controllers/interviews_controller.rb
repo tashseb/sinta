@@ -12,17 +12,20 @@ class InterviewsController < ApplicationController
 
   def new
     @interview = Interview.new
+    @stage = Stage.find(params[:stage_id])
   end
 
   def create
     @interview = Interview.new(interview_params)
-    @role = @interview.stage.role
+    @stage = Stage.find(params[:stage_id])
+    @role = @stage.role
     if @interview.save
       redirect_to role_path(@role), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
   end
+
 
 
   # def update

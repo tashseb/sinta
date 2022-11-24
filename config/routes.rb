@@ -15,10 +15,12 @@ Rails.application.routes.draw do
     resources :stages, only: :create
   end
   resources :stages, only: %i[edit update] do
-    resources :stage_interviewers,  only: %i[new create]
+    resources :stage_interviewers, only: %i[new create]
+    resources :interviews, only: %i[index create new]
     resources :questions, only: :create
   end
 
   resources :candidates, only: %i[show update]
-  resources :interviews, only: %i[show index update create new]
+  resources :interviews, only: %i[index create new]
+
 end
