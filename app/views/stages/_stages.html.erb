@@ -8,11 +8,11 @@
       <% end %>
     </ul>
   </div>
-  <div data-controller="stage">
+  <div data-controller="hide-div-stage">
     <div class="stages-btn">
-      <button type="button" class="btn btn-primary">Add</button>
+      <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
     </div>
-    <div id="stage-form">
+    <div data-hide-div-stage-target="div" style="display: none;">
       <%= simple_form_for [@role, @stage] do |f| %>
         <%= f.input :name %>
         <%= f.submit %>
