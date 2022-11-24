@@ -5,13 +5,13 @@ class Role < ApplicationRecord
   after_create :create_default_stages
 
   BASE_ROLES = {
-    "Front-End Developer" => %w[Screening Technical Pair-Programming Final],
-    "Back-End Developer" => %w[Screening Technical Pair-Programming Final],
-    "Full-Stack Developer" => %w[Screening Technical Manager Pair-Programming Final],
-    "Software Engineer" => %w[Screening Technical Manager Pair-Programming Final],
-    "DevOps Engineer" => %w[Screening Technical Pair-Programming Final],
-    "Sales Engineer" => %w[Screening Technical Final],
-    "Project Manager" => %w[Screening Technical Operation Final]
+    "Front-End Developer" => %w[Screening Technical Pair-Programming CEO],
+    "Back-End Developer" => %w[Screening Technical Pair-Programming],
+    "Full-Stack Developer" => %w[Screening Technical Manager Pair-Programming],
+    "Software Engineer" => %w[Screening Technical Manager Pair-Programming],
+    "DevOps Engineer" => %w[Screening Technical Pair-Programming],
+    "Sales Engineer" => %w[Screening Technical Behavioral],
+    "Project Manager" => %w[Screening Technical Operation]
   }
 
   def create_default_stages
