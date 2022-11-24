@@ -1,4 +1,4 @@
-<div class="stage-container">
+<div class="stage-container" data-controller="hide-div-stage">
   <div class="stage-card-list">
     <% @role.stages.each do |stage| %>
       <div class="stage-cards">
@@ -6,15 +6,15 @@
       </div>
     <% end %>
   </div>
-  <div class="stage-add-card" data-controller="hide-div-stage">
-    <div class="btn btn-primary">
+  <div class="stage-add-card">
+    <div class="btn btn-primary my-3">
       <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
     </div>
   </div>
-  <div data-hide-div-stage-target="div" style="display: none;">
+  <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
     <%= simple_form_for [@role, @stage] do |f| %>
       <%= f.input :name %>
-      <%= f.submit %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -17,9 +17,10 @@
 .stage-cards {
   margin-top: 16px;
   border: 2px solid black;
+  border-radius: 8px;
   padding: 16px;
   width: 25%;
-  align-items: center;
+  text-align: center;
 
   li {
     list-style: none;
@@ -28,6 +29,13 @@
 
 .stage-add-card {
 
+}
+
+.stage-card-form {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 
 
