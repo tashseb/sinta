@@ -27,7 +27,6 @@ class RolesController < ApplicationController
     @stages_questions = Stage.where(role: @role)
     @question = Question.new
     @candidate = Candidate.new
-
   end
 
   private
@@ -36,5 +35,3 @@ class RolesController < ApplicationController
     params.require(:role).permit(:title, :description, :completed, :user_id)
   end
 end
-
-# page: 'qu'
