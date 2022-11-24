@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.stage = @stage
     if @question.save
-      redirect_to role_path(@stage.role)
+      redirect_to role_path(@stage.role, tab: "questions")
     else
       render :new, status: :unprocessable_entity
     end
