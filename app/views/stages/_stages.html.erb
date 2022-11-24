@@ -8,11 +8,15 @@
       <% end %>
     </ul>
   </div>
-  <div class="stages-btn">
-    <button type="button" class="btn btn-primary">Add</button>
+  <div data-controller="stage">
+    <div class="stages-btn">
+      <button type="button" class="btn btn-primary">Add</button>
+    </div>
+    <div id="stage-form">
+      <%= simple_form_for [@role, @stage] do |f| %>
+        <%= f.input :name %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
 </div>
-<%= simple_form_for [@role, @stage] do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
