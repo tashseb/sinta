@@ -1,17 +1,35 @@
 .stage-container {
+  margin-top: 16px;
   display: flex;
+  flex: wrap;
+  gap: 1rem;
+  flex-direction: column;
 
-  .stage-add-card {
-    border: 2px solid pink;
+}
+
+.stage-card-list {
+  display: flex;
+  flex: wrap;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+.stage-cards {
+  margin-top: 16px;
+  border: 2px solid black;
+  padding: 16px;
+  width: 25%;
+  align-items: center;
+
+  li {
+    list-style: none;
   }
 }
 
-.stages-card {
-  margin-top: 16px;
-  border: 2px solid black;
-  width: 50%;
-  height: 500px;
+.stage-add-card {
+
 }
+
 
 .stages-existing-card {
   margin-top: 16px;
