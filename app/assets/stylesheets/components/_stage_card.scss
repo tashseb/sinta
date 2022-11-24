@@ -1,15 +1,20 @@
 .stage-container {
   display: flex;
 
+  .stage-add-card {
+    border: 2px solid pink;
+  }
 }
 
 .stages-card {
+  margin-top: 16px;
   border: 2px solid black;
   width: 50%;
   height: 500px;
 }
 
 .stages-existing-card {
+  margin-top: 16px;
   border: 2px solid red;
   width: 50%;
   height: 500px;

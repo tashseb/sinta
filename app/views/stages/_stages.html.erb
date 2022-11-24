@@ -11,16 +11,16 @@
     </div>
     <div class="stages-existing-card">
     </div>
-    <div class="stage-add-card" data-controller="hide-div-stage">
-      <div class="btn btn-primary">
-        <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
-      </div>
-      <div data-hide-div-stage-target="div" style="display: none;">
-        <%= simple_form_for [@role, @stage] do |f| %>
-          <%= f.input :name %>
-          <%= f.submit %>
-        <% end %>
-      </div>
+  </div>
+  <div class="stage-add-card" data-controller="hide-div-stage">
+    <div class="btn btn-primary">
+      <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
+    </div>
+    <div data-hide-div-stage-target="div" style="display: none;">
+      <%= simple_form_for [@role, @stage] do |f| %>
+        <%= f.input :name %>
+        <%= f.submit %>
+      <% end %>
     </div>
   </div>
 </div>
