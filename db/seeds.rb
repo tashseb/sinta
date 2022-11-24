@@ -1,9 +1,10 @@
 puts "Destroying Users, Roles, Stages and Candidates, respectively."
-User.destroy_all
-Role.destroy_all
-Stage.destroy_all
-Candidate.destroy_all
 Question.destroy_all
+Interview.destroy_all
+Candidate.destroy_all
+Stage.destroy_all
+Role.destroy_all
+User.destroy_all
 puts "Destroying data - DONE."
 
 puts "Creating users..."
@@ -32,25 +33,25 @@ Role.create!(
   user_id: User.first.id
 )
 Role.create!(
-  title: "Front-End Engineer",
+  title: "Front-End Developer",
   description: "Bachelor's degree with 3 years of experience. 1 year rich application experience with HTML, CSS and JS",
   user_id: User.first.id
 )
 puts "Added #{Role.all.count} roles."
 
-puts 'Adding stages for the Sales Engineer role...'
-Stage.create!(name: "Screening", role: Role.first)
-Stage.create!(name: "Operational Interview", role: Role.first)
-Stage.create!(name: "Behavioral Interview", role: Role.first)
-Stage.create!(name: "Final Interview", role: Role.first)
+# puts 'Adding stages for the Sales Engineer role...'
+# Stage.create!(name: "Screening", role: Role.first)
+# Stage.create!(name: "Operational Interview", role: Role.first)
+# Stage.create!(name: "Behavioral Interview", role: Role.first)
+# Stage.create!(name: "Final Interview", role: Role.first)
 
-puts 'Adding stages for the Front-End Engineer role...'
-Stage.create!(name: "Screening", role: Role.last)
-Stage.create!(name: "Technical Interview", role: Role.last)
-Stage.create!(name: "Pair Programming", role: Role.last)
-Stage.create!(name: "CEO Interview", role: Role.last)
-Stage.create!(name: "Final Interview", role: Role.last)
-puts "Added #{Stage.all.count} stages in the system."
+# puts 'Adding stages for the Front-End Engineer role...'
+# Stage.create!(name: "Screening", role: Role.last)
+# Stage.create!(name: "Technical Interview", role: Role.last)
+# Stage.create!(name: "Pair Programming", role: Role.last)
+# Stage.create!(name: "CEO Interview", role: Role.last)
+# Stage.create!(name: "Final Interview", role: Role.last)
+# puts "Added #{Stage.all.count} stages in the system."
 
 puts 'Adding candidates for the Sales Engineering position...'
 # In the first stage
