@@ -20,5 +20,4 @@ class StageInterviewersController < ApplicationController
   def interviewer_params
     params.require(:stage_interviewer).permit(:user_id)
   end
-
 end
