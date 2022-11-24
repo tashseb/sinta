@@ -1,23 +1,13 @@
 .dashboard-container {
-  position: relative;
-  left: 250px;
-  background-color: $white;
-  min-height: 100vh;
-  width: calc(100% - 250px);
-  padding: 8px 16px;
-  transition: var(--tran-05);
+  margin-top: 16px;
+  display: flex;
+  flex: wrap;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+
 }
 
-.dashboard .top{
-  position: fixed;
-  top: 0;
-  left: 250px;
-  display: flex;
-  width: calc(100% - 250px);
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 14px;
-  background-color: $white;
-  transition: var(--tran-05);
-  z-index: 10;
+.dash-header {
+
 }
