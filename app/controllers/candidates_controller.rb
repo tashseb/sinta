@@ -7,29 +7,14 @@ class CandidatesController < ApplicationController
     @candidate.stage = @role.stages.order(created_at: :asc).first
     @candidate.status = "pending"
     if @candidate.save
+      SlackNotifier::CLIENT.ping "🎉 New Candidate Added: #{@candidate.first_name} #{@candidate.last_name} intereviewing for the #{@role.title} Role 🎉"
+      Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
       redirect_to role_path(@role, tab: "candidates")
     else
       # , status: :unprocessable_entity
     end
   end
 
-
-  # def create
-  #   @role = Role.find(params[:role_id])
-  #   @candidate = Candidate.new
-  #   @candidate.stage = @role.stages.first
-  #   if @candidate.save
-      #to-do create new interviews for the stage interviewers
-  #     redirect_to , :new, status: :see_other
-  #   else
-  #     , status: :unprocessable_entity
-  #   end
-  # end
-
-
-  # def show
-  #   @candidate = Candidate.find(params[:id])
-  # end
 
   # def update
   #   @candidate = Candidate.find(params[:id])

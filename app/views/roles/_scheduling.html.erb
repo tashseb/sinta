@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teammembers">Schedule the Interview!</button>
+<h2 style="padding-left: 6px;">
+  Scheduled<br>
+  Interviews:</h2>
+<% @role.stages.each do |stage| %>
+  <% stage.interviews.each do |interview| %>
+    <% if interview.date.present? %>
+      <%= render 'interviews/cards', interview:interview %>
+    <% end %>
+  <% end %>
+<% end %>
+<h2 style="padding-left: 6px;">
+  Unscheduled<br>
+  Interviews</h2>
+<% @role.stages.each do |stage| %>
+  <% stage.interviews.each do |interview|  %>
+    <% if interview.date.nil? %>
+      <%= render 'interviews/cards-unscheduled', interview:interview %>
+    <% end %>
+  <% end %>
+<% end %>
+<%# modal %>
+<div class="modal fade" id="teammembers" tabindex="-1" aria-labelledby="teammembers<" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="teammembers">Schedule an Interview!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%# modal end %>

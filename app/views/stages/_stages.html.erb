@@ -41,7 +41,7 @@
   </div>
   <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
     <%= simple_form_for [@role, @stage] do |f| %>
-      <%= f.input :name %>
+      <%= f.input :name, label: "Stage Name" %>
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
