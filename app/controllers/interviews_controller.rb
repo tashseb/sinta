@@ -27,12 +27,11 @@ class InterviewsController < ApplicationController
     end
   end
 
-
-
   def update
     @interview = Interview.find(params[:id])
     if @interview.update(interview_params)
       redirect_to role_path(@role, tab: "scheduling")
+      # SlackNotifier::CLIENT.ping "🤩 Interview Scheduled: #{@candidate.first_name} #{@candidate.last_name} intereviewing for the #{@role.title} Role 🤩 "
     else
       render :edit, status: :unprocessable_entity
     end
