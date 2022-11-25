@@ -16,10 +16,6 @@ class CandidatesController < ApplicationController
   end
 
 
-  # def show
-  #   @candidate = Candidate.find(params[:id])
-  # end
-
   # def update
   #   @candidate = Candidate.find(params[:id])
   #   if @candidate.update(candidate_params)
