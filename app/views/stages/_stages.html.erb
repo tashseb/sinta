@@ -9,9 +9,7 @@
             <% stage.stage_interviewers.each do |interview| %>
               <%= image_tag interview.user.photo, alt: "text", class: "avatar-bordered" %>
             <% end %>
-            <i class="fa-solid fa-plus">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>"></button>
-            </i>
+            <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">+</button>
           </div>
         </div>
       </div>
@@ -27,21 +25,5 @@
       <%= f.input :name %>
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
-  </div>
-  <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Your Interviewers!</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= render 'stage_interviewers/interviewer-form', stage:stage%>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
