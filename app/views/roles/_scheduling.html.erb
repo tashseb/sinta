@@ -14,7 +14,15 @@
       </div>
       <div class="modal-body">
         <% @role.stages.each do |stage| %>
-          <%= render 'interviews/schedule', stage:stage%>
+          test
+          <% stage.interviews do |interview| %>
+            <% if interview.date.present? %>
+              either gbyyy
+            <% else %>
+              <%= interview.candidate_id%>
+              <%= render 'interviews/schedule', interview:stage.interviews%>
+            <% end %>
+          <% end %>
         <% end %>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
