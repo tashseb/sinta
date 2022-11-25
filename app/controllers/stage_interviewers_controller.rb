@@ -11,7 +11,7 @@ class StageInterviewersController < ApplicationController
     @stage_interviewer.stage = @stage
     @role = @stage.role
     if @stage_interviewer.save
-      redirect_to role_path(@role), status: :see_other
+      redirect_to role_path(@role, tab: "stage_interviewers")
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,5 +20,4 @@ class StageInterviewersController < ApplicationController
   def interviewer_params
     params.require(:stage_interviewer).permit(:user_id)
   end
-
 end

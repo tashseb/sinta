@@ -8,6 +8,7 @@ class RolesController < ApplicationController
 
   def new
     @role = Role.new
+    @interview = Interview.find(params[:interview_id])
   end
 
   def create
@@ -27,7 +28,7 @@ class RolesController < ApplicationController
     @stages_questions = Stage.where(role: @role)
     @question = Question.new
     @candidate = Candidate.new
-
+    @interview = Interview.all
   end
 
   private
@@ -36,5 +37,3 @@ class RolesController < ApplicationController
     params.require(:role).permit(:title, :description, :completed, :user_id)
   end
 end
-
-# page: 'qu'

@@ -1,9 +1,10 @@
 puts "Destroying Users, Roles, Stages and Candidates, respectively."
-User.destroy_all
-Role.destroy_all
-Stage.destroy_all
-Candidate.destroy_all
 Question.destroy_all
+Interview.destroy_all
+Candidate.destroy_all
+Stage.destroy_all
+Role.destroy_all
+User.destroy_all
 puts "Destroying data - DONE."
 
 puts "Creating users..."
@@ -32,25 +33,25 @@ Role.create!(
   user_id: User.first.id
 )
 Role.create!(
-  title: "Front-End Engineer",
+  title: "Front-End Developer",
   description: "Bachelor's degree with 3 years of experience. 1 year rich application experience with HTML, CSS and JS",
   user_id: User.first.id
 )
 puts "Added #{Role.all.count} roles."
 
-puts 'Adding stages for the Sales Engineer role...'
-Stage.create!(name: "Screening", role: Role.first)
-Stage.create!(name: "Operational Interview", role: Role.first)
-Stage.create!(name: "Behavioral Interview", role: Role.first)
-Stage.create!(name: "Final Interview", role: Role.first)
+# puts 'Adding stages for the Sales Engineer role...'
+# Stage.create!(name: "Screening", role: Role.first)
+# Stage.create!(name: "Operational Interview", role: Role.first)
+# Stage.create!(name: "Behavioral Interview", role: Role.first)
+# Stage.create!(name: "Final Interview", role: Role.first)
 
-puts 'Adding stages for the Front-End Engineer role...'
-Stage.create!(name: "Screening", role: Role.last)
-Stage.create!(name: "Technical Interview", role: Role.last)
-Stage.create!(name: "Pair Programming", role: Role.last)
-Stage.create!(name: "CEO Interview", role: Role.last)
-Stage.create!(name: "Final Interview", role: Role.last)
-puts "Added #{Stage.all.count} stages in the system."
+# puts 'Adding stages for the Front-End Engineer role...'
+# Stage.create!(name: "Screening", role: Role.last)
+# Stage.create!(name: "Technical Interview", role: Role.last)
+# Stage.create!(name: "Pair Programming", role: Role.last)
+# Stage.create!(name: "CEO Interview", role: Role.last)
+# Stage.create!(name: "Final Interview", role: Role.last)
+# puts "Added #{Stage.all.count} stages in the system."
 
 puts 'Adding candidates for the Sales Engineering position...'
 # In the first stage
@@ -86,17 +87,20 @@ puts "Adding interviews..."
 Interview.create!(
   user: User.first, candidate: Candidate.find_by(first_name: "Keita"),
   stage: Stage.first, rating: 4,
-  feedback: "Great sales experience. Highly motivated. Personable"
+  feedback: "Great sales experience. Highly motivated. Personable",
+  date: DateTime.new(2022, 12, 20, 16, 30)
 )
 Interview.create!(
   user: User.last, candidate: Candidate.find_by(first_name: "Sunny"),
   stage: Stage.first, rating: 3,
-  feedback: "Fresh grad with Marketing degree. Seems eager to learn."
+  feedback: "Fresh grad with Marketing degree. Seems eager to learn.",
+  date: DateTime.new(2022, 12, 22, 16, 30)
 )
 Interview.create!(
   user: User.first, candidate: Candidate.find_by(first_name: "Keita"),
   stage: Stage.first(2)[1], rating: 5,
-  feedback: "Extensive sales experience with AWS that is highly transferable to ABC company."
+  feedback: "Extensive sales experience with AWS that is highly transferable to ABC company.",
+  date: DateTime.new(2022, 12, 19, 16, 30)
 )
 puts "Added #{Interview.all.count} interviews."
 
