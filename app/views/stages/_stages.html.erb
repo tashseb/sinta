@@ -1,19 +1,24 @@
-<div class="stage-container" data-controller="hide-div-stage">
-  <div class="stage-card-list">
-    <% @role.stages.each do |stage| %>
-      <div class="stage-cards">
-        <p><%= stage.name %></p>
-      </div>
-    <% end %>
-  </div>
-  <div class="stage-add-card">
+<div class="container">
+  <ul>
+    <div class="row">
+      <% @role.stages.each do |stage| %>
+        <div class="stages-card col-3">
+          <li>
+            <%= image_tag "sinta-icons/04.png", style: 'height:100px; width:100px;' %>
+            <p class ="mb-0"><%= stage.name %></p>
+          </li>
+        </div>
+      <% end %>
+    </div>
+  </ul>
+ <div class="stage-add-card">
     <div class="btn btn-primary my-3">
       <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
     </div>
   </div>
   <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
     <%= simple_form_for [@role, @stage] do |f| %>
-      <%= f.input :name %>
+      <%= f.input :name, label: "Stage Name" %>
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>

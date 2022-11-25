@@ -1,17 +1,30 @@
-<div class="dashboard-container">
-  <div class="dash-header">
-    <h1>Dashboard</h1>
-    <h4>welcome to your dashboard you have to write something more meaningful here!</h4>
-  </div>
-  <div class="dash-body">
-    <div class="dash-summary">
+<div class="container mt-4">
+  <div class="banner">
+    <div class="dash-banner mb-2">
+      <h1>Welcome back, <%= current_user.first_name %></h1>
+      <p>You've successfully completed nothing today 😊</p>
     </div>
-    <div class="dash-action">
-      <div class="dash-buttons">
-        <%= link_to "Create a Role", new_role_path, class: "btn btn-primary rounded-5 btn-lg px-5" %>
+  </div>
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-4">
+        <div class="dash-card mb-2">
+          Create a Role
+          <%= link_to '', new_role_path, class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dash-card mb-2">
+          Schedule
+          <%= link_to '', new_role_path, class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dash-card mb-2">
+          Button
+          <%= link_to '', new_role_path, class: "card-link" %>
+        </div>
       </div>
     </div>
-    <%# <%= link_to "Create a Role", new_role_path, class: "btn btn-primary rounded-5 btn-lg px-5" %>
-    <%# <%= link_to "Create a Role", new_role_path, class: "btn btn-primary rounded-5 btn-lg px-5" %>
   </div>
 </div>
