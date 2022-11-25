@@ -10,7 +10,7 @@ class StagesController < ApplicationController
     if @stage.save
       redirect_to role_path(@role, tab: "stages")
     else
-      # render , status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,5 +30,11 @@ class StagesController < ApplicationController
 
   def stage_params
     params.require(:stage).permit(:name, :role_id)
+  end
+
+  def create_default_questions
+    Stage::BASE_STAGES[name].each do |question|
+      Question.create(description: question, stage: self)
+    end
   end
 end

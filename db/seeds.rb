@@ -104,28 +104,28 @@ Interview.create!(
 )
 puts "Added #{Interview.all.count} interviews."
 
-puts "Addings questions for the Stages..."
-Question.create!(
-  stage: Stage.first,
-  description: "Could you tell me something about yourself?"
-)
-Question.create!(
-  stage: Stage.first,
-  description: "Could you tell me about your responsibilities in your current/previous role?"
-)
-Question.create!(
-  stage: Stage.first,
-  description: "Why do you want to leave your current position?"
-)
-Question.create!(
-  stage: Stage.first(2)[1],
-  description: "How do you meet deadlines under pressure?"
-)
-Question.create!(
-  stage: Stage.first(2)[1],
-  description: "How did you manage to achieve something while in conflict with a client?"
-)
-Question.create!(
-  stage: Stage.first(2)[1],
-  description: "Why do you want to be a part of our team?"
-)
+# puts "Addings questions for the Stages..."
+# Question.create!(
+#   stage: Stage.first,
+#   description: "Could you tell me something about yourself?"
+# )
+# Question.create!(
+#   stage: Stage.first,
+#   description: "Could you tell me about your responsibilities in your current/previous role?"
+# )
+# Question.create!(
+#   stage: Stage.first,
+#   description: "Why do you want to leave your current position?"
+# )
+# Question.create!(
+#   stage: Stage.first(2)[1],
+#   description: "How do you meet deadlines under pressure?"
+# )
+# Question.create!(
+#   stage: Stage.first(2)[1],
+#   description: "How did you manage to achieve something while in conflict with a client?"
+# )
+# Question.create!(
+#   stage: Stage.first(2)[1],
+#   description: "Why do you want to be a part of our team?"
+# )
