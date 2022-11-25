@@ -46,5 +46,4 @@ class InterviewsController < ApplicationController
     params.require(:interview).permit(:user_id, :candidate_id, :stage_id, :feedback, :rating)
   end
 
-
 end
