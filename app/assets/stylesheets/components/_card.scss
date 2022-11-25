@@ -1,0 +1,55 @@
+.dash-card {
+  color: black;
+  background-color: $light-orange;
+  text-decoration: none;
+  text-align: center;
+  padding: 40px;
+  border-radius: 25px;
+  font-size: 24px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.card-link {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
+
+.stages-card {
+  background-color: white;
+  text-decoration: none;
+  padding: 12px;
+  margin: 12px;
+  text-align: center;
+  border-radius: 8px;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  display: flex;
+}
+
+.stages-card img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 4px 0 0 4px;
+}
+
+.stages-card p {
+  font-size: 16px;
+  background-color: white;
+  height: 100%;
+  margin-inline: 8px;
+}
+
+.stages-card li {
+  list-style-type: none;
+}
