@@ -3,15 +3,13 @@
     <div class="row">
       <% @role.stages.each do |stage| %>
         <div class="stages-card col-3">
-          <li>
-            <%= image_tag "sinta-icons/04.png", style: 'height:100px; width:100px;' %>
-            <p class ="mb-0"><%= stage.name %></p>
-          </li>
+          <%= image_tag "sinta-icons/04.png", style: 'height:100px; width:100px;' %>
+          <p class ="mb-0"><%= stage.name %></p>
         </div>
       <% end %>
     </div>
   </ul>
- <div class="stage-add-card">
+  <div class="stage-add-card">
     <div class="btn btn-primary my-3">
       <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-primary">Add</button>
     </div>

@@ -10,7 +10,6 @@ class InterviewsController < ApplicationController
     @interview = Interview.find(params[:id])
   end
 
-
   def new
     @interview = Interview.new
     @stage = Stage.find(params[:stage_id])
@@ -37,13 +36,9 @@ class InterviewsController < ApplicationController
     end
   end
 
-
-
-
   private
 
   def interview_params
     params.require(:interview).permit(:user_id, :candidate_id, :stage_id, :feedback, :rating)
   end
-
 end

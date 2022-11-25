@@ -24,6 +24,7 @@
 }
 
 .stages-card {
+  overflow: hidden;
   background-color: white;
   text-decoration: none;
   padding: 12px;
@@ -36,14 +37,14 @@
   display: flex;
 }
 
-.stages-card img {
+.stages-card li img {
   height: 120px;
   width: 120px;
   object-fit: cover;
-  border-radius: 4px 0 0 4px;
+  border-radius: 8px 0 0 8px;
 }
 
-.stages-card p {
+.stages-card li p {
   font-size: 16px;
   background-color: white;
   height: 100%;
