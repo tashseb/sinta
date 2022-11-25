@@ -1,21 +1,21 @@
 <% if user_signed_in? %>
-  <div class="px-sm-2 px-0 bg-white border-end w-25">
+  <div id="sidenav" class="px-sm-2 px-0 bg-white border-end">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100 justify-content-center">
-      <%= image_tag("Sinta-ArtisticLogo-03.jpg", class: "rounded-circle my-3 mb-5 ms-3", width: "100px" ) %>
+      <%= image_tag("Sinta-ArtisticLogo-03.jpg", class: "rounded-circle my-3 mb-5 mx-auto", width: "80%" ) %>
       <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start gap-2" id="menu">
         <li>
-          <i class="fa-solid fa-house"></i><%= link_to "Dashboard", root_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <i class="fa-solid fa-house fa-fw"></i><%= link_to "Dashboard", root_path, class:"align-middle btn btn-link text-decoration-none" %>
         </li>
         <li>
           <%# change my path!---------------------------------------- %>
-          <i class="fa-solid fa-clipboard-question"></i><%= link_to "Interviews", interviews_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <i class="fa-solid fa-clipboard-question fa-fw"></i><%= link_to "Interviews", interviews_path, class:"align-middle btn btn-link text-decoration-none" %>
         </li>
         <li>
           <%# change my path!---------------------------------------- %>
-          <i class="fa-regular fa-pen-to-square"></i><%= link_to "Reviews", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <i class="fa-regular fa-pen-to-square fa-fw"></i><%= link_to "Reviews", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
         </li>
         <li>
-          <i class="fa-regular fa-rectangle-list"></i><%= link_to "Roles", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <i class="fa-regular fa-rectangle-list fa-fw"></i><%= link_to "Roles", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
         </li>
       </ul>
       <hr>
