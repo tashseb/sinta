@@ -1,0 +1,27 @@
+
+.grid-role-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns:
+    repeat(3, 1fr);
+
+
+}
+
+.grid-role-card {
+  border: 2px solid $gray;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.role-card-head {
+
+}
+
+.role-card-detail {
+
+}
+
+.role-card-option {
+
+}
