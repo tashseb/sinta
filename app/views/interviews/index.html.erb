@@ -1,5 +1,18 @@
 <div class="container">
+  <h2 style="padding-left: 6px;">
+    Scheduled<br>
+    Interviews:</h2>
   <% @interviews.each do |interview| %>
-    <%= render 'interviews/cards', interview:interview %>
+    <% if interview.date.present? %>
+      <%= render 'interviews/cards', interview:interview %>
+    <% end %>
+  <% end %>
+  <h2 style="padding-left: 6px;">
+    Unscheduled<br>
+    Interviews</h2>
+  <% @interviews.each do |interview| %>
+    <% if interview.date.nil? %>
+      <%= render 'interviews/cards-unscheduled', interview:interview %>
+    <% end %>
   <% end %>
 </div>

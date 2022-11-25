@@ -1,7 +1,22 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teammembers">Schedule the Interview!</button>
+<h2 style="padding-left: 6px;">
+  Scheduled<br>
+  Interviews:</h2>
 <% @role.stages.each do |stage| %>
   <% stage.interviews.each do |interview| %>
-    <%= render 'interviews/cards', interview:interview %>
+    <% if interview.date.present? %>
+      <%= render 'interviews/cards', interview:interview %>
+    <% end %>
+  <% end %>
+<% end %>
+<h2 style="padding-left: 6px;">
+  Unscheduled<br>
+  Interviews</h2>
+<% @role.stages.each do |stage| %>
+  <% stage.interviews.each do |interview|  %>
+    <% if interview.date.nil? %>
+      <%= render 'interviews/cards-unscheduled', interview:interview %>
+    <% end %>
   <% end %>
 <% end %>
 <%# modal %>
@@ -13,17 +28,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <% @role.stages.each do |stage| %>
-          test
-          <% stage.interviews do |interview| %>
-            <% if interview.date.present? %>
-              either gbyyy
-            <% else %>
-              <%= interview.candidate_id%>
-              <%= render 'interviews/schedule', interview:stage.interviews%>
-            <% end %>
-          <% end %>
-        <% end %>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
