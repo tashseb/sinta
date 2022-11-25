@@ -14,8 +14,9 @@ class Role < ApplicationRecord
     "Project Manager" => %w[Screening Technical Operation]
   }
 
+
   def create_default_stages
-    BASE_ROLES[title].each do |stage|
+    BASE_ROLES[title]&.each do |stage|
       Stage.create(name: stage, role: self)
     end
   end

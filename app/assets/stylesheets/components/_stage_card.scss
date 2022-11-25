@@ -1,17 +1,12 @@
-.stage-container {
-  margin-top: 16px;
-  display: flex;
-  flex: wrap;
-  flex-direction: column;
-  gap: 1rem;
-
+.stages-list {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  border-radius: 8px;
 }
 
-.stage-card-list {
-  display: flex;
-  flex: wrap;
-  gap: 1rem;
-  flex-direction: row;
+.stage-card-avatars {
+  border-radius: 4px;
 }
 
 .stage-cards {

@@ -7,6 +7,7 @@ class Stage < ApplicationRecord
   belongs_to :role
 
   validates :name, presence: true
+  after_create :create_default_stages
 
   BASE_STAGES = {
     "Screening" => [
@@ -19,7 +20,7 @@ class Stage < ApplicationRecord
       "Can you make a simple database for Student and Teacher?",
       "What is MVC?"
     ],
-    "Pair-programming" => [
+    "Pair-Programming" => [
       "Fizz-Buzz problem",
       "Palindrome problem"
     ],
@@ -31,7 +32,7 @@ class Stage < ApplicationRecord
   }
 
   def create_default_stages
-    BASE_STAGES[name].each do |question|
+    BASE_STAGES[name]&.each do |question|
       Question.create(description: question, stage: self)
     end
   end
