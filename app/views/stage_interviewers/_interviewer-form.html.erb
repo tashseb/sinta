@@ -1,4 +1,4 @@
 <%= simple_form_for [stage, StageInterviewer.new] do |f| %>
   <%= f.association :user, include_blank: false %>
-  <%= f.submit class: 'btn btn-primary mt-2' %>
+  <%= f.submit "Add", class: 'btn btn-primary mt-2' %>
 <% end %>

@@ -1,13 +1,10 @@
 <div class = 'container m-3'>
   <h1 style="padding-left: 6px;"> Role: <%= @role.title %></h1>
-  <%= render 'stages/stages'  %>
+  <%# <%= render 'stages/stages'  %>
   <div class= 'container' style="border: 2px solid #333;box-shadow: 10px 5px 5px orange;border-radius: 6px;">
     <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link <%= params[:tab] == "stages" ? " active" : "NULL" %>" id="pills-stages-tab" data-bs-toggle="pill" data-bs-target="#pills-stages" type="button" role="tab" aria-controls="pills-stages" aria-selected="false">Stages</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link <%= params[:tab] == "stage_interviewers" ? "active" : "NULL" %>" id="pills-members-tab" data-bs-toggle="pill" data-bs-target="#pills-members" type="button" role="tab" aria-controls="pills-members" aria-selected="false">Team Members</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link <%= params[:tab] == "questions" ? "active" : "NULL" %>" id="pills-questions-tab" data-bs-toggle="pill" data-bs-target="#pills-questions" type="button" role="tab" aria-controls="pills-questions" aria-selected="false">Questions</button>
@@ -18,7 +15,6 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade <%= params[:tab] == "stages" ? " show active" : "NULL" %> " id="pills-stages" role="tabpanel" aria-labelledby="pills-stages-tab" tabindex="0"><%= render 'stages/stages'  %></div>
-      <div class="tab-pane fade <%= params[:tab] == "stage_interviewers" ? " show active" : "NULL" %> " id="pills-members" role="tabpanel" aria-labelledby="pills-members-tab" tabindex="1"><%= render 'roles/team-icons'  %></div>
       <div class="tab-pane fade <%= params[:tab] == "questions" ? " show active" : "NULL" %> " id="pills-questions" role="tabpanel" aria-labelledby="pills-questions-tab" tabindex="2"><%= render 'questions/questions' %></div>
       <div class="tab-pane fade <%= params[:tab] == "candidates" ? " show active" : "NULL" %> " id="pills-candidates" role="tabpanel" aria-labelledby="pills-candidates-tab" tabindex="4"> <%= render 'candidates/list' %></div>
     </div>
