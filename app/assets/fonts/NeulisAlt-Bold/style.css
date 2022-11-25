@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Neulis Alt';
+    src: local('Neulis Alt Bold'), local('Neulis-Alt-Bold'),
+        url('NeulisAlt-Bold.woff2') format('woff2'),
+        url('NeulisAlt-Bold.woff') format('woff'),
+        url('NeulisAlt-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }

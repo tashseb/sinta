@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Konnect';
+    src: local('Konnect Light'), local('Konnect-Light'),
+        url('Konnect-Light.woff2') format('woff2'),
+        url('Konnect-Light.woff') format('woff'),
+        url('Konnect-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
