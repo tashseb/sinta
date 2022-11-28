@@ -26,9 +26,9 @@ $headers-font: "Neulis Alt", "Helvetica", "sans-serif";
 
 @font-face {
   font-family: 'Konnect';
-  src:  font-url('Konnect-Light.woff2') format('woff2'),
-        font-url('Konnect-Light.woff') format('woff'),
-        font-url('Konnect-Light.ttf') format('truetype');
+  src:  font-url('Konnect-Light/Konnect-Light.woff2') format('woff2'),
+        font-url('Konnect-Light/Konnect-Light.woff') format('woff'),
+        font-url('Konnect-Light/Konnect-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
