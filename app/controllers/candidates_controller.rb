@@ -30,6 +30,6 @@ class CandidatesController < ApplicationController
   private
 
   def candidate_params
-    params.require(:candidate).permit(:stage_id, :status, :first_name, :last_name)
+    params.require(:candidate).permit(:stage_id, :first_name, :last_name)
   end
 end
