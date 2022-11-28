@@ -29,6 +29,7 @@ class RolesController < ApplicationController
     @question = Question.new
     @candidate = Candidate.new
     @interview = Interview.all
+    # raise
   end
 
   private

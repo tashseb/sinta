@@ -1,29 +1,51 @@
-<div id="content-container">
-  <div class="container-fluid p-5">
-    <div class="row">
-      <div class="col-12">
-        <h1 style="padding-left: 6px;"> Role Title - <%= @role.title %></h1>
-        <div class= 'row' style="border: 2px solid #333; box-shadow: 8px 4px 4px orange;border-radius: 6px;">
-          <div class="col-12">
-            <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link <%= params[:tab] == "stages" ? " active" : "NULL" %>" id="pills-stages-tab" data-bs-toggle="pill" data-bs-target="#pills-stages" type="button" role="tab" aria-controls="pills-stages" aria-selected="false">Stages</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link <%= params[:tab] == "questions" ? "active" : "NULL" %>" id="pills-questions-tab" data-bs-toggle="pill" data-bs-target="#pills-questions" type="button" role="tab" aria-controls="pills-questions" aria-selected="false">Questions</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link <%= params[:tab] == "candidates" ? "active" : "NULL" %>" id="pills-candidates-tab" data-bs-toggle="pill" data-bs-target="#pills-candidates" type="button" role="tab" aria-controls="pills-candidates" aria-selected="false">Candidates</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade <%= params[:tab] == "stages" ? " show active" : "NULL" %> " id="pills-stages" role="tabpanel" aria-labelledby="pills-stages-tab" tabindex="0"><%= render 'stages/stages'  %></div>
-              <div class="tab-pane fade <%= params[:tab] == "questions" ? " show active" : "NULL" %> " id="pills-questions" role="tabpanel" aria-labelledby="pills-questions-tab" tabindex="2"><%= render 'questions/questions' %></div>
-              <div class="tab-pane fade <%= params[:tab] == "candidates" ? " show active" : "NULL" %> " id="pills-candidates" role="tabpanel" aria-labelledby="pills-candidates-tab" tabindex="4"> <%= render 'candidates/list' %></div>
+<div class="container" data-controller="hide-div-stage">
+  <%# <div class="stage-card-list"> %>
+  <div class="">
+    <div class="stages-list-card mt-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1><%= @role.title %></h1>
+        <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-orange">Add New Stage</button>
+      </div>
+      <% @role.stages.each do |stage| %>
+        <div class="stages-main-list">
+          <div class="stages-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <p id="stage-title"><%= stage.name %> Interview Member</p>
+              <div class="d-flex">
+                <% stage.stage_interviewers.each do |interview| %>
+                  <%= image_tag interview.user.photo, alt: "text", class: "avatar-bordered" %>
+                <% end %>
+                <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>"><i class="fa-solid fa-user-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <%= render 'stages/candidates', stage: stage %>
+          </div>
+          <div>
+            <%= render 'stages/questions', stage: stage %>
+          </div>
+        </div>
+        <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= render 'stage_interviewers/interviewer-form', stage:stage%>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
+  </div>
+  <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
+    <%= simple_form_for [@role, @stage] do |f| %>
+      <%= f.input :name, label: "Stage Name" %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
