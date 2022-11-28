@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :roles, exclude: %i[edit destroy] do
-    resources :candidates, only: %i[index create]
+    resources :candidates, only: %i[index create new]
     resources :stages, only: :create
   end
   resources :stages, only: %i[edit update] do

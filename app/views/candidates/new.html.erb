@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card bg-white m-5 rounded-4 shadow">
+    <div class="card-header p-2">
+      <h2>Quick application form</h2>
+    </div>
+    <div class="card-body">
+      <%= simple_form_for [@role, @candidate], wrapper: :floating_labels_form,
+  wrapper_mappings: {
+    select:        :floating_labels_select
+  }  do |f| %>
+        <div class="row g-2">
+          <div class="col-md">
+            <div class="form-floating">
+              <%= f.input :first_name, placeholder: "Your name", id: "floatingFirst", class: "form-control", for: "floatingFirst" %>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="form-floatings">
+              <%= f.input :last_name, placeholder: "Your name", id: "floatingSecond", class: "form-control", for: "floatingSecond" %>
+            </div>
+          </div>
+        </div>
+        <%= f.input :profile, placeholder: "Your profile link", class: "form-control" %>
+        <%= f.submit class: 'btn btn-primary rounded-4' %>
+      <% end %>
+    </div>
+  </div>
+</div>
