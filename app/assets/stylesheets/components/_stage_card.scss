@@ -1,15 +1,31 @@
+.stages-main-list {
+  border: 2px solid $light-gray;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
 .stages-list {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 16px;
-  border-radius: 4px;
+  padding: 12px;
+}
 
+.stages-list-team {
+  background: $white;
+  border: 2px solid $light-gray;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  padding: 0 8px 0 8px;
 }
 
 .stages-list-card {
   background: #f5f5f5;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 1.5em;
+
+  h1 {
+    color: $green;
+  }
 }
 
 .stage-card-avatars {
@@ -17,7 +33,7 @@
 }
 
 .stage-cards {
-  margin-top: 16px;
+  margin-top: 12px;
   border: 2px solid black;
   border-radius: 8px;
   padding: 16px;
@@ -29,17 +45,12 @@
   }
 }
 
-// .stage-add-card {
-
-// }
-
 .stage-card-form {
   padding: 8px;
   margin-bottom: 16px;
   border: 2px solid black;
   border-radius: 8px;
 }
-
 
 .stages-existing-card {
   margin-top: 16px;

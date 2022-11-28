@@ -1,16 +1,33 @@
-<div class="accordion" id="accordionExample">
-  <% stage.questions.each do |question| %>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<%= question.id%>" aria-expanded="false" aria-controls="collapseOne">
-          <p>Questions</p>
-        </button>
-      </h2>
-      <div id="collapseOne<%= question.id%>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <%= question.description %>
-        </div>
+<div class="stages-list">
+  <div class="d-flex justify-content-between align-items-center">
+    <p id="stage-question">Questions</p>
+    <div class="d-flex">
+      <div class="row">
+        <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#stageModal-<%= stage.id %>"><i class="fa-regular fa-square-plus fa-lg"></i></button>
       </div>
     </div>
-  <% end %>
+  </div>
+  <div>
+    <% stage.questions.each do |question| %>
+      <%= question.description %>
+    <% end %>
+  </div>
+</div>
+<div class="modal fade" id="stageModal-<%= stage.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= stage.name %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for([stage, @question]) do |f| %>
+          <%= f.input :description, label: 'Question:' %>
+          <div class="d-flex flex-row-reverse">
+            <%= f.submit "Add Question", class: 'btn btn-green mt-2' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

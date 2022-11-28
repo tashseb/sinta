@@ -1,4 +1,6 @@
 <%= simple_form_for [stage, StageInterviewer.new] do |f| %>
-  <%= f.association :user, include_blank: false %>
-  <%= f.submit "Add", class: 'btn btn-primary mt-2' %>
+  <%= f.association :user, include_blank: false, label: "Name:" %>
+  <div class="d-flex flex-row-reverse">
+    <%= f.submit "Add Member", class: 'btn btn-green mt-2' %>
+  </div>
 <% end %>
