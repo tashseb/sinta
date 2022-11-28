@@ -30,6 +30,8 @@ gem "jbuilder"
 # Custom GEM
 gem 'slack-notifier'
 
+gem 'httparty'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
