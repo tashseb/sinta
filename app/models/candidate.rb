@@ -12,4 +12,8 @@ class Candidate < ApplicationRecord
   def accepted?
     status == 'accepted'
   end
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 end

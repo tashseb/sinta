@@ -18,6 +18,9 @@
         <div>
           <%= render 'stages/questions', stage: stage %>
         </div>
+        <div>
+          <%= render 'stages/candidates', stage: stage %>
+        </div>
         <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
           <div class="modal-dialog modal-xl">
             <div class="modal-content">

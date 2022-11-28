@@ -25,10 +25,11 @@ class RolesController < ApplicationController
     @users = User.all
     @stage = Stage.new
     @candidates = Candidate.all
-    @stages_questions = Stage.where(role: @role)
+    @stages_questions = Stage.where(role: @role).questions
     @question = Question.new
     @candidate = Candidate.new
     @interview = Interview.all
+    # raise
   end
 
   private
