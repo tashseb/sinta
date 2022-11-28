@@ -21,5 +21,4 @@ Rails.application.routes.draw do
 
   resources :candidates, only: %i[show update]
   resources :interviews, only: %i[index create new show edit]
-
 end
