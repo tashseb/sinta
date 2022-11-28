@@ -1,0 +1,27 @@
+<div id="content-container">
+  <div class="container-fluid p-5">
+    <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+    <table class="table table-bordered mt-3">
+      <thead class="text-primary">
+        <tr>
+          <th scope="col">Stage</th>
+          <th scope="col">Interviewer</th>
+          <th scope="col">Decision</th>
+          <th scope="col">Key Summary</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @candidate.interviews.each do |interview| %>
+          <tr>
+            <td><%= interview.stage.name %></td>
+            <td><%= interview.user.first_name %></td>
+            <td><%= interview.status %></td>
+            <td><%= interview.feedback %></td>
+            <td><%= interview.rating %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
