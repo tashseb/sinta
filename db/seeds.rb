@@ -56,29 +56,29 @@ puts "Added #{Role.all.count} roles."
 puts 'Adding candidates for the Sales Engineering position...'
 # In the first stage
 Candidate.create!(
-  first_name: "Keita", last_name: "Wilson", status: 'accepted',
+  first_name: "Keita", last_name: "Wilson", status: 'accepted', profile: 'https://www.indeed.jobs/',
   stage: Stage.first
 )
 Candidate.create!(
-  first_name: "Sunny", last_name: "Liu", status: 'accepted',
+  first_name: "Sunny", last_name: "Liu", status: 'accepted', profile: 'https://www.indeed.jobs/',
   stage: Stage.first
 )
 Candidate.create!(
-  first_name: "Yulia", last_name: "Naumenko", status: 'pending',
+  first_name: "Yulia", last_name: "Naumenko", status: 'pending', profile: 'https://www.indeed.jobs/',
   stage: Stage.first
 )
 # Second stage
 Candidate.create!(
-  first_name: "Keita", last_name: "Wilson", status: 'accepted',
+  first_name: "Keita", last_name: "Wilson", status: 'accepted', profile: 'https://www.indeed.jobs/',
   stage: Stage.first(2)[1]
 )
 Candidate.create!(
-  first_name: "Sunny", last_name: "Liu", status: 'pending',
+  first_name: "Sunny", last_name: "Liu", status: 'pending', profile: 'https://www.indeed.jobs/',
   stage: Stage.first(2)[1]
 )
 # Third stage
 Candidate.create!(
-  first_name: "Keita", last_name: "Wilson", status: 'pending',
+  first_name: "Keita", last_name: "Wilson", status: 'pending', profile: 'https://www.indeed.jobs/',
   stage: Stage.first(3)[2]
 )
 puts "Added #{Candidate.all.count} candidates in the system."
