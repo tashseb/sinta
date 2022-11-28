@@ -16,4 +16,8 @@ class Candidate < ApplicationRecord
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
+
+  def avatar
+    Initials.svg(this.full_name)
+  end
 end

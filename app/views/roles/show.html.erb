@@ -1,25 +1,27 @@
 <div class="container" data-controller="hide-div-stage">
   <%# <div class="stage-card-list"> %>
-  <h1><%= @role.title %></h1>
   <div class="">
     <div class="stages-list-card mt-3">
+      <h1><%= @role.title %></h1>
       <% @role.stages.each do |stage| %>
-        <div class="stages-list">
-          <div class="d-flex justify-content-between align-items-center">
-            <p><%= stage.name %> Interview</p>
-            <div class="d-flex">
-              <% stage.stage_interviewers.each do |interview| %>
-                <%= image_tag interview.user.photo, alt: "text", class: "avatar-bordered" %>
-              <% end %>
-              <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">+</button>
+        <div class="bg-white mb-3 border border-dark">
+          <div class="stages-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <p><%= stage.name %> Interview Member</p>
+              <div class="d-flex">
+                <% stage.stage_interviewers.each do |interview| %>
+                  <%= image_tag interview.user.photo, alt: "text", class: "avatar-bordered" %>
+                <% end %>
+                <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">+</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <%= render 'stages/questions', stage: stage %>
-        </div>
-        <div>
-          <%= render 'stages/candidates', stage: stage %>
+          <div>
+            <%= render 'stages/questions', stage: stage %>
+          </div>
+          <div>
+            <%= render 'stages/candidates', stage: stage %>
+          </div>
         </div>
         <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
           <div class="modal-dialog modal-xl">

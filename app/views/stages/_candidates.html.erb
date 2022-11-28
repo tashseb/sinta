@@ -1,18 +1,21 @@
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Candidates
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<%=stage.id%>" aria-expanded="true" aria-controls="collapseOne">
+        <p>Candidates</p>
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="collapseOne<%=stage.id%>" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body d-flex p-0 justify-content-center">
         <% stage.candidates.each do |candidate| %>
-          <div id="candidate" class="category-card">
-            <div class="avatar-candidate">
-              TC
+          <div id="candidate" class="category-card d-flex pr-3">
+            <div class="me-2">
+              <%= user_avatar(candidate.full_name) %>
             </div>
-            <p><%= candidate.full_name %></p>
+            <p class="me-2"><%= candidate.full_name %></p>
+            <a href="https://www.linkedin.com/">
+              <i class="fa-solid fa-link"></i>
+            </a>
           </div>
         <% end %>
       </div>
