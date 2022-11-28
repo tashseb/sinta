@@ -9,17 +9,17 @@
     <h3 class="pt-2"><%= stage.name %></h3>
     <div class="d-flex gap-3 pb-2">
       <% stage.candidates.each do |candidate| %>
-        <% if candidate.status == "accepted" %>
-        <% else %>
-          <div class="card" style="width: 18rem;">
-            <div class="card-body pb-0">
-              <h5 class="card-title"> <strong><%= "#{candidate.first_name} #{candidate.last_name}" %></strong></h5>
-              <div class="card-bottom">
-                <p><%= candidate.status  %></p>
-              </div>
+        <%# if candidate.status == "accepted" %>
+        <%# else %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body pb-0">
+            <h5 class="card-title"> <strong><%= "#{candidate.first_name} #{candidate.last_name}" %></strong></h5>
+            <div class="card-bottom">
+              <p><%#= candidate.status  %></p>
             </div>
           </div>
-        <% end %>
+        </div>
+        <%# end %>
       <% end %>
     </div>
   <% end %>

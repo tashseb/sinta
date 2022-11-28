@@ -5,7 +5,6 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     @role = Role.find(params[:role_id])
     @candidate.stage = @role.stages.order(created_at: :asc).first
-    @candidate.status = "pending"
     if @candidate.save
       SlackNotifier::CLIENT.ping "🎉 New Candidate Added: #{@candidate.first_name} #{@candidate.last_name} intereviewing for the #{@role.title} Role 🎉"
       Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
@@ -15,6 +14,9 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def show
+    @candidate = Candidate.find(params[:id])
+  end
 
   # def update
   #   @candidate = Candidate.find(params[:id])

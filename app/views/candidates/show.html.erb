@@ -1,0 +1,24 @@
+<div id="content-container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Stage</th>
+        <th scope="col">Interviewer</th>
+        <th scope="col">Decision</th>
+        <th scope="col">Key Summary</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @candidate.interviews.each do |interview| %>
+        <tr>
+          <td><%= interview.stage.name %></td>
+          <td><%= interview.user.first_name %></td>
+          <td><%= interview.status %></td>
+          <td><%= interview.feedback %></td>
+          <td><%= interview.rating %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
