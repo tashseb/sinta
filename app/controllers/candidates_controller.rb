@@ -11,8 +11,7 @@ class CandidatesController < ApplicationController
     @role = Role.find(params[:role_id])
     @candidate.stage = @role.stages.order(created_at: :asc).first
     if @candidate.save
-      SlackNotifier::CLIENT.ping "🎉 New Candidate Added: #{@candidate.first_name} #{@candidate.last_name} intereviewing for the #{@role.title} Role 🎉"
-      @interview =Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+      SlackNotifier::CLIENT.ping "🎉 New Candidate Added:🎉 #{@candidate.first_name} #{@candidate.last_name} ~ #{@role.title} Role"
       # SendQuestions.perform_now(@interview)
     else
       render :new, status: :unprocessable_entity
