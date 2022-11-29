@@ -1,33 +1,38 @@
 <div id="content-container">
-  <div class="container-fluid p-5">
-    <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
-    <table class="table table-bordered mt-3">
-      <thead class="text-primary">
-        <tr>
-          <th scope="col">Stage</th>
-          <th scope="col">Interviewer</th>
-          <th scope="col">Decision</th>
-          <th scope="col">Key Summary</th>
-          <th scope="col">Rating</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @interviews.each do |interview| %>
-          <tr>
-            <td><%= interview.stage.name %></td>
-            <td><%= interview.user.first_name %></td>
-            <td><%= interview.status %></td>
-            <td><%= interview.feedback %></td>
-            <td><%= interview.rating %></td>
-          </tr>
+  <div class="container-fluid">
+    <div class="candidates-list-card mt-3">
+      <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+      <div class="candidates-list">
+        <h4 class="my-2">Candidate Score Card</h4>
+        <table class="table table-bordered mt-3">
+          <thead class="text-primary">
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">Interviewer</th>
+              <th scope="col">Decision</th>
+              <th scope="col">Key Summary</th>
+              <th scope="col">Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @interviews.each do |interview| %>
+              <tr>
+                <td><%= interview.stage.name %></td>
+                <td><%= interview.user.first_name %></td>
+                <td><%= interview.status %></td>
+                <td><%= interview.feedback %></td>
+                <td><%= interview.rating %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% if @next_stage %>
+          <%= simple_form_for @candidate do |f| %>
+            <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
+            <%= f.submit "Move to next stage-#{@next_stage.name}" %>
+          <% end %>
         <% end %>
-      </tbody>
-    </table>
-    <% if @next_stage %>
-      <%= simple_form_for @candidate do |f| %>
-        <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
-        <%= f.submit "Move to next stage-#{@next_stage.name}" %>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
