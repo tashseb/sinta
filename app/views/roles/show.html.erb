@@ -4,7 +4,6 @@
       <h1><%= @role.title %></h1>
       <div>
         <%= link_to "Add Candidate", new_role_candidate_path(@role), class: 'btn btn-orange' %>
-        <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-orange">Add New Stage</button>
       </div>
     </div>
     <% @role.stages.each do |stage| %>
@@ -44,10 +43,15 @@
       </div>
     </div>
   <% end %>
+  <div class="d-flex flex-row-reverse">
+    <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-orange">New Interview</button>
+  </div>
   <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
     <%= simple_form_for [@role, @stage] do |f| %>
       <%= f.input :name, label: "Stage Name" %>
-      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <div class="d-flex flex-row-reverse">
+        <%= f.submit "Submit", class: "btn btn-orange" %>
+      </div>
     <% end %>
   </div>
 </div>
