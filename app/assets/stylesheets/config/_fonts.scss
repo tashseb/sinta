@@ -1,8 +1,10 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Konnect", "Helvetica", "sans-serif";
+// $headers-font: "Figtree", "Helvetica", "sans-serif";
 $headers-font: "Neulis Alt", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
@@ -20,15 +22,15 @@ $headers-font: "Neulis Alt", "Helvetica", "sans-serif";
   src:  font-url('NeulisAlt-Bold/NeulisAlt-Bold.woff2') format('woff2'),
         font-url('NeulisAlt-Bold/NeulisAlt-Bold.woff') format('woff'),
         font-url('NeulisAlt-Bold/NeulisAlt-Bold.ttf') format('truetype');
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Konnect';
-  src:  font-url('Konnect-Light.woff2') format('woff2'),
-        font-url('Konnect-Light.woff') format('woff'),
-        font-url('Konnect-Light.ttf') format('truetype');
+  src:  font-url('Konnect-Light/Konnect-Light.woff2') format('woff2'),
+        font-url('Konnect-Light/Konnect-Light.woff') format('woff'),
+        font-url('Konnect-Light/Konnect-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }

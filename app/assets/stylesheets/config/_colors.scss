@@ -6,7 +6,15 @@ $blue: #0D6EFD;
 $yellow: #ffc802;
 $light-orange: #ffe2c1;
 $orange: #ff9823;
-$green: #1EDD88;
+$green: #68ABA2;
+$light-green: #A7DDD5;
 $gray: #0E0000;
+$dark-gray: #495057;
 $light-gray: #f4f4f4;
+$white: #ffffff;
 
+// fontawesome color
+.fa-link::before {
+  content: "\f0c1";
+  color: $green;
+}

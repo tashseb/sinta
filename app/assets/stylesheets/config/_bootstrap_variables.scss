@@ -15,7 +15,7 @@ $primary:    $orange;
 $success:    $light-orange;
 $secondary:  $yellow;
 $danger:     $red;
-$warning:    $blue;
+$warning:    $green;
 
 
 // Buttons & inputs' radius
@@ -27,3 +27,10 @@ $border-radius-sm: 2px;
 
 $btn-link-hover-color: $orange;
 $btn-link-color: $gray;
+
+// accordion
+$accordion-padding-y:                     1rem;
+$accordion-padding-x:                     1.25rem;
+$accordion-color:                         $body-color; // Sass variable because of $accordion-button-icon
+$accordion-bg:                            $white;
+$accordion-button-active-color:           shade-color($warning, 10%);

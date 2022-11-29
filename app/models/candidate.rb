@@ -1,15 +1,15 @@
 class Candidate < ApplicationRecord
   has_many :interviews
+  has_many :stages, through: :interviews
   belongs_to :stage
-  validates :first_name, :last_name, :status, presence: true
-  STATUS = ["pending", "rejected", "accepted"]
-  enum status: { pending: "pending", rejected: "rejected", accepted: "accepted" }, _default: :pending
 
-  def pending?
-    status == 'pending'
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
-  def accepted?
-    status == 'accepted'
+  def avatar
+    Initials.svg(this.full_name)
   end
+
+  validates :first_name, :last_name, presence: true
 end

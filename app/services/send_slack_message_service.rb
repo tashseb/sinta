@@ -1,6 +1,7 @@
 class SendSlackMessageService
   attr_reader :channel, :message, :token
 
+
   def initialize(attributes)
     @channel = attributes[:channel]
     @message = attributes[:message]
@@ -15,6 +16,7 @@ class SendSlackMessageService
         channel: channel,
         blocks: message,
         text: "Your Interview Kit for #{@interview.candidate.first_name} #{@interview.candidate.last_name}"
+
       }.to_json,
       headers: {
         'Content-Type' => 'application/json',
