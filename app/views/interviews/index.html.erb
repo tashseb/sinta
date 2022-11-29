@@ -1,18 +1,18 @@
 <div class="container">
-  <h2 style="padding-left: 6px;">
-    Scheduled<br>
-    Interviews:</h2>
-  <% @interviews.each do |interview| %>
-    <% if interview.date.present? %>
-      <%= render 'interviews/cards', interview:interview %>
+  <h2>Unscheduled Interviews:</h2>
+  <div class="row">
+    <% @interviews.each do |interview| %>
+      <% if interview.date.nil? %>
+        <%= render 'interviews/cards-unscheduled', interview:interview %>
+      <% end %>
     <% end %>
-  <% end %>
-  <h2 style="padding-left: 6px;">
-    Unscheduled<br>
-    Interviews</h2>
-  <% @interviews.each do |interview| %>
-    <% if interview.date.nil? %>
-      <%= render 'interviews/cards-unscheduled', interview:interview %>
+  </div>
+  <h2>Scheduled Interviews:</h2>
+  <div class="row">
+    <% @interviews.each do |interview| %>
+      <% if interview.date.present? %>
+        <%= render 'interviews/cards', interview:interview %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

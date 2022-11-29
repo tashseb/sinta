@@ -1,5 +1,6 @@
 class Candidate < ApplicationRecord
   has_many :interviews
+  has_many :stages, through: :interviews
   belongs_to :stage
 
   def full_name

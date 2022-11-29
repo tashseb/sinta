@@ -18,18 +18,19 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def show
+  def update
     @candidate = Candidate.find(params[:id])
+    @candidate.update(candidate_params)
+    Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+    redirect_to candidate_path(@candidate)
   end
 
-  # def update
-  #   @candidate = Candidate.find(params[:id])
-  #   if @candidate.update(candidate_params)
-  #     redirect_to , status: :see_other
-  #   else
-  #     , status: :unprocessable_entity
-  #   end
-  # end
+  def show
+    @candidate = Candidate.find(params[:id])
+    @role = @candidate.stage.role
+    @interviews = @candidate.interviews.where(stage: @role.stages)
+    @next_stage = @role.stages.where.not(id: @candidate.stages).order(:created_at).first
+  end
 
   private
 
