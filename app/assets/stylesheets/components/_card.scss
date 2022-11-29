@@ -46,9 +46,10 @@
 //candidate partials
 .category-card {
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 8px 16px 8px 16px;
   border-radius: 4px;
+  border: 1px solid $light-gray;
   font-size: 1em;
   font-weight: 600;
   margin: 8px 8px 8px 8px;
