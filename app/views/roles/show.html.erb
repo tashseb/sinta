@@ -1,14 +1,14 @@
-<div class="container" data-controller="hide-div-stage">
-  <%# <div class="stage-card-list"> %>
-  <div class="">
+<div id="content-container">
+  <div class="mx-3" data-controller="hide-div-stage">
+    <%# <div class="stage-card-list"> %>
     <div class="stages-list-card mt-3">
       <div class="d-flex justify-content-between align-items-center">
-        <h1><%= @role.title %></h1>
-        <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-orange">Add New Stage</button>
+        <h1 class="mb-2"><%= @role.title %></h1>
+        <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-orange mb-2">Add New Stage</button>
       </div>
       <% @role.stages.each do |stage| %>
         <div class="stages-main-list">
-          <div class="stages-list">
+          <div class="stages-list stages-list-top">
             <div class="d-flex justify-content-between align-items-center">
               <p id="stage-title"><%= stage.name %> Interview Member</p>
               <div class="d-flex">
@@ -41,11 +41,11 @@
         </div>
       <% end %>
     </div>
-  </div>
-  <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
-    <%= simple_form_for [@role, @stage] do |f| %>
-      <%= f.input :name, label: "Stage Name" %>
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
+    <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
+      <%= simple_form_for [@role, @stage] do |f| %>
+        <%= f.input :name, label: "Stage Name" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
