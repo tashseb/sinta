@@ -20,6 +20,7 @@ class InterviewsController < ApplicationController
     @stage = Stage.find(params[:stage_id])
     @role = @stage.role
     if @interview.save
+
       redirect_to role_path(@role), status: :see_other
     else
       render :new, status: :unprocessable_entity
