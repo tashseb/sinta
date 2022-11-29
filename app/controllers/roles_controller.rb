@@ -8,7 +8,6 @@ class RolesController < ApplicationController
 
   def new
     @role = Role.new
-    # @interview = Interview.find(params[:interview_id])
   end
 
   def create

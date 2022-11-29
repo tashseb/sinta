@@ -11,6 +11,14 @@
   padding: 12px;
 }
 
+.stages-list-top {
+  border-radius: 8px 8px 0 0;
+}
+
+.stages-list-bottom  {
+  border-radius: 0 0 8px 8px;
+}
+
 .stages-list-team {
   background: $white;
   border: 2px solid $light-gray;
@@ -23,6 +31,7 @@
   background: $white;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 1.5em;
+  border-radius: 8px;
 
   h1 {
     color: $green;

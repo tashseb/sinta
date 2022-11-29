@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="pagetitle m-4">
+    <h1>Review Candidates</h1>
+  </div>
+  <% @roles.each do |role| %>
+    <%= role.title %>
+    <% role.stages.each do |stage| %>
+      <% stage.candidates.each do |candidate| %>
+        <%= candidate.first_name %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="d-flex gap-3 ms-4">
+  </div>
+</div>
