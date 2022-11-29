@@ -99,7 +99,7 @@ Interview.create!(
 )
 
 puts "Added #{Interview.all.count} interviews."
-
+# something
 # puts "Addings questions for the Stages..."
 # Question.create!(
 #   stage: Stage.first,
