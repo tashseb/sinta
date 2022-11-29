@@ -14,18 +14,6 @@ class StagesController < ApplicationController
     end
   end
 
-  # def edit
-  # end
-
-  # def update
-  #   @stage = Stage.find(params[:id])
-  #   if @stage.update(stage_params)
-  #     redirect_to , status: :see_other
-  #   else
-  #     , status: :unprocessable_entity
-  #   end
-  # end
-
   private
 
   def stage_params
