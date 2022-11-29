@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   get 'roles/create'
   devise_for :users
   root to: "pages#home"
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      post '/slack', to: 'slack#webhook', as: :slack_api
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
