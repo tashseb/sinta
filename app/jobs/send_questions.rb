@@ -144,6 +144,34 @@ class SendQuestions < ApplicationJob
 
       }
 
+      message << {
+
+          "type": "actions",
+          "elements": [
+            {
+              "type": "button",
+              "text": {
+                "type": "plain_text",
+                "emoji": true,
+                "text": "Approve"
+              },
+              "style": "primary",
+              "value": "click_me_123"
+            },
+            {
+              "type": "button",
+              "text": {
+                "type": "plain_text",
+                "emoji": true,
+                "text": "Reject"
+              },
+              "style": "danger",
+              "value": "click_me_123"
+            }
+          ]
+      }
+
+
 
 
 
