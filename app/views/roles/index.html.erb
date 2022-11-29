@@ -1,21 +1,25 @@
-<div class="container">
-  <div class="pagetitle m-4">
-    <h1>Available Roles</h1>
-  </div>
-  <div class="d-flex gap-3 ms-4">
-    <div class="grid-role-list">
-      <% @roles.each do |role| %>
-        <div class="grid-role-card" style="width: 18rem;">
-          <div class="">
-            <h5 class="role-card-head"> <strong><%= role.title %></strong></h5>
-            <p class="role-card-detail"><%= role.description %></p>
-            <div class="role-card-option">
-              <%= link_to "More details", role_path(role) %>
-              <p><%= role.completed ? "Completed" : "To be completed" %></p>
+<div id="content-container">
+  <div class="mx-3">
+    <div class="candidates-list-card mt-3">
+      <div class="pagetitle">
+        <h1>Available Roles</h1>
+      </div>
+      <div class="row row-cols-3 g-3">
+        <% @roles.each do |role| %>
+          <div class="col">
+            <div class="candidates-list p-4 h-100 d-flex flex-column justify-content-between" style="min-height:240px;">
+              <div>
+                <h5 class="role-card-head"> <strong><%= role.title %></strong></h5>
+                <p class="role-card-detail"><%= role.description %></p>
+              </div>
+              <div class="role-card-option">
+                <p class="mb-0"><%= role.completed ? "Role filled" : "Role to be filled" %></p>
+                <%= link_to "More details", role_path(role), class: 'btn btn-orange' %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
