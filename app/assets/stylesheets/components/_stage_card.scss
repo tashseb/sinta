@@ -1,4 +1,5 @@
 .stages-main-list {
+  background-color: white;
   border: 2px solid $light-gray;
   border-radius: 4px;
   margin-bottom: 1em;
@@ -10,6 +11,14 @@
   padding: 12px;
 }
 
+.stages-list-top {
+  border-radius: 8px 8px 0 0;
+}
+
+.stages-list-bottom  {
+  border-radius: 0 0 8px 8px;
+}
+
 .stages-list-team {
   background: $white;
   border: 2px solid $light-gray;
@@ -19,9 +28,10 @@
 }
 
 .stages-list-card {
-  background: #f5f5f5;
+  background: $white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 1.5em;
+  border-radius: 8px;
 
   h1 {
     color: $green;
@@ -47,9 +57,9 @@
 
 .stage-card-form {
   padding: 8px;
-  margin-bottom: 16px;
-  border: 2px solid black;
-  border-radius: 8px;
+  margin: 16px 0 16px 0;
+  border: 2px solid $gray;
+  border-radius: 4px;
 }
 
 .stages-existing-card {

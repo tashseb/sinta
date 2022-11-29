@@ -1,32 +1,19 @@
-<%# <% if user_signed_in? %> %>
-<div class="container mt-4">
-  <div class="banner">
-    <div class="dash-banner mb-2">
-      <h1>Welcome back, <%= current_user.first_name%> 👋</h1>
-      <p>You've successfully completed nothing today 😊</p>
+<div class="bg-white" id="content-container">
+  <div class="row flex-lg-row-reverse align-items-center py-5">
+    <div class="p-5 text-center bg-image col"  style="
+      background-image: url('https://teamsinta.com/Website/sinta/images/headre.svg');
+      height: 450px;
+      background-size: cover;">
     </div>
-  </div>
-  <div class="container p-3">
-    <div class="row">
-      <div class="col-4">
-        <div class="dash-card mb-2">
-          Create
-          <%= link_to '', new_role_path, class: "card-link" %>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="dash-card mb-2">
-          Schedule
-          <%= link_to '', new_role_path, class: "card-link" %>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="dash-card mb-2">
-          Button
-          <%= link_to '', new_role_path, class: "card-link" %>
+    <div class="d-flex justify-content-left align-items-center h-100 col">
+      <div class="text-green ps-3">
+        <h1>Welcome back, <%= current_user.first_name%> 👋</h1>
+        <p>You've successfully completed nothing today 😊</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <%=  link_to 'Check pending interviews', interviews_path, class: "btn btn-orange" %>
+          <%=  link_to 'Create Role', new_role_path, class: "btn btn-orange" %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%# <% end %> %>
