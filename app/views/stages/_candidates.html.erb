@@ -13,7 +13,7 @@
               <%= user_avatar(candidate.full_name) %>
             </div>
             <p class="candidate-name-link me-2">
-              <%= link_to role_candidates_path(stage.role) do %>
+              <%= link_to candidate_path(candidate) do %>
                 <%= candidate.full_name %>
               <% end %>
             </p>

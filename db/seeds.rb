@@ -68,19 +68,19 @@ Candidate.create!(
   stage: Stage.first
 )
 # Second stage
-Candidate.create!(
-  first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
-  stage: Stage.first(2)[1]
-)
-Candidate.create!(
-  first_name: "Sunny", last_name: "Liu", profile: 'https://www.indeed.jobs/',
-  stage: Stage.first(2)[1]
-)
+# Candidate.create!(
+#   first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
+#   stage: Stage.first(2)[1]
+# )
+# Candidate.create!(
+#   first_name: "Sunny", last_name: "Liu", profile: 'https://www.indeed.jobs/',
+#   stage: Stage.first(2)[1]
+# )
 # Third stage
-Candidate.create!(
-  first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
-  stage: Stage.first(3)[2]
-)
+# Candidate.create!(
+#   first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
+#   stage: Stage.first(3)[2]
+# )
 puts "Added #{Candidate.all.count} candidates in the system."
 
 puts "Adding interviews..."
@@ -96,12 +96,7 @@ Interview.create!(
   feedback: "Fresh grad with Marketing degree. Seems eager to learn.",
   date: DateTime.new(2022, 12, 22, 16, 30)
 )
-Interview.create!(
-  user: User.first, candidate: Candidate.find_by(first_name: "Keita"),
-  stage: Stage.first(2)[1], rating: 5,
-  feedback: "Extensive sales experience with AWS that is highly transferable to ABC company.",
-  date: DateTime.new(2022, 12, 19, 16, 30)
-)
+
 puts "Added #{Interview.all.count} interviews."
 
 # puts "Addings questions for the Stages..."
