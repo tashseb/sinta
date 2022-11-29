@@ -12,7 +12,8 @@ class CandidatesController < ApplicationController
     @candidate.stage = @role.stages.order(created_at: :asc).first
     if @candidate.save
       SlackNotifier::CLIENT.ping "🎉 New Candidate Added: #{@candidate.first_name} #{@candidate.last_name} intereviewing for the #{@role.title} Role 🎉"
-      Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+      @interview =Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+      # SendQuestions.perform_now(@interview)
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +22,8 @@ class CandidatesController < ApplicationController
   def update
     @candidate = Candidate.find(params[:id])
     @candidate.update(candidate_params)
-    Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+    @interview = Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+    SendQuestions.perform_now(@interview)
     redirect_to candidate_path(@candidate)
   end
 
