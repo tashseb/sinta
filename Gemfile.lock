@@ -269,11 +269,8 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
-
   httparty
-
   initials
-
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
