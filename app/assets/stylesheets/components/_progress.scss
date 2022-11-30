@@ -1,51 +1,49 @@
-.items--container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  border:0;
+  background-color:#0000FF;
+}
+.nav-tabs > li > a{padding:10px 30px}
+.nav-tabs > li.active {
+  border-bottom:3px solid blue;
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.c_breadcrumb {
+  padding: 1px;
+
+  padding-right: 15px;
+  -webkit-clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%);
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%);
+  /*
+  display: inline-block;
+
+  */
+}
+
+.c_breadcrumb li {
+  display: inline-block;
+  min-width:50px;
+  background: white;
+  text-decoration: none;
+  -webkit-clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%);
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%);
+  padding: 0;
   position: relative;
-  margin-left: 1rem;
-  width: 150px;
-  height: 50px;
+  margin-right: -13px;
 }
 
-.item.active .content {
-  color: #FFFFFF;
+.c_breadcrumb li#last {
+  -webkit-clip-path: polygon(0 0, calc(100% - 0px) 0, 100% 50%, calc(100% - 0px) 100%, 0 100%, 15px 50%);
+  clip-path: polygon(0 0, calc(100% - 0px) 0, 100% 50%, calc(100% - 0px) 100%, 0 100%, 15px 50%);
 }
 
-.item.active .arrow {
-  background: #d68a3a;
+.c_breadcrumb li:hover {
+  color: white;
+  background: #fff;
 }
 
-.content {
-  color: #000000;
-  position: absolute;
-  z-index: 2;
-}
-
-.arrow {
-  width: 100%;
-  height: 50%;
-  background: #FFFFFF;
-}
-
-.arrow.top {
-  transform: skew(45deg, 0deg);
-  border-left: 1px solid #d68a3a;
-  border-right: 1px solid #d68a3a;
-  border-top: 1px solid #d68a3a;
-}
-
-.arrow.bottom {
-  transform: skew(-45deg, 0deg);
-  border-left: 1px solid #d68a3a;
-  border-right: 1px solid #d68a3a;
-  border-bottom: 1px solid #d68a3a;
+/* first link should not have anything cliped on the left side */
+.c_breadcrumb li:first-child {
+  -webkit-clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
 }
