@@ -12,7 +12,7 @@ class CandidatesController < ApplicationController
     @candidate.stage = @role.stages.order(created_at: :asc).first
     if @candidate.save
       SlackNotifier::CLIENT.ping "🎉 New Candidate Added:🎉 #{@candidate.first_name} #{@candidate.last_name} ~ #{@role.title} Role"
-      @interview =Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+      @interview =Interview.create(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
       redirect_to role_path(@role)
       # SendQuestions.perform_now(@interview)
     else
@@ -26,7 +26,7 @@ class CandidatesController < ApplicationController
     last_interview.status = "accepted"
     last_interview.save
     @candidate.update(candidate_params)
-    @interview = Interview.create(stage: @candidate.stage, user: current_user, candidate: @candidate)
+    @interview = Interview.create(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
     SendQuestions.perform_now(@interview)
     redirect_to candidate_path(@candidate)
   end
