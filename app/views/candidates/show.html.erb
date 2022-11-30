@@ -19,9 +19,12 @@
               <tr>
                 <td><%= interview.stage.name %></td>
                 <td><%= interview.user.first_name %></td>
-                <td><%= interview.status %></td>
+                <td style="<%= interview.status == "accepted" ? "color: green;" : "" %>"><%= interview.status %></td>
                 <td><%= interview.feedback %></td>
-                <td><%= interview.rating %></td>
+                <td><% interview.rating.to_i.times do %>
+                    <i style="color: gold;" class="fa-solid fa-star"></i>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
           </tbody>
