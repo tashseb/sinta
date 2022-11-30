@@ -90,22 +90,22 @@ puts "Added #{Role.all.count} roles."
 puts 'Adding candidates for the Sales Engineering position...'
 # First stage (Screening) of Sales Engineer
 mattias = Candidate.create!(
-  first_name: "Mattias", last_name: "Welamsson", profile: 'https://www.linkedin.com/in/mattias-welamsson/',
+  first_name: "Mattias", last_name: "Welamsson", profile: 'https://www.linkedin.com/in/mattias-welamsson',
   stage: Stage.first
 )
 soren = Candidate.create!(
-  first_name: "Soren", last_name: "Umstot", profile: 'https://www.linkedin.com/in/soren-umstot/',
+  first_name: "Soren", last_name: "Umstot", profile: 'https://www.linkedin.com/in/soren-umstot',
   stage: Stage.first
 )
 # Second stage (Technical)
 joyce = Candidate.create!(
-  first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan/',
+  first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan',
   stage: Stage.second
 )
 puts 'Adding candidate for Front-End Engineer'
 # First stage (Screening)
 savi = Candidate.create!(
-  first_name: "Savi", last_name: "Wewala", profile: 'https://www.linkedin.com/in/savithri-wewala-507308a1/',
+  first_name: "Savi", last_name: "Wewala", profile: 'https://www.linkedin.com/in/savithri-wewala-507308a1',
   stage: Stage.fourth
 )
 # Second stage (Technical)
@@ -142,27 +142,72 @@ puts "Added #{Candidate.all.count} candidates in the system."
 
 
 puts "Adding Interviewer to some stages of a role"
+# Sales Engineer
 StageInterviewer.create!(
   user: mo,
   stage: mattias.stage
 )
+# Soren's interview result is still pending
 StageInterviewer.create!(
   user: mo,
   stage: soren.stage
 )
+StageInterviewer.create!(
+  user: ayanori,
+  stage: joyce.stage
+)
+# Front-End
+StageInterviewer.create!(
+  user: sammy,
+  stage: savi.stage
+)
+StageInterviewer.create!(
+  user: tash,
+  stage: clement.stage
+)
+StageInterviewer.create!(
+  user: ayanori,
+  stage: patrick.stage
+)
 
 puts "Adding interviews..."
+# Sales Engineer
 Interview.create!(
   user: mo, candidate: mattias,
-  stage: mattias.stage, rating: 4,
+  stage: mattias.stage, rating: 3,
   feedback: "Great sales experience. Highly motivated. Personable",
-  date: DateTime.new(2022, 11, 29, 16, 30)
+  date: DateTime.new(2022, 11, 29, 16, 30),
+  status: 'accepted'
 )
 Interview.create!(
-  user: mo, candidate: joyce,
-  stage: Stage.first, rating: 3,
+  user: mo, candidate: soren,
+  stage: soren.stage,
+  date: DateTime.new(2022, 12, 1, 13, 30)
+)
+Interview.create!(
+  user: ayanori, candidate: joyce,
+  stage: joyce.stage, rating: 4,
   feedback: "Extensive technical skills. Had several internship with big IT companies.",
   date: DateTime.new(2022, 11, 28, 16, 30),
+  status: 'accepted'
+)
+# Front-End Developer
+Interview.create!(
+  user: sammy, candidate: savi,
+  stage: savi.stage,
+  date: DateTime.new(2022, 12, 1, 11, 30)
+)
+Interview.create!(
+  user: tash, candidate: clement,
+  stage: clement.stage,
+  date: DateTime.new(2022, 12, 1, 11, 30),
+  status: 'accepted'
+)
+Interview.create!(
+  user: ayanori, candidate: patrick,
+  stage: patrick.stage, rating: 4,
+  feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
+  date: DateTime.new(2022, 12, 1, 10, 30),
   status: 'accepted'
 )
 
