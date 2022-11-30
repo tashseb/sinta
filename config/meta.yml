@@ -1,5 +1,5 @@
 meta_product_name: "Sinta"
 meta_title: "Sinta - Helping teams hire faster and better"
 meta_description: "Start empowering the right people in your organization with Sinta. A modern tool for hiring, and onboarding."
-# meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
