@@ -10,31 +10,31 @@ puts "Destroying data - DONE."
 
 puts "Creating users..."
 User.create!(
-  email: "mo@teamsinta.com", password: "lalala", first_name: "Mo",
+  email: "mo@sintaapp.com", password: "lalala", first_name: "Mo",
   last_name: "Shegow", position: "Recruiter", department: "Recruitment", photo: 'https://avatars.githubusercontent.com/u/114022804?v=4'
 )
 User.create!(
-  email: "tash@teamsinta.com", password: "lalala", first_name: "Tash",
+  email: "tash@sintaapp.com", password: "lalala", first_name: "Tash",
   last_name: "Cruz", position: "Software Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/13973128?v=4'
 )
 User.create!(
-  email: "sammy@teamsinta.com", password: "lalala", first_name: "Sammy",
+  email: "sammy@sintaapp.com", password: "lalala", first_name: "Sammy",
   last_name: "Kavanaugh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
 )
 User.create!(
-  email: "tom@teamsinta.com", password: "lalala", first_name: "Tom",
+  email: "tom@sintaapp.com", password: "lalala", first_name: "Tom",
   last_name: "Price", position: "Project Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
 )
 User.create!(
-  email: "doug@teamsinta.com", password: "lalala", first_name: "Doug",
+  email: "doug@sintaapp.com", password: "lalala", first_name: "Doug",
   last_name: "Berkley", position: "Recruitment Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/25542223?v=4'
 )
 User.create!(
-  email: "trouni@teamsinta.com", password: "lalala", first_name: "Trouni",
+  email: "trouni@sintaapp.com", password: "lalala", first_name: "Trouni",
   last_name: "Tiet", position: "HR Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/34345789?v=4'
 )
 User.create!(
-  email: "ayanori@teamsinta.com", password: "lalala", first_name: "Ayanori",
+  email: "ayanori@sintaapp.com", password: "lalala", first_name: "Ayanori",
   last_name: "Toyoda", position: "Senior Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/77108453?v=4'
 )
 
@@ -88,18 +88,18 @@ puts "Added #{Role.all.count} roles."
 # puts "Added #{Stage.all.count} stages in the system."
 
 puts 'Adding candidates for the Sales Engineering position...'
-# In the first stage
+# First stage (Screening) of Sales Engineer
 Candidate.create!(
-  first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
+  first_name: "Mattias", last_name: "Welamsson", profile: 'https://www.linkedin.com/in/mattias-welamsson/',
   stage: Stage.first
 )
 Candidate.create!(
-  first_name: "Sunny", last_name: "Liu", profile: 'https://www.indeed.jobs/',
+  first_name: "Soren", last_name: "Umstot", profile: 'https://www.linkedin.com/in/soren-umstot/',
   stage: Stage.first
 )
 Candidate.create!(
-  first_name: "Yulia", last_name: "Naumenko", profile: 'https://www.indeed.jobs/',
-  stage: Stage.first
+  first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan/',
+  stage: Stage.second
 )
 # Second stage
 # Candidate.create!(
