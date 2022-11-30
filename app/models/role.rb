@@ -1,5 +1,7 @@
 class Role < ApplicationRecord
   has_many :stages
+  has_many :candidates, through: :stages
+  has_many :interviews, through: :candidates
   belongs_to :user, optional: true
   validates :title, :description, presence: true
   after_create :create_default_stages

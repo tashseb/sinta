@@ -7,13 +7,20 @@
       <div class="row row-cols-3 g-3">
         <% @roles.each do |role| %>
           <div class="col">
-            <div class="candidates-list p-4 h-100 d-flex flex-column justify-content-between" style="min-height:240px;">
+            <div class="candidates-list p-4 h-100 d-flex flex-column justify-content-between " style="min-height:240px;">
               <div>
                 <h5 class="role-card-head"> <strong><%= role.title %></strong></h5>
                 <p class="role-card-detail"><%= role.description %></p>
               </div>
-              <div class="role-card-option">
+              <div class="role-card-option d-flex justify-content-between position-relative">
                 <%= link_to "More details", role_path(role), class: 'btn btn-orange' %>
+                <% sum = 0 %>
+                <% role.interviews.each do |interview| %>
+                  <% sum += 1 if interview.feedback %>
+                <% end %>
+                <% if sum > 0 %>
+                  <p style="background-color: red; border-radius:50%;" class="p-2 px-3 position-absolute end-0"> <%= sum %> </p>
+                <% end %>
               </div>
             </div>
           </div>

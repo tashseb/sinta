@@ -37,6 +37,12 @@ class CandidatesController < ApplicationController
     @role = @candidate.stage.role
     @interviews = @candidate.interviews.where(stage: @role.stages)
     @next_stage = @role.stages.where.not(id: @candidate.stages).order(:created_at).first
+    flash[:notice] = "Email sent!" if params[:send]
+    flash[:alert] = "Rejection sent" if params[:reject]
+  end
+
+  def index
+    @candidate = Candidate.all
   end
 
   private
