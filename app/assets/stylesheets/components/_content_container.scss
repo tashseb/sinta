@@ -7,3 +7,10 @@
   background-image: url("sinta-background.png");
   background-size: cover;
 }
+
+#dash-container {
+  flex-grow: 1;
+  margin-left: 15%;
+  background: #f2f0ea;
+  min-height: 100vh;
+}
