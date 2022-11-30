@@ -29,20 +29,16 @@
             <% end %>
           </tbody>
         </table>
-        <div class="d-flex">
-          <div>
-            <% if @next_stage %>
-              <%= simple_form_for @candidate do |f| %>
-                <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
-                <%= f.submit "Move to next stage-#{@next_stage.name}", class: "btn btn-orange" %>
-              <% end %>
-            <% else %>
-              <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
+        <div class="d-flex" role="">
+          <% if @next_stage %>
+            <%= simple_form_for @candidate do |f| %>
+              <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
+              <%= f.submit "Move to next stage-#{@next_stage.name}", class: "btn btn-orange" %>
             <% end %>
-          </div>
-          <div>
-            <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-orange" %>
-          </div>
+          <% else %>
+            <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
+          <% end %>
+          <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-orange align-self-end ms-3" %>
         </div>
       </div>
     </div>
