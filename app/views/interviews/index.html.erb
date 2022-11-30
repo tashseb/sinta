@@ -5,19 +5,19 @@
         <% unless @unscheduled_interviews.empty? %>
           <h2 class="mb-4">Unscheduled Interviews:</h2>
         </div>
-        <div class="row justify-content-center m-3">
+        <div class="row row-cols-3">
           <% @unscheduled_interviews.each do |interview| %>
-            <div class="col-4">
+            <div class="col">
               <%= render 'interviews/cards-unscheduled', interview:interview %>
             </div>
           <% end %>
         </div>
       <% end %>
       <h2 class="mb-4">Scheduled Interviews:</h2>
-      <div class="row justify-content-center m-3">
+      <div class="row row-cols-3">
         <% @interviews.each do |interview| %>
           <% if interview.date.present? %>
-            <div class="col-4">
+            <div class="col">
               <%= render 'interviews/cards', interview:interview %>
             </div>
           <% end %>
