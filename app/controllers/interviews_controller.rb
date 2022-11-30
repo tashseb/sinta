@@ -4,6 +4,7 @@ class InterviewsController < ApplicationController
 
   def index
     @interviews = Interview.all
+    @unscheduled_interviews = @interviews.where(date: nil)
   end
 
   def show

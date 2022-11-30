@@ -4,18 +4,24 @@
       <%= image_tag("Sinta-ArtisticLogo-03.jpg", class: "rounded-circle my-3 mb-5 mx-auto", width: "80%" ) %>
       <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start gap-2" id="menu">
         <li>
-          <i class="fa-solid fa-house fa-fw"></i><%= link_to "Dashboard", root_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <%= link_to root_path, class:"align-middle btn btn-link text-decoration-none" do %>
+            <i class="fa-solid fa-house fa-fw me-3"></i>Dashboard
+          <% end %>
         </li>
         <li>
-          <i class="fa-regular fa-rectangle-list fa-fw"></i><%= link_to "Roles", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <%= link_to roles_path, class:"align-middle btn btn-link text-decoration-none" do %>
+            <i class="fa-regular fa-rectangle-list fa-fw me-3"></i>Roles
+          <% end %>
         </li>
         <li>
-          <%# change my path!---------------------------------------- %>
-          <i class="fa-solid fa-clipboard-question fa-fw"></i><%= link_to "Interviews", interviews_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <%= link_to interviews_path, class:"align-middle btn btn-link text-decoration-none" do %>
+            <i class="fa-solid fa-clipboard-question fa-fw me-3"></i>Interviews
+          <% end %>
         </li>
         <li>
-          <%# change my path!---------------------------------------- %>
-          <i class="fa-regular fa-pen-to-square fa-fw"></i><%= link_to "Reviews", roles_path, class:"align-middle btn btn-link text-decoration-none" %>
+          <%= link_to roles_path, class:"align-middle btn btn-link text-decoration-none" do %>
+            <i class="fa-regular fa-pen-to-square fa-fw me-3"></i>Reviews
+          <% end %>
         </li>
       </ul>
       <hr>
