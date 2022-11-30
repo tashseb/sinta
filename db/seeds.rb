@@ -1,7 +1,8 @@
-puts "Destroying Users, Roles, Stages and Candidates, respectively."
+puts "Destroying Question, Interview, Candidate, StageInterviewer, Stage, Role and User, respectively."
 Question.destroy_all
 Interview.destroy_all
 Candidate.destroy_all
+StageInterviewer.destroy_all
 Stage.destroy_all
 Role.destroy_all
 User.destroy_all
