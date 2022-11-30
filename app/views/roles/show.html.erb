@@ -1,53 +1,60 @@
-<div id="content-container">
-  <div class="container" id="myWizard">
-    <div class="row">
-      <div class="col-xs-10 col-md-10">
-        <h3><span></span>&nbsp;System Builder</h3>
+<div ui-view="main" class="content-container"></div>
+<script type="text/ng-template" id="menu.html">
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <span class="navbar-brand">Our Menu</span>
+          </div>
       </div>
-    </div>
-    <hr>
-    <div class="navbar">
-      <div class="navbar>
-        <ul class="nav nav-pills nav-wizard">
-          <li class="active">
-            <a class="hidden-xs" href="#step1" data-toggle="tab" data-step="1">Screening Interview</a>
-            <a class="visible-xs" href="#step1" data-toggle="tab" data-step="1">1.</a>
-            <div class="nav-arrow"></div>
-          </li>
-          <li class="inactive">
-            <div class="nav-wedge"></div>
-            <a class="hidden-xs" href="#step2" data-toggle="tab" data-step="2">Technical Interview
-            </a>
-            <a class="visible-xs" href="#step2" data-toggle="tab" data-step="2"></a>
-            <div class="nav-arrow"></div>
-          </li>
-          <li class="inactive">
-            <div class="nav-wedge"></div>
-            <a class="hidden-xs" href="#step3" data-toggle="tab" data-step="3">Pair-Programming Interview</a>
-            <a class="visible-xs" href="#step3" data-toggle="tab" data-step="3"></a>
-            <div class="nav-arrow"></div>
-          </li>
-          <li class="inactive">
-            <div class="nav-wedge"></div>
-            <a class="hidden-xs" href="#step4" data-toggle="tab" data-step="4">CEO Interview</a>
-            <a class="visible-xs" href="#step4" data-toggle="tab" data-step="4"></a>
-          </li>
-        </ul>
+  </nav>
+</script>
+<script type="text/ng-template" id="state1.html">
+  <div class="container">
+      <div class="wizard small row ng-cloak" ng-cloak>
+          <a ng-repeat="state in vm.states" ng-click="vm.setCurrent(state)" ng-class="{ 'current': state.isCurrent }" ng-href="{{state.href}}" ng-if="state.isVisible">
+              <div class="badge" style="display:none;">
+                  @*<div class="border"></div>
+                      <div class="number">{{$index + 1}}</div>*@
+              </div>
+              {{ state.name }}
+          </a>
       </div>
-    </div>
-    <div class="tab-content">
-      <div class="tab-pane fade in active" id="step1">
-        <h3>1. Search Customer Information</h3>
+
+      <div class="wizard row ng-cloak" ng-cloak>
+          <a ng-repeat="state in vm.states" ng-click="vm.setCurrent(state)" ng-class="{ 'current': state.isCurrent }" ng-href="{{state.href}}" ng-if="state.isVisible">
+              <div class="badge">
+                  <div class="border"></div>
+                  <div class="number">{{$index + 1}}</div>
+              </div>
+              {{ state.name }}
+          </a>
       </div>
-      <div class="tab-pane fade" id="step2">
-        <h3>2. System Type</h3>
-        <div class="well">
-        </div>
-        <div>
-        </div>
+
+      <div class="wizard left-arrow row ng-cloak" ng-cloak>
+          <a ng-repeat="state in vm.states" ng-click="vm.setCurrent(state)" ng-class="{ 'current': state.isCurrent }" ng-href="{{state.href}}" ng-if="state.isVisible">
+              <div class="badge" style="display:none;">
+                  @*<div class="border"></div>
+              <div class="number">{{$index + 1}}</div>*@
+              </div>
+              {{ state.name }}
+          </a>
       </div>
-    </div>
+
+      <div class="wizard small left-arrow row ng-cloak" ng-cloak>
+          <a ng-repeat="state in vm.states" ng-click="vm.setCurrent(state)" ng-class="{ 'current': state.isCurrent }" ng-href="{{state.href}}" ng-if="state.isVisible">
+              <div class="badge">
+                  <div class="border"></div>
+                  <div class="number">{{$index + 1}}</div>
+              </div>
+              {{ state.name }}
+          </a>
+      </div>
   </div>
-</div>
-<div id="push"></div>
-</div>
+
+  <div class="form-group form-inline" role="form">
+      <div class="form-group">
+          <label>Enter number of states</label>
+          <input name="stateCount" type="number" class="form-control" ng-model="vm.stateCount" ng-change="vm.stateCountChange()" placeholder="Enter a number" />
+      </div>
+  </div>
+</script>

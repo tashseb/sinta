@@ -1,108 +1,201 @@
-li.active > a.hidden-xs {
-  display: block!important;
- }
- li.active > a.visible-xs {
-   display: none!important;
- }
- .nav-pills.nav-wizard > li {
-   position: relative;
-   overflow: visible;
-   border-right: 10px solid #fff;
-   border-left: 10px solid #fff;
- }
- .nav-pills.nav-wizard > li:first-child {
-   border-left: 0;
- }
- .nav-pills.nav-wizard > li:first-child a {
-   border-radius: 5px 0 0 5px;
- }
- .nav-pills.nav-wizard > li:last-child {
-   border-right: 0;
- }
- .nav-pills.nav-wizard > li:last-child a {
-   border-radius: 0 5px 5px 0;
- }
- .nav-pills.nav-wizard > li a {
-   border-radius: 0;
-   background-color: #eee;
-   padding: 10px;
- }
- .nav-pills.nav-wizard > li .nav-arrow {
-   position: absolute;
-   top: 0px;
-   right: -20px;
-   width: 0px;
-   height: 0px;
-   border-style: solid;
-   border-width: 20px 0 20px 20px;
-   border-color: transparent transparent transparent #eee;
-   z-index: 150;
- }
- .nav-pills.nav-wizard > li .nav-wedge {
-   position: absolute;
-   top: 0px;
-   left: -20px;
-   width: 0px;
-   height: 0px;
-   border-style: solid;
-   border-width: 20px 0 20px 20px;
-   border-color: #eee #eee #eee transparent;
-   z-index: 150;
- }
- .nav-pills.nav-wizard > li:hover .nav-arrow {
-   border-color: transparent transparent transparent #aaa;
- }
- .nav-pills.nav-wizard > li:hover .nav-wedge {
-   border-color: #aaa #aaa #aaa transparent;
- }
- .nav-pills.nav-wizard > li:hover a {
-   background-color: #aaa;
-   color: #fff;
- }
- .nav-pills.nav-wizard > li.active .nav-arrow {
-   border-color: transparent transparent transparent #428bca;
- }
- .nav-pills.nav-wizard > li.active .nav-wedge {
-   border-color: #428bca #428bca #428bca transparent;
- }
- .nav-pills.nav-wizard > li.active a {
-   background-color: #428bca;
- }
- /* CSS for Credit Card Payment form */
- .credit-card-box .panel-title {
-     display: inline;
-     font-weight: bold;
- }
- .credit-card-box .form-control.error {
-     border-color: red;
-     outline: 0;
-     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
- }
- .credit-card-box label.error {
-   font-weight: bold;
-   color: red;
-   padding: 2px 8px;
-   margin-top: 2px;
- }
- .credit-card-box .payment-errors {
-   font-weight: bold;
-   color: red;
-   padding: 2px 8px;
-   margin-top: 2px;
- }
- .credit-card-box label {
-     display: block;
- }
+/* wizard with arrows */
+.nomargin {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
- .credit-card-box .display-tr {
-     display: table-row;
- }
- .credit-card-box .display-td {
-     display: table-cell;
-     vertical-align: middle;
-     width: 50%;
- }
- /* Just looks nicer */
- .credit-card-box .panel-heading img {
-     min-width: 180px;
- }
+.wizard {
+  background-color: white;
+  padding: 0.2em 0em 0.2em 0.2em;
+}
+
+  .wizard a {
+      padding: 20px 12px 20px;
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      min-width: 24.75%;
+      margin-left: 3px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      color: #FFFFFF;
+      background: #8BBFE6;
+      text-transform: uppercase;
+      cursor: pointer;
+  }
+
+      .wizard a:hover {
+          text-decoration: none;
+      }
+
+      .wizard a:first-child {
+          margin-left: 0;
+      }
+
+  .wizard:not(.left-arrow) a:before {
+      width: 0;
+      height: 0;
+      border-top: 30px inset transparent;
+      border-bottom: 30px inset transparent;
+      border-left: 30px solid #FFFFFF;
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+  }
+
+
+  .wizard:not(.left-arrow) a:after {
+      width: 0;
+      height: 0;
+      border-top: 30px inset transparent;
+      border-bottom: 30px inset transparent;
+      border-left: 30px solid #8BBFE6;
+      position: absolute;
+      content: "";
+      top: 0;
+      right: -30px;
+      z-index: 2;
+  }
+
+  .wizard.left-arrow a:before {
+      width: 0;
+      height: 0;
+      border-top: 30px inset transparent;
+      border-bottom: 30px inset transparent;
+      border-right: 30px solid #8BBFE6;
+      position: absolute;
+      content: "";
+      top: 0;
+      left: -30px;
+      z-index: 2;
+  }
+
+  .wizard.left-arrow a:after {
+      width: 0;
+      height: 0;
+      border-top: 30px inset transparent;
+      border-bottom: 30px inset transparent;
+      border-right: 30px solid #FFFFFF;
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      z-index: 2;
+  }
+
+  .wizard a:first-child:before,
+  .wizard a:last-child:after {
+      border: none;
+  }
+
+  .wizard a:first-child {
+      -webkit-border-radius: 4px 0 0 4px;
+      -moz-border-radius: 4px 0 0 4px;
+      border-radius: 4px 0 0 4px;
+  }
+
+  .wizard a:last-child {
+      -webkit-border-radius: 0 4px 4px 0;
+      -moz-border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0;
+  }
+
+.wizard a:last-child:not(.current) {
+      /*May want another class and the :before rather than using last-child.*/
+      background-color: #3E95D6;
+  }
+
+  .wizard.left-arrow a:last-child:before,
+  .wizard.small.left-arrow a:last-child:before {
+      border-right-color: #3E95D6;
+  }
+
+  .wizard .badge {
+      margin: 0 5px 0 18px;
+      position: relative;
+      top: -1px;
+  }
+
+  .wizard a:first-child .badge {
+      margin-left: 0;
+  }
+
+  .wizard .current, .wizard a.progress-current {
+      background: #363636;
+      color: #fff;
+  }
+
+      .wizard a.current:after, .wizard a.progress-current:after {
+          border-left-color: #363636 !important;
+      }
+
+  .wizard.left-arrow a.current:before, .wizard.left-arrow a.progress-current:before,
+  .wizard.small.left-arrow a.current:before, .wizard.small.left-arrow a.progress-current:before {
+      border-right-color: #363636;
+  }
+
+  .wizard a.current .badge, .wizard a.progress-current .badge {
+      background-color: #FFFFFF;
+      color: #363636;
+  }
+
+  .wizard.small {
+      margin-bottom: 15px;
+  }
+
+      .wizard.small a {
+          padding: 5px 12px 5px;
+      }
+
+      .wizard.small:not(.left-arrow) a:before {
+          border-top: 15px inset transparent;
+          border-bottom: 15px inset transparent;
+          border-left: 15px solid #FFFFFF;
+      }
+
+      .wizard.small:not(.left-arrow) a:after {
+          border-top: 15px inset transparent;
+          border-bottom: 15px inset transparent;
+          border-left: 15px solid #8BBFE6;
+          right: -15px;
+      }
+
+      .wizard.small.left-arrow a:before {
+          border-top: 15px inset transparent;
+          border-bottom: 15px inset transparent;
+          border-right: 15px solid #8BBFE6;
+          left: -15px;
+          z-index: 2;
+      }
+
+      .wizard.small.left-arrow a:after {
+          width: 0;
+          height: 0;
+          border-top: 15px inset transparent;
+          border-bottom: 15px inset transparent;
+          border-right: 15px solid #FFFFFF;
+      }
+
+      .wizard.small a:first-child:before,
+      .wizard.small a:last-child:after {
+          border: none;
+      }
+
+/* IE11 border bug fixes... hooray! */
+_:-ms-fullscreen, :root .wizard.small.left-arrow a:before {
+  left: -14px;
+}
+
+_:-ms-fullscreen, :root .wizard.small:not(.left-arrow) a:after {
+  right: -14px;
+}
+
+_:-ms-fullscreen, :root .wizard.left-arrow a:before {
+  left: -29px;
+}
+
+_:-ms-fullscreen, :root .wizard:not(.left-arrow) a:after {
+      right: -29px;
+}
