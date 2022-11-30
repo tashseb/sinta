@@ -26,8 +26,8 @@ class CandidatesController < ApplicationController
     last_interview.status = "accepted"
     last_interview.save
     @candidate.update(candidate_params)
-    @interview = Interview.create(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
-    SendQuestions.perform_now(@interview)
+    @interview = Interview.create!(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
+    SendQuestions.perform_now(@interview.reload)
     redirect_to candidate_path(@candidate)
   end
 
