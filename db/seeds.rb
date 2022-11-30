@@ -200,8 +200,7 @@ Interview.create!(
 Interview.create!(
   user: tash, candidate: clement,
   stage: clement.stage,
-  date: DateTime.new(2022, 12, 1, 11, 30),
-  status: 'accepted'
+  date: DateTime.new(2022, 12, 1, 11, 30)
 )
 Interview.create!(
   user: ayanori, candidate: patrick,
