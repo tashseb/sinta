@@ -9,31 +9,31 @@ User.destroy_all
 puts "Destroying data - DONE."
 
 puts "Creating users..."
-User.create!(
+mo = User.create!(
   email: "mo@sintaapp.com", password: "lalala", first_name: "Mo",
   last_name: "Shegow", position: "Recruiter", department: "Recruitment", photo: 'https://avatars.githubusercontent.com/u/114022804?v=4'
 )
-User.create!(
+tash = User.create!(
   email: "tash@sintaapp.com", password: "lalala", first_name: "Tash",
   last_name: "Cruz", position: "Software Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/13973128?v=4'
 )
-User.create!(
+sammy = User.create!(
   email: "sammy@sintaapp.com", password: "lalala", first_name: "Sammy",
   last_name: "Kavanaugh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
 )
-User.create!(
+tom = User.create!(
   email: "tom@sintaapp.com", password: "lalala", first_name: "Tom",
   last_name: "Price", position: "Project Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
 )
-User.create!(
+doug = User.create!(
   email: "doug@sintaapp.com", password: "lalala", first_name: "Doug",
   last_name: "Berkley", position: "Recruitment Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/25542223?v=4'
 )
-User.create!(
+trouni = User.create!(
   email: "trouni@sintaapp.com", password: "lalala", first_name: "Trouni",
-  last_name: "Tiet", position: "HR Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/34345789?v=4'
+  last_name: "Tiet", position: "CEO", department: "Administration", photo: 'https://avatars.githubusercontent.com/u/34345789?v=4'
 )
-User.create!(
+ayanori = User.create!(
   email: "ayanori@sintaapp.com", password: "lalala", first_name: "Ayanori",
   last_name: "Toyoda", position: "Senior Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/77108453?v=4'
 )
@@ -89,46 +89,80 @@ puts "Added #{Role.all.count} roles."
 
 puts 'Adding candidates for the Sales Engineering position...'
 # First stage (Screening) of Sales Engineer
-Candidate.create!(
+mattias = Candidate.create!(
   first_name: "Mattias", last_name: "Welamsson", profile: 'https://www.linkedin.com/in/mattias-welamsson/',
   stage: Stage.first
 )
-Candidate.create!(
+soren = Candidate.create!(
   first_name: "Soren", last_name: "Umstot", profile: 'https://www.linkedin.com/in/soren-umstot/',
   stage: Stage.first
 )
-Candidate.create!(
+# Second stage (Technical)
+joyce = Candidate.create!(
   first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan/',
   stage: Stage.second
 )
-# Second stage
-# Candidate.create!(
-#   first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
-#   stage: Stage.first(2)[1]
-# )
-# Candidate.create!(
-#   first_name: "Sunny", last_name: "Liu", profile: 'https://www.indeed.jobs/',
-#   stage: Stage.first(2)[1]
-# )
-# Third stage
-# Candidate.create!(
-#   first_name: "Keita", last_name: "Wilson", profile: 'https://www.indeed.jobs/',
-#   stage: Stage.first(3)[2]
-# )
+puts 'Adding candidate for Front-End Engineer'
+# First stage (Screening)
+savi = Candidate.create!(
+  first_name: "Savi", last_name: "Wewala", profile: 'https://www.linkedin.com/in/savithri-wewala-507308a1/',
+  stage: Stage.fourth
+)
+# Second stage (Technical)
+clement = Candidate.create!(
+  first_name: "Clement", last_name: "Choi", profile: 'https://www.linkedin.com/in/clement-choi-5212a213a/',
+  stage: Stage.fifth
+)
+# Third stage (Pair-Programming)
+patrick = Candidate.create!(
+  first_name: "Patrick", last_name: "Stark", profile: 'https://www.linkedin.com/in/patrick-stark/',
+  stage: Role.second.stages.third
+)
+puts 'Adding candidate for Back-End Engineer'
+# First stage (Screening)
+yulia = Candidate.create!(
+  first_name: "Yuliia", last_name: "Naumenko", profile: 'https://www.linkedin.com/in/yuliia-naumenko-bba121119/',
+  stage: Stage.fourth
+)
+# Second stage (Technical)
+ayhem = Candidate.create!(
+  first_name: "Ayhem", last_name: "Chet", profile: 'https://www.linkedin.com/in/al5311245/',
+  stage: Stage.fifth
+)
+# Third stage (Pair-Programming)
+sho = Candidate.create!(
+  first_name: "Sho", last_name: "Fujiwara", profile: 'https://www.linkedin.com/in/sho-fujiwara-a747b520a/',
+  stage: Role.second.stages.third
+)
+patrik = Candidate.create!(
+  first_name: "Patrik", last_name: "Moledo", profile: 'https://www.linkedin.com/in/patrik-moledo-0449641a0/',
+  stage: Role.second.stages.third
+)
 puts "Added #{Candidate.all.count} candidates in the system."
+
+
+puts "Adding Interviewer to some stages of a role"
+StageInterviewer.create!(
+  user: mo,
+  stage: mattias.stage
+)
+StageInterviewer.create!(
+  user: mo,
+  stage: soren.stage
+)
 
 puts "Adding interviews..."
 Interview.create!(
-  user: User.first, candidate: Candidate.find_by(first_name: "Keita"),
-  stage: Stage.first, rating: 4,
+  user: mo, candidate: mattias,
+  stage: mattias.stage, rating: 4,
   feedback: "Great sales experience. Highly motivated. Personable",
-  date: DateTime.new(2022, 12, 20, 16, 30)
+  date: DateTime.new(2022, 11, 29, 16, 30)
 )
 Interview.create!(
-  user: User.last, candidate: Candidate.find_by(first_name: "Sunny"),
+  user: mo, candidate: joyce,
   stage: Stage.first, rating: 3,
-  feedback: "Fresh grad with Marketing degree. Seems eager to learn.",
-  date: DateTime.new(2022, 12, 22, 16, 30),
+  feedback: "Extensive technical skills. Had several internship with big IT companies.",
+  date: DateTime.new(2022, 11, 28, 16, 30),
   status: 'accepted'
 )
 
