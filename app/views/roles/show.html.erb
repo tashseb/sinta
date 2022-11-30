@@ -12,6 +12,12 @@
                 </li>
               <% end %>
               <%#  %>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link <%= params[:tab] == "questions" ? "active" : "NULL" %>" id="pills-questions-tab" data-bs-toggle="pill" data-bs-target="#pills-questions" type="button" role="tab" aria-controls="pills-questions" aria-selected="false">Questions</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link <%= params[:tab] == "candidates" ? "active" : "NULL" %>" id="pills-candidates-tab" data-bs-toggle="pill" data-bs-target="#pills-candidates" type="button" role="tab" aria-controls="pills-candidates" aria-selected="false">Candidates</button>
+              </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade <%= params[:tab] == "stages" ? " show active" : "NULL" %> " id="pills-stages" role="tabpanel" aria-labelledby="pills-stages-tab" tabindex="0"><%= render 'stages/stages'  %></div>
