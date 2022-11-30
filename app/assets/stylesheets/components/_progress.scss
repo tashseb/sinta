@@ -1,114 +1,81 @@
-$main-size:  34px;
-$main-color: #1d1d1f;
-
-$primary: lighten($main-color, 25%);
-$secondary:lighten($main-color, 60%);
-$fog-hover: lighten($main-color, 80%);
-$fog: lighten($main-color, 85%);
-
-:root {
-  margin: $main-size;
-  font-family: helvetica Neue, sans-serif;
+.steps {
+  padding-left: 0;
+  list-style: none;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  margin: 30px auto;
+  border-radius: 3px;
 }
 
-b-nav {
-  display: grid;
-  grid: 1fr / auto-flow auto;
-  box-shadow: 0 2px 4px 0 $fog-hover;
+.steps strong {
+  font-size: 14px;
+  display: block;
+  line-height: 1.4;
 }
 
-progress {
-  -webkit-tap-highlight-color: transparent;
-  display: grid;
-  grid: 1fr / #{$main-size} auto #{$main-size};
-  align-items: center;
-  border: solid $secondary;
-  border-width: 1px 0;
-  text-decoration: none;
-  background: $fog;
+.steps>li {
+  position: relative;
+  display: block;
+  /* border: 1px solid #ddd; */
+  padding: 12px 50px 8px 50px;
+  width: 140px;
+  height: 40px;
+}
 
-  &:first-child {
-    border-radius: 4px 0 0 4px;
-    border-width: 1px 0 1px 1px;
-    grid: 1fr / auto #{$main-size};
-  }
+@media (min-width: 768px) {
+  .steps>li { float: left; }
+  .steps .past { color: #666; background: #ececec; }
+  .steps .present { color: #000; }
+  .steps .future { color: #777; background: #efefef; }
 
-  &:last-child {
-    border-radius: 0 4px 4px 0;
-    border-width: 1px 1px 1px 0;
-    grid: 1fr / #{$main-size} auto;
-  }
-
-  &:not(:first-child):before,
-  &:not(:last-child):after {
+  .steps li > span:after,
+  .steps li > span:before {
+    content: "";
     display: block;
-    border: $main-size solid transparent;
-    border-right-width: 0;
-    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid transparent;
+    border-left-color: #f0f0f0;
+    border-width: 30px;
   }
 
-  &:not(:first-child):before {
-    border-left-color: $secondary;
+  .steps li > span:after {
+    top: -5px;
+    z-index: 1;
+    border-left-color: white;
+    border-width: 34px;
   }
 
-  &:not(:last-child):after {
-    transform: translateX($main-size - 1px);
-    border-left-color: $fog;
-  }
-}
+  .steps li > span:before { z-index: 2; }
 
-span-box {
-  padding: 0 20px 0 30px;
-  line-height: 1.2rem;
-  color: $secondary;
-  &:first-line {
-    color: $secondary;
-    font-weight: 700;
-    font-size: .85rem;
-   }
-}
+  .steps li.past + li > span:before { border-left-color: #ececec; }
+  .steps li.present + li > span:before { border-left-color: #fff; }
+  .steps li.future + li > span:before { border-left-color: #efefef; }
 
-.current {
-  background: $primary;
-  span {
-    color: $secondary;
-    &:first-line {
-      color: white;
-    }
-  }
-  &:not(:first-child):before {
-    border-left-color: $primary;
-  }
-  &:not(:last-child):after {
-    border-left-color: $primary;
-  }
-  & + a:not(:first-child):before {
-    border-left-color: $primary;
-  }
-}
+  .steps li:first-child > span:after,
+  .steps li:first-child > span:before { display: none; }
 
-progress:not(.current):hover,
-.done {
-  span {
-    color: $primary;
-    &:first-line {
-      color: $main-color;
-    }
+  /* Arrows at start and end */
+  .steps li:first-child i,
+  .steps li:last-child i {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid transparent;
+    border-left-color: white;
+    border-width: 30px;
   }
-}
 
-progress:not(.current):hover {
-  background: $fog-hover;
-  &:not(:last-child):after,
-  &:not(:first-child):before {
-    border-left-color: $fog-hover;
-  }
-  & + a:not(.current):not(:first-child):before  {
-    border-left-color: $fog-hover;
-  }
-  .current + & {
-    &:not(:first-child):before {
-      border-left-color: $primary;
-    }
+  .steps li:last-child i {
+    left: auto;
+    right: -30px;
+    border-left-color: transparent;
+    border-top-color: white;
+    border-bottom-color: white;
   }
 }
