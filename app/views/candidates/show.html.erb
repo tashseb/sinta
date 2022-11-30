@@ -36,9 +36,9 @@
               <%= f.submit "Move to next stage-#{@next_stage.name}", class: "btn btn-orange" %>
             <% end %>
           <% else %>
-            <button class="btn btn-orange">Send to HR</button>
-            <button class="btn btn-warning">Send rejection</button>
+            <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
           <% end %>
+          <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-red" %>
         </div>
       </div>
     </div>
