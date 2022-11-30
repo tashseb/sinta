@@ -24,7 +24,7 @@ class CandidatesController < ApplicationController
   def update
     @candidate = Candidate.find(params[:id])
     last_interview = @candidate.interviews.last
-    last_interview.status = "accepted"
+    last_interview.status = "Passed"
     last_interview.save
     @candidate.update(candidate_params)
     @interview = Interview.create!(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
