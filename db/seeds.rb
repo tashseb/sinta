@@ -94,8 +94,7 @@ Interview.create!(
   user: User.last, candidate: Candidate.find_by(first_name: "Sunny"),
   stage: Stage.first, rating: 3,
   feedback: "Fresh grad with Marketing degree. Seems eager to learn.",
-  date: DateTime.new(2022, 12, 22, 16, 30),
-  status: 'accepted'
+  date: DateTime.new(2022, 12, 22, 16, 30)
 )
 
 puts "Added #{Interview.all.count} interviews."
