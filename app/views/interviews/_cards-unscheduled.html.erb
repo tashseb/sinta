@@ -1,16 +1,17 @@
-<div class= "d-flex gap-3 justify-content-center">
-  <div class="card mb-3 justify-content-center" style="max-width: 540px; box-shadow: 10px 5px 5px orange;border-radius: 6px; border: 2px solid #333;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%= image_tag "sinta-icons/04.png", style: 'height: 80%; width: 100%;', class: 'mx-auto my-3 py-2 px-2 d-block'  %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h3 class="card-title"><%= interview.candidate.first_name%> <%=interview.candidate.last_name %></h3>
-          <h5 class="card-title">Stage: <%= interview.stage.id %> - <%= interview.stage.name %></h5>
-          <p class="card-text"><small class="text-muted"><%= interview.feedback %></small></p>
-          <p class="card-text">Role: <%= interview.stage.role.title%></p>
-          <p class="card-text"><small class="text-muted"><%= interview.stage.name %> Interview: To Be Scheduled </small></p>
+<div class="interview-cards">
+  <div class= "d-flex gap-3 justify-content-center">
+    <div class="card mb-3 justify-content-center" style="max-width: 540px;box-shadow: 0 0 15px rgba(0,0,0,0.2);border-radius: 8px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <%= image_tag "sinta-icons/04.png", style: 'height: 80%; width: 100%;', class: 'mx-auto my-3 py-2 px-2 d-block'  %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body px-0">
+            <h3 class="card-title"><%= interview.candidate.first_name%> <%=interview.candidate.last_name %></h3>
+            <h5 class="card-title">Stage: <%= interview.stage.id %> - <%= interview.stage.name %></h5>
+            <p class="card-text">Role: <%= interview.stage.role.title%></p>
+            <p class="card-text"><small class="text-muted"><%= interview.stage.name %> Interview: To Be Scheduled </small></p>
+          </div>
         </div>
       </div>
     </div>
