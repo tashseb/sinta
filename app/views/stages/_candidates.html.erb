@@ -8,7 +8,7 @@
     <div id="collapseOne<%=stage.id%>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body d-flex p-0 justify-content-center">
         <% stage.candidates.each do |candidate| %>
-          <div id="candidate" class="category-card d-flex pr-3">
+          <div id="candidate" class="category-card d-flex pr-3 flex-wrap">
             <div class="me-2">
               <%= user_avatar(candidate.full_name) %>
             </div>
