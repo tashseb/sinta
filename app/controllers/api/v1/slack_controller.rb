@@ -10,7 +10,7 @@ class Api::V1::SlackController < ActionController::API
     pp payload
     puts
     # you specified the block_id in the message you built
-    interview_id = payload['message']['blocks'][-1]['elements'][0]['alt_text'].to_i
+    interview_id = payload['message']['blocks'].filter {|block| block['type']=='context'}.last["elements"].first['alt_text'].to_i
     @interview = Interview.find(interview_id)
     sum = payload['state']['values'].values[0..-2].sum do |value|
       value['static_select-action']['selected_option'] ? JSON.parse(value['static_select-action']['selected_option']['value'])['answer_value'] : 0

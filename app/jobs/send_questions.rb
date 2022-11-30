@@ -124,7 +124,7 @@ class SendQuestions < ApplicationJob
         },
         "label": {
           "type": "plain_text",
-          "text": "Label",
+          "text": "Feedback",
           "emoji": true
         }
     }
@@ -134,7 +134,7 @@ class SendQuestions < ApplicationJob
           {
             "type": "image",
             "image_url": "https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg",
-            "alt_text": "#{interview.id}"
+            "alt_text": interview.id.to_s
           },
           {
             "type": "mrkdwn",
