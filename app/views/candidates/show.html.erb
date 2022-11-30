@@ -1,7 +1,7 @@
 <div id="content-container">
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
-      <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+      <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       <div class="candidates-list">
         <h4 class="my-2">Candidate Score Card</h4>
         <table class="table table-bordered mt-3">
@@ -29,16 +29,20 @@
             <% end %>
           </tbody>
         </table>
-        <div class="">
-          <% if @next_stage %>
-            <%= simple_form_for @candidate do |f| %>
-              <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
-              <%= f.submit "Move to next stage-#{@next_stage.name}", class: "btn btn-orange" %>
+        <div class="d-flex">
+          <div>
+            <% if @next_stage %>
+              <%= simple_form_for @candidate do |f| %>
+                <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
+                <%= f.submit "Move to next stage-#{@next_stage.name}", class: "btn btn-orange" %>
+              <% end %>
+            <% else %>
+              <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
             <% end %>
-          <% else %>
-            <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
-          <% end %>
-          <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-red" %>
+          </div>
+          <div>
+            <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-orange" %>
+          </div>
         </div>
       </div>
     </div>
