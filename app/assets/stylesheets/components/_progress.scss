@@ -1,201 +1,137 @@
-/* wizard with arrows */
-.nomargin {
-  padding: 0 !important;
-  margin: 0 !important;
+.steps {
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  margin: 10px 0px 10px 20px;
+  display: inline-block;
 }
-
-.wizard {
-  background-color: white;
-  padding: 0.2em 0em 0.2em 0.2em;
+.steps span {
+  position: relative;
+  z-index: 2;
 }
-
-  .wizard a {
-      padding: 20px 12px 20px;
-      position: relative;
-      display: inline-block;
-      text-decoration: none;
-      min-width: 24.75%;
-      margin-left: 3px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 14px;
-      color: #FFFFFF;
-      background: #8BBFE6;
-      text-transform: uppercase;
-      cursor: pointer;
-  }
-
-      .wizard a:hover {
-          text-decoration: none;
-      }
-
-      .wizard a:first-child {
-          margin-left: 0;
-      }
-
-  .wizard:not(.left-arrow) a:before {
-      width: 0;
-      height: 0;
-      border-top: 30px inset transparent;
-      border-bottom: 30px inset transparent;
-      border-left: 30px solid #FFFFFF;
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-  }
-
-
-  .wizard:not(.left-arrow) a:after {
-      width: 0;
-      height: 0;
-      border-top: 30px inset transparent;
-      border-bottom: 30px inset transparent;
-      border-left: 30px solid #8BBFE6;
-      position: absolute;
-      content: "";
-      top: 0;
-      right: -30px;
-      z-index: 2;
-  }
-
-  .wizard.left-arrow a:before {
-      width: 0;
-      height: 0;
-      border-top: 30px inset transparent;
-      border-bottom: 30px inset transparent;
-      border-right: 30px solid #8BBFE6;
-      position: absolute;
-      content: "";
-      top: 0;
-      left: -30px;
-      z-index: 2;
-  }
-
-  .wizard.left-arrow a:after {
-      width: 0;
-      height: 0;
-      border-top: 30px inset transparent;
-      border-bottom: 30px inset transparent;
-      border-right: 30px solid #FFFFFF;
-      position: absolute;
-      content: "";
-      top: 0;
-      right: 0;
-      z-index: 2;
-  }
-
-  .wizard a:first-child:before,
-  .wizard a:last-child:after {
-      border: none;
-  }
-
-  .wizard a:first-child {
-      -webkit-border-radius: 4px 0 0 4px;
-      -moz-border-radius: 4px 0 0 4px;
-      border-radius: 4px 0 0 4px;
-  }
-
-  .wizard a:last-child {
-      -webkit-border-radius: 0 4px 4px 0;
-      -moz-border-radius: 0 4px 4px 0;
-      border-radius: 0 4px 4px 0;
-  }
-
-.wizard a:last-child:not(.current) {
-      /*May want another class and the :before rather than using last-child.*/
-      background-color: #3E95D6;
-  }
-
-  .wizard.left-arrow a:last-child:before,
-  .wizard.small.left-arrow a:last-child:before {
-      border-right-color: #3E95D6;
-  }
-
-  .wizard .badge {
-      margin: 0 5px 0 18px;
-      position: relative;
-      top: -1px;
-  }
-
-  .wizard a:first-child .badge {
-      margin-left: 0;
-  }
-
-  .wizard .current, .wizard a.progress-current {
-      background: #363636;
-      color: #fff;
-  }
-
-      .wizard a.current:after, .wizard a.progress-current:after {
-          border-left-color: #363636 !important;
-      }
-
-  .wizard.left-arrow a.current:before, .wizard.left-arrow a.progress-current:before,
-  .wizard.small.left-arrow a.current:before, .wizard.small.left-arrow a.progress-current:before {
-      border-right-color: #363636;
-  }
-
-  .wizard a.current .badge, .wizard a.progress-current .badge {
-      background-color: #FFFFFF;
-      color: #363636;
-  }
-
-  .wizard.small {
-      margin-bottom: 15px;
-  }
-
-      .wizard.small a {
-          padding: 5px 12px 5px;
-      }
-
-      .wizard.small:not(.left-arrow) a:before {
-          border-top: 15px inset transparent;
-          border-bottom: 15px inset transparent;
-          border-left: 15px solid #FFFFFF;
-      }
-
-      .wizard.small:not(.left-arrow) a:after {
-          border-top: 15px inset transparent;
-          border-bottom: 15px inset transparent;
-          border-left: 15px solid #8BBFE6;
-          right: -15px;
-      }
-
-      .wizard.small.left-arrow a:before {
-          border-top: 15px inset transparent;
-          border-bottom: 15px inset transparent;
-          border-right: 15px solid #8BBFE6;
-          left: -15px;
-          z-index: 2;
-      }
-
-      .wizard.small.left-arrow a:after {
-          width: 0;
-          height: 0;
-          border-top: 15px inset transparent;
-          border-bottom: 15px inset transparent;
-          border-right: 15px solid #FFFFFF;
-      }
-
-      .wizard.small a:first-child:before,
-      .wizard.small a:last-child:after {
-          border: none;
-      }
-
-/* IE11 border bug fixes... hooray! */
-_:-ms-fullscreen, :root .wizard.small.left-arrow a:before {
-  left: -14px;
+.steps:before,
+.steps:after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  width: 150px;
+  height: 25px;
 }
-
-_:-ms-fullscreen, :root .wizard.small:not(.left-arrow) a:after {
-  right: -14px;
+.steps:before {
+  top: -2px;
+  border-top: 2px solid blue;
+  border-right: 2px solid blue;
+  border-left: 2px solid blue;
+  background: lightblue;
+  -moz-transform: skew(30deg);
+  -webkit-transform: skew(30deg);
+  transform: skew(30deg);
 }
-
-_:-ms-fullscreen, :root .wizard.left-arrow a:before {
-  left: -29px;
+.steps:after {
+  bottom: -2px;
+  border-left: 2px solid blue;
+  border-right: 2px solid blue;
+  border-bottom: 2px solid blue;
+  background: lightblue;
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  transform: skew(-30deg);
 }
+.steps:first-child:before,
+.steps:first-child:after {
+  border-left: none;
+}
+.steps:last-child:before,
+.steps:last-child:after {
+  border-right: none;
+}
+.steps:last-child {
+  background: lightblue;
+  border-right: 2px solid blue;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+  margin-left: 38px;
+}
+.steps:first-child {
+  background: lightblue;
+  border-left: 2px solid blue;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+  margin-right: 18px;
+}
+.steps:first-child:before,
+.steps:first-child:after {
+  left: 18px;
+}
+.steps:last-child:before,
+.steps:last-child:after {
+  left: -18px;
+}
+/* Hover Styles */
 
-_:-ms-fullscreen, :root .wizard:not(.left-arrow) a:after {
-      right: -29px;
+.steps:first-child:hover,
+.steps:last-child:hover,
+.steps:hover:before,
+.steps:hover:after {
+  background: lightgreen;
+}
+.steps:first-child:hover {
+  border-left: 2px solid green;
+}
+.steps:last-child:hover {
+  border-right: 2px solid green;
+}
+.steps:hover:before {
+  border-top: 2px solid green;
+  border-right: 2px solid green;
+  border-left: 2px solid green;
+}
+.steps:hover:after {
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
+}
+.steps:first-child:hover,
+.steps:last-child:hover {
+  border-top: 2px solid green;
+  border-bottom: 2px solid green;
+}
+.steps:first-child:hover:before,
+.steps:first-child:hover:after {
+  border-left: none;
+}
+.steps:last-child:hover:before,
+.steps:last-child:hover:after {
+  border-right: none;
+}
+/* Active Styles */
+
+.active:first-child,
+.active:last-child,
+.active:before,
+.active:after {
+  background: bisque;
+}
+.active:first-child {
+  border-left: 2px solid red;
+}
+.active:last-child {
+  border-right: 2px solid red;
+}
+.active:before {
+  border-top: 2px solid red;
+  border-right: 2px solid red;
+  border-left: 2px solid red;
+}
+.active:after {
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+  border-bottom: 2px solid red;
+}
+.active:first-child,
+.active:last-child {
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
 }
