@@ -24,6 +24,19 @@ User.create!(
   email: "tom@teamsinta.com", password: "lalala", first_name: "Tom",
   last_name: "Price", position: "Project Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
 )
+User.create!(
+  email: "doug@teamsinta.com", password: "lalala", first_name: "Doug",
+  last_name: "Berkley", position: "Recruitment Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/25542223?v=4'
+)
+User.create!(
+  email: "trouni@teamsinta.com", password: "lalala", first_name: "Trouni",
+  last_name: "Tiet", position: "HR Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/34345789?v=4'
+)
+User.create!(
+  email: "ayanori@teamsinta.com", password: "lalala", first_name: "Ayanori",
+  last_name: "Toyoda", position: "Senior Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/77108453?v=4'
+)
+
 puts "Added #{User.all.count} users."
 
 puts "Adding Roles in the system..."
