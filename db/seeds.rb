@@ -51,6 +51,26 @@ Role.create!(
   description: "Bachelor's degree with 3 years of experience. 1 year rich application experience with HTML, CSS and JS",
   user_id: User.first.id
 )
+Role.create!(
+  title: "Back-End Developer",
+  description: "Responsible for creating and maintaining technology at the back end of a website (the server, database).",
+  user_id: User.first.id
+)
+Role.create!(
+  title: "Software Engineer",
+  description: "Design, develop, and test software and applications for computers while ensuring system's performance.",
+  user_id: User.first.id
+)
+Role.create!(
+  title: "DevOps Engineer",
+  description: "Experience and knowlodge with Python, Ruby, Python, Java, Javascript, PHP, Bash, Shell and Node. js.",
+  user_id: User.first.id
+)
+Role.create!(
+  title: "Project Manager",
+  description: "Create and lead the team and monitor project progress, deadlines, budget and system performance",
+  user_id: User.first.id
+)
 puts "Added #{Role.all.count} roles."
 
 # puts 'Adding stages for the Sales Engineer role...'
