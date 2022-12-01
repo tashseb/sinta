@@ -11,8 +11,12 @@
       </div>
     </div>
     <div>
-      <%= render 'stages/questions', stage: stage %>
-      <%= render 'roles/candidates', stage:stage %>
+      <div class="row row-cols-2">
+        <%= render 'stages/questions', stage: stage %>
+      </div>
+      <div class="row row-cols-2">
+        <%= render 'roles/candidates', stage:stage %>
+      </div>
     </div>
   </div>
 </div>
