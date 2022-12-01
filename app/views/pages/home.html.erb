@@ -26,8 +26,8 @@
                   <div>
                     <% if role.interviews.count > 0%>
                       <div class="d-flex flex-row justify-content-between border-bottom">
-                        <div class="p2">
-                          <%= role.title %>
+                        <div id="link-role-no-deco" class="p2">
+                          <%= link_to "#{role.title }", role_path(role) %>
                         </div>
                         <div class="number-of-interview">
                           <%= role.interviews.count %>

@@ -24,3 +24,13 @@
   text-align: center;
   margin: 2px;
 }
+
+#link-role-no-deco > a {
+  text-decoration: none;
+  color: darkslategray;
+}
+
+#link-role-no-deco > a:hover {
+  text-decoration: none;
+  color: $orange;
+}
