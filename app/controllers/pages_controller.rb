@@ -2,11 +2,12 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home]
 
   def home
-    @role = Role.where(user: current_user)
+    @roles = Role.where(user: current_user)
     @stages = Stage.where(role: @role)
+    # @total = total_interviews(role)
   end
 
-  def total_interviews
-
-  end
+  # def total_interviews(role)
+  #   role.interviews.count
+  # end
 end
