@@ -1,7 +1,7 @@
 <h3>Candidates</h3>
-<div class="card-container">
+<div class="card-container flex-wrap w-100">
   <% stage.candidates.each do |candidate| %>
-    <div id="candidate" class="category-card d-flex pr-3 flex-wrap">
+    <div id="candidate" class="category-card d-flex pr-3">
       <div>
         <%= user_avatar(candidate.full_name) %>
       </div>
