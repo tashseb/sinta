@@ -1,11 +1,11 @@
 <div id="content-container">
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
-      <div class="mb-3">
+      <div class="mb-4 d-flex justify-content-between">
         <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       </div>
       <% @interviews.each do |interview| %>
-        <div class="card-product position-relative mb-4" style="border-top-left-radius: 80px 80px; border-top-right-radius: 20px 20px; border-bottom-left-radius: 80px 80px; overflow: visible; <%= interview == @interviews.last ? "" : "filter: grayscale(0.6);" %>">
+        <div class="card-product position-relative mt-4" style="border-top-left-radius: 80px 80px; border-top-right-radius: 20px 20px; border-bottom-left-radius: 80px 80px; overflow: visible; <%= interview == @interviews.last ? "" : "filter: grayscale(0.5); box-shadow: 0 0 8px rgba(0,0,0,0.1);" %>">
           <img class="avatar" src="<%= interview.user.photo %>" />
           <% if interview.feedback %>
             <i style="color: green;" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
@@ -25,7 +25,7 @@
           </div>
         </div>
       <% end %>
-      <div class="d-flex" role="">
+      <div class="d-flex ms-5">
         <% if @next_stage %>
           <%= simple_form_for @candidate do |f| %>
             <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
