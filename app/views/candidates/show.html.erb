@@ -25,13 +25,14 @@
               </h5>
               <div style="bottom:8px; left: 16px;" class="d-flex position-absolute ">
                 <% if interview == @interviews.last %>
-                  <% if @next_stage %>
+                  <% if @next_stage && interview.feedback %>
                     <%= simple_form_for @candidate do |f| %>
                       <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
                       <%= f.submit "Move to: #{@next_stage.name.capitalize}", class: "btn btn-orange" %>
                     <% end %>
-                  <% else %>
+                  <% elsif interview.feedback  %>
                     <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-green" %>
+                  <% else %>
                   <% end %>
                   <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-outline-red align-self-end ms-3" %>
                 <% end %>
