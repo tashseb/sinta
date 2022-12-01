@@ -6,7 +6,7 @@
         <%= link_to "Add Candidate", new_role_candidate_path(@role), class: 'btn btn-orange' %>
       </div>
     </div>
-    <div class="d-flex">
+    <div >
       <% stage.stage_interviewers.each do |interview| %>
         <%= image_tag interview.user.photo, alt: "text", class:"avatar-large" %>
         <div>
