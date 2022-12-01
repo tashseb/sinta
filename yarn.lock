@@ -673,6 +673,11 @@ jkanban@^1.3.1:
     dragula "^3.7.3"
     npm-watch "^0.7.0"
 
+js-confetti@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/js-confetti/-/js-confetti-0.11.0.tgz#5eb56dc23cba54be98b71afdc69a28bec61880a2"
+  integrity sha512-Hc7I3VI4r4H0nq5q/oQK+JJwGoYRYVHK72fGk8E9Ay1dbh+aiZ9yl0yFp1K4oYeq7YFDQAndYChwqLPA3QWQuA==
+
 json-parse-even-better-errors@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
@@ -981,6 +986,10 @@ stimulus-checkbox-select-all@^5.1.0:
   resolved "https://registry.yarnpkg.com/stimulus-checkbox-select-all/-/stimulus-checkbox-select-all-5.1.0.tgz#44f02a730c29696a1910a555506f8a6fa4d4a1ff"
   integrity sha512-YXhPEhvEN81+d2nYhEe9ZLxuHTWw+R57q/AOip0T8kpnPCIWM3cezIYFZK5HNNLf2XpkfPCzuM7bQI8b/xkfGg==
 
+stimulus-sortable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/stimulus-sortable/-/stimulus-sortable-4.0.0.tgz#bd713fc65c5620d6517648dc8fe9a09be9681bb0"
+  integrity sha512-tvM7YWLrfMqLrWKm58PQmTd8D3zynS2j7NO40MErD02OY+pnUWcP2Y4ZM26EtcCzEnxSYxTeCVx9wXkO8uabVA==
 
 string_decoder@~1.1.1:
   version "1.1.1"
@@ -995,12 +1004,6 @@ supports-color@^5.5.0:
   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
   dependencies:
     has-flag "^3.0.0"
-
-stimulus-sortable@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/stimulus-sortable/-/stimulus-sortable-4.0.0.tgz#bd713fc65c5620d6517648dc8fe9a09be9681bb0"
-  integrity sha512-tvM7YWLrfMqLrWKm58PQmTd8D3zynS2j7NO40MErD02OY+pnUWcP2Y4ZM26EtcCzEnxSYxTeCVx9wXkO8uabVA==
-
 
 supports-color@^8.0.0:
   version "8.1.1"

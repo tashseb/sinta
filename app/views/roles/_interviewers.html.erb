@@ -8,18 +8,18 @@
       <p class= "mt-3"> <strong><%= interview.user.first_name %> <%= interview.user.last_name %></strong> </p>
       <p> Position: <strong><%= interview.user.position %></strong> </p>
     </div>
-  </div>
-  <div class="modal" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= render 'stage_interviewers/interviewer-form', stage:stage %>
-        </div>
+  <% end %>
+</div>
+<div class="modal" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'stage_interviewers/interviewer-form', stage:stage %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
