@@ -13,7 +13,7 @@ mo = User.create!(
   email: "mo@sintaapp.com", password: "lalala", first_name: "Mo",
   last_name: "Shegow", position: "Recruiter", department: "Recruitment", photo: 'https://avatars.githubusercontent.com/u/114022804?v=4'
 )
-tash = User.create!(
+User.create!(
   email: "tash@sintaapp.com", password: "lalala", first_name: "Tash",
   last_name: "Cruz", position: "Software Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/13973128?v=4'
 )
@@ -147,7 +147,7 @@ Interview.create!(
   stage: soren.stage, rating: 4,
   feedback: "Over qualified for the role. Better for senior position",
   date: DateTime.new(2022, 12, 1, 13, 30),
-  status: 'Failed'
+  status: 'Passed'
 )
 Interview.create!(
   user: mo, candidate: joyce,
