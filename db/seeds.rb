@@ -192,6 +192,7 @@ Interview.create!(
   status: 'Passed'
 )
 Interview.create!(
+
   user: mo, candidate: soren,
   stage: soren.stage, rating: 4,
   feedback: "Over qualified for the role. Better for senior position",
