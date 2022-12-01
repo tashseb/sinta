@@ -7,22 +7,14 @@
         <%= link_to "Add Interviewer", new_role_candidate_path(@role), class: 'btn btn-orange' %>
       </div>
     </div>
-    <div class="d-flex">
-      <% stage.stage_interviewers.each do |interview| %>
-        <%= image_tag interview.user.photo, alt: "text", class:"avatar-large" %>
-        <div>
-          <h2> <%= interview.user.first_name %> </h2>
-        </div>
-      <% end %>
-    </button>
+    <div class="row row-cols-2">
+      <%= render 'roles/interviewers', stage:stage %>
+      <%= render 'stages/questions', stage: stage %>
+    </div>
+    <div class="row row-cols-2">
+      <%= render 'roles/candidates', stage:stage %>
+    </div>
   </div>
-  <div class="row row-cols-2">
-    <%= render 'stages/questions', stage: stage %>
-  </div>
-  <div class="row row-cols-2">
-    <%= render 'roles/candidates', stage:stage %>
-  </div>
-</div>
 </div>
 </div>
 <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
