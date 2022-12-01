@@ -29,16 +29,16 @@
 }
 
 .btn-outline-red {
-  color: $red;
+  color: white;
   padding: 8px 16px;
   border-radius: 8px;
-  background: white;
+  background: grey;
   transition: background 0.2s ease;
-  border: 2px solid $red;
+  border: 2px solid white;
 }
 
 .btn-outline-red:hover {
-  background: $red;
-  color: $white;
-  border: 2px solid $red;
+  background: white;
+  color: grey;
+  border: 2px solid grey;
 }
