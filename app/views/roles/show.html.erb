@@ -11,7 +11,6 @@
                   <button class="nav-link <%= params[:tab] == "stages" ? " active" : "NULL" %>" id="pills-<%= stage.name %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= stage.name %>" type="button" role="tab" aria-controls="pills-stages" aria-selected="false"><%= stage.name %></button>
                 </li>
               <% end %>
-              <%#  %>
             </ul>
             <div class="tab-content" id="pills-tabContent">
               <% @role.stages.each do |stage| %>
