@@ -3,19 +3,19 @@
     <div class="candidates-list-card mt-3">
       <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       <div class="candidates-list">
-        <h4 class="my-2">Candidate Score Card</h4>
-        <table class="table table-bordered mt-3">
-          <thead class="text-primary">
-            <tr>
-              <th scope="col">Stage</th>
-              <th scope="col">Interviewer</th>
-              <th scope="col">Status</th>
-              <th scope="col">Key Summary</th>
-              <th scope="col">Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @interviews.each do |interview| %>
+        <% @interviews.each do |interview| %>
+          <h4 class="my-2">Candidate Score Card</h4>
+          <table class="table table-bordered mt-3">
+            <thead class="text-primary">
+              <tr>
+                <th style="width: 100px;" scope="col">Stage</th>
+                <th style="width: 100px;" scope="col">Interviewer</th>
+                <th style="width: 100px;" scope="col">Status</th>
+                <th scope="col">Key Summary</th>
+                <th style="width: 100px;" scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                 <td><%= interview.stage.name %></td>
                 <td><%= interview.user.first_name %></td>
@@ -26,21 +26,22 @@
                   <% end %>
                 </td>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div class="d-flex" role="">
-          <% if @next_stage %>
-            <%= simple_form_for @candidate do |f| %>
-              <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
-              <%= f.submit "Move to next stage: #{@next_stage.name.capitalize}", class: "btn btn-orange" %>
-            <% end %>
-          <% else %>
-            <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+      <div class="d-flex" role="">
+        <% if @next_stage %>
+          <%= simple_form_for @candidate do |f| %>
+            <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
+            <%= f.submit "Move to next stage: #{@next_stage.name.capitalize}", class: "btn btn-orange" %>
           <% end %>
-          <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-orange align-self-end ms-3" %>
-        </div>
+        <% else %>
+          <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
+        <% end %>
+        <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-orange align-self-end ms-3" %>
       </div>
     </div>
   </div>
+</div>
 </div>
