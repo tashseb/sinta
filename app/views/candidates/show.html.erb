@@ -33,7 +33,7 @@
                   <% else %>
                     <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-green" %>
                   <% end %>
-                  <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-outline-orange align-self-end ms-3" %>
+                  <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-outline-red align-self-end ms-3" %>
                 <% end %>
               </div>
             </div>
