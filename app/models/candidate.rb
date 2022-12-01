@@ -11,5 +11,9 @@ class Candidate < ApplicationRecord
     Initials.svg(this.full_name)
   end
 
+  def role
+    stage.role
+  end
+
   validates :first_name, :last_name, presence: true
 end

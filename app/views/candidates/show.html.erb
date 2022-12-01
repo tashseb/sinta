@@ -2,41 +2,44 @@
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
       <div class="mb-4 d-flex justify-content-between">
-        <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+        <h1 style="padding-left: 6px; color: #204D53;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       </div>
-      <% @interviews.each do |interview| %>
-        <div class="card-product position-relative mt-4" style="border-top-left-radius: 80px 80px; border-top-right-radius: 20px 20px; border-bottom-left-radius: 80px 80px; overflow: visible; <%= interview == @interviews.last ? "" : "filter: grayscale(0.5); box-shadow: 0 0 8px rgba(0,0,0,0.1);" %>">
-          <img class="avatar" src="<%= interview.user.photo %>" />
-          <% if interview.feedback %>
-            <i style="color: green;" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
-          <% end %>
-          <p style="top: 8px; right: 16px;" class="position-absolute"><%= interview.status %></p>
-          <div class="card-product-infos w-100 h-100 position-relative">
-            <div class="">
-              <h2 class="my-0 py-0 fs-4">Stage - <%= interview.stage.name %></h2>
-              <p class="my-0 py-0 fs-6">Interviewer - <%= interview.user.first_name %></p>
+      <div class="d-flex flex-column-reverse">
+        <% @interviews.each_with_index do |interview, index| %>
+          <div class="card-product position-relative mt-4" style="border-top-left-radius: 80px 80px; border-top-right-radius: 20px 20px; border-bottom-left-radius: 80px 80px; overflow: visible; <%= interview == @interviews.last ? "height: 180px;" : "" %>">
+            <% if interview.feedback %>
+              <i style="color: green;" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
+            <% end %>
+            <i style="width: 30px; color: #FF9923;" class="fa-solid fa-<%="#{index + 1}"%> fs-1 p-5"></i>
+            <p style="top: 8px; right: 16px;" class="position-absolute fs-4"><%= interview.status.upcase %></p>
+            <div class="card-product-infos w-100 h-100 position-relative border-start">
+              <div class="">
+                <h2 style="<%= interview == @interviews.last ? "color: #204D53;" : "color: lightgrey;" %>" class="my-0 py-0 fs-4">Stage - <%= interview.stage.name %></h2>
+                <p class="my-0 fs-6">Interviewer - <%= "#{interview.user.first_name} #{interview.user.last_name} - #{interview.user.position}" %> </p>
+              </div>
+              <p class="fs-5"><%= interview.feedback ? interview.feedback : "Interview not completed yet." %></p>
+              <h5 class="position-absolute" style="bottom: 10px; right: 20px;">
+                <% interview.rating.to_i.times do %>
+                  <i style="color: gold;" class="fa-solid fa-star fs-4"></i>
+                <% end %>
+              </h5>
+              <div style="bottom:8px; left: 16px;" class="d-flex position-absolute ">
+                <% if interview == @interviews.last %>
+                  <% if @next_stage %>
+                    <%= simple_form_for @candidate do |f| %>
+                      <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
+                      <%= f.submit "Move to: #{@next_stage.name.capitalize}", class: "btn btn-orange" %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-green" %>
+                  <% end %>
+                  <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-outline-orange align-self-end ms-3" %>
+                <% end %>
+              </div>
             </div>
-            <p class="fs-5"><%= interview.feedback %></p>
-            <h5 class="position-absolute" style="color: gold; bottom: 10px; right: 20px;">
-              <% interview.rating.to_i.times do %>
-                <i class="fa-solid fa-star"></i>
-              <% end %>
-            </h5>
           </div>
-        </div>
-      <% end %>
-      <div class="d-flex ms-5">
-        <% if @next_stage %>
-          <%= simple_form_for @candidate do |f| %>
-            <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
-            <%= f.submit "Move to next stage: #{@next_stage.name.capitalize}", class: "btn btn-orange" %>
-          <% end %>
-        <% else %>
-          <%= link_to "Send Offer", candidate_path(@candidate, send: true), class: "btn btn-orange" %>
         <% end %>
-        <%= link_to "Reject", candidate_path(@candidate, reject: true), class: "btn btn-orange align-self-end ms-3" %>
       </div>
     </div>
   </div>
-</div>
 </div>
