@@ -1,10 +1,12 @@
 <div id="content-container">
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
-      <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
-      <div class="candidates-list">
-        <% @interviews.each do |interview| %>
-          <h4 class="my-2">Candidate Score Card</h4>
+      <div class="header">
+        <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+      </div>
+      <% @interviews.each do |interview| %>
+        <%# <h4 class="my-2">Candidate Score Card</h4> %>
+        <div class="candidates-list mb-4">
           <table class="table table-bordered mt-3">
             <thead class="text-primary">
               <tr>
@@ -28,8 +30,8 @@
               </tr>
             </tbody>
           </table>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <div class="d-flex" role="">
         <% if @next_stage %>
           <%= simple_form_for @candidate do |f| %>
