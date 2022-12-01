@@ -1,0 +1,8 @@
+<div class="d-flex">
+  <% stage.stage_interviewers.each do |interview| %>
+    <%= image_tag interview.user.photo, alt: "text", class:"avatar" %>
+    <div>
+      <h2> <%= interview.user.first_name %> </h2>
+    </div>
+  <% end %>
+</div>
