@@ -9,15 +9,6 @@
     <div class="stages-main-list">
       <div class="stages-list stages-list-top">
         <div class="d-flex justify-content-between align-items-center">
-          <p id="stage-title"><%= stage.name %> Interview</p>
-          <div class="d-flex">
-            <% stage.stage_interviewers.each do |interview| %>
-              <%= image_tag interview.user.photo, alt: "text", class: "avatar-bordered" %>
-            <% end %>
-            <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">
-              <i class="fa-solid fa-user-plus"></i>
-            </button>
-          </div>
         </div>
       </div>
       <div>
