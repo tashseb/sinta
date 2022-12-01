@@ -11,13 +11,13 @@
             <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
               <% @role.stages.each do |stage| %>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link <%= params[:tab] == "stages" ? " active" : "NULL" %>" id="pills-<%= stage.name %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= stage.name %>" type="button" role="tab" aria-controls="pills-stages" aria-selected="false"><%= stage.name %></button>
+                  <button class="nav-link <%= (params[:tab].nil? && stage.name == 'Screening') || params[:tab] == stage.name ? " active" : "" %>" id="pills-<%= stage.name %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= stage.name %>" type="button" role="tab" aria-controls="pills-stages" aria-selected="false"><%= stage.name %></button>
                 </li>
               <% end %>
             </ul>
             <div class="tab-content" id="pills-tabContent">
               <% @role.stages.each do |stage| %>
-                <div class="tab-pane fade <%= params[:tab] == "questions" ? " show active" : "NULL" %> " id="pills-<%= stage.name %>" role="tabpanel" aria-labelledby="pills-questions-tab" tabindex="2"><%= render 'roles/stage-show', stage:stage %></div>
+                <div class="tab-pane fade <%= (params[:tab].nil? && stage.name == 'Screening') || params[:tab] == stage.name ? " show active" : "" %> " id="pills-<%= stage.name %>" role="tabpanel" aria-labelledby="pills-questions-tab" tabindex="2"><%= render 'roles/stage-show', stage:stage %></div>
               <% end %>
             </div>
           </div>
