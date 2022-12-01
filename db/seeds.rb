@@ -21,15 +21,15 @@ sammy = User.create!(
   email: "sammy@sintaapp.com", password: "lalala", first_name: "Sammy",
   last_name: "Kavanaugh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
 )
-tom = User.create!(
+User.create!(
   email: "tom@sintaapp.com", password: "lalala", first_name: "Tom",
   last_name: "Price", position: "Project Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
 )
-doug = User.create!(
+User.create!(
   email: "doug@sintaapp.com", password: "lalala", first_name: "Doug",
   last_name: "Berkley", position: "Recruitment Manager", department: "Human Resources", photo: 'https://avatars.githubusercontent.com/u/25542223?v=4'
 )
-trouni = User.create!(
+User.create!(
   email: "trouni@sintaapp.com", password: "lalala", first_name: "Trouni",
   last_name: "Tiet", position: "CEO", department: "Administration", photo: 'https://avatars.githubusercontent.com/u/34345789?v=4'
 )
@@ -189,21 +189,21 @@ Interview.create!(
   stage: mattias.stage, rating: 3,
   feedback: "Great sales experience. Highly motivated. Personable",
   date: DateTime.new(2022, 11, 29, 16, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 Interview.create!(
   user: mo, candidate: soren,
   stage: soren.stage, rating: 4,
   feedback: "Over qualified for the role. Better for senior position",
   date: DateTime.new(2022, 12, 1, 13, 30),
-  status: 'rejected'
+  status: 'Failed'
 )
 Interview.create!(
   user: ayanori, candidate: joyce,
   stage: joyce.stage, rating: 4,
   feedback: "Extensive technical skills. Had several internship with big IT companies.",
   date: DateTime.new(2022, 11, 28, 16, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 # Front-End Developer
 Interview.create!(
@@ -211,21 +211,21 @@ Interview.create!(
   stage: savi.stage, rating: 4,
   feedback: "Great portfolio. Worked well with others.",
   date: DateTime.new(2022, 11, 29, 11, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 Interview.create!(
   user: tash, candidate: clement,
   stage: clement.stage, rating: 4,
   feedback: "Extensive technical skills. Writes clean code.",
   date: DateTime.new(2022, 11, 29, 13, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 Interview.create!(
   user: ayanori, candidate: patrick,
   stage: patrick.stage, rating: 4,
   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
   date: DateTime.new(2022, 11, 28, 10, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 # Back-End Developer
 Interview.create!(
@@ -233,28 +233,28 @@ Interview.create!(
   stage: savi.stage, rating: 4,
   feedback: "Great portfolio. Worked well with others.",
   date: DateTime.new(2022, 11, 24, 11, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 Interview.create!(
   user: mo, candidate: ayhem,
   stage: clement.stage, rating: 4,
   feedback: "Extensive technical skills. Writes clean code.",
   date: DateTime.new(2022, 11, 29, 10, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 Interview.create!(
   user: mo, candidate: sho,
   stage: patrick.stage, rating: 4,
   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
   date: DateTime.new(2022, 11, 25, 10, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 Interview.create!(
   user: ayanori, candidate: patrik,
   stage: patrick.stage, rating: 4,
   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
   date: DateTime.new(2022, 11, 15, 10, 30),
-  status: 'accepted'
+  status: 'Passed'
 )
 puts "Added #{Interview.all.count} interviews."
 

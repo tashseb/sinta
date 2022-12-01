@@ -4,18 +4,18 @@ class Interview < ApplicationRecord
   belongs_to :stage
   validates :status, presence: true
   # validates :rating, comparison: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
-  STATUS = ["pending", "Failed", "Passed"]
-  enum status: { pending: "pending", failed: "Failed", passed: "Passed" }, _default: :pending
+  STATUS = ["Pending", "Failed", "Passed"]
+  enum status: { pending: "Pending", failed: "Failed", passed: "Passed" }, _default: :pending
 
   def pending?
-    status == 'pending'
+    status == 'Pending'
   end
 
   def accepted?
-    status == 'passed'
+    status == 'Passed'
   end
 
   def rejected?
-    status == 'failed'
+    status == 'Failed'
   end
 end
