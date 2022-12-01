@@ -7,15 +7,16 @@
         <%= link_to "Add Interviewer", new_role_candidate_path(@role), class: 'btn btn-orange' %>
       </div>
     </div>
-    <div class="row row-cols-2">
-      <%= render 'roles/interviewers', stage:stage %>
-      <%= render 'stages/questions', stage: stage %>
-    </div>
-    <div class="row row-cols-2">
-      <%= render 'roles/candidates', stage:stage %>
+    <div class="row">
+      <div class="col-6">
+        <%= render 'roles/interviewers', stage:stage %>
+        <%= render 'stages/questions', stage: stage %>
+      </div>
+      <div class="col-6">
+        <%= render 'roles/candidates', stage:stage %>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
   <div class="modal-dialog modal-xl">
