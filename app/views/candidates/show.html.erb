@@ -1,42 +1,22 @@
 <div id="content-container">
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
-      <div class="header">
+      <div class="mb-3">
         <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       </div>
       <% @interviews.each do |interview| %>
-        <%# <h4 class="my-2">Candidate Score Card</h4> %>
-        <div class="card-product">
-          <img src="<%= interview.user.first_name %>" />
-          <div class="card-product-infos">
-            <h2><%= interview.stage.name %></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+        <div class="card-product position-relative" style="border-top-left-radius: 80px 80px; border-bottom-left-radius: 80px 80px; overflow: visible;">
+          <img class="avatar" src="<%= interview.user.photo %>" />
+          <i style="" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
+          <div class="card-product-infos w-100 h-100 position-relative">
+            <h2 class="mb-2"><%= interview.stage.name %></h2>
+            <p><%= interview.feedback %></p>
+            <h5 class="position-absolute" style="color: gold; bottom: 10px; right: 20px;">
+              <% interview.rating.to_i.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+            </h5>
           </div>
-        </div>
-        <div class="candidates-list mb-4">
-          <table class="table table-bordered mt-3">
-            <thead class="text-primary">
-              <tr>
-                <th style="width: 100px;" scope="col">Stage</th>
-                <th style="width: 100px;" scope="col">Interviewer</th>
-                <th style="width: 100px;" scope="col">Status</th>
-                <th scope="col">Key Summary</th>
-                <th style="width: 100px;" scope="col">Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= interview.stage.name %></td>
-                <td><%= interview.user.first_name %></td>
-                <td style="<%= interview.status == "passed" ? "color: green;" : "" %>"><%= interview.status.capitalize %></td>
-                <td><%= interview.feedback %></td>
-                <td><% interview.rating.to_i.times do %>
-                    <i style="color: gold;" class="fa-solid fa-star"></i>
-                  <% end %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       <% end %>
       <div class="d-flex" role="">
