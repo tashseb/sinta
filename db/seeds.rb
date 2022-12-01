@@ -19,7 +19,7 @@ tash = User.create!(
 )
 sammy = User.create!(
   email: "sammy@sintaapp.com", password: "lalala", first_name: "Sammy",
-  last_name: "Kavanaugh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
+  last_name: "Kavanagh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
 )
 User.create!(
   email: "tom@sintaapp.com", password: "lalala", first_name: "Tom",
