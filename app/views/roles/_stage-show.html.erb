@@ -4,21 +4,26 @@
       <h1 class="mb-3"><%= stage.name %></h1>
       <div class="mb-3">
         <%= link_to "Add Candidate", new_role_candidate_path(@role), class: 'btn btn-orange' %>
+        <%= link_to "Add Interviewer", new_role_candidate_path(@role), class: 'btn btn-orange' %>
       </div>
     </div>
-    <div class="stages-main-list">
-      <div class="d-flex justify-content-between align-items-center">
-      </div>
-    </div>
-    <div>
-      <div class="row row-cols-2">
-        <%= render 'stages/questions', stage: stage %>
-      </div>
-      <div class="row row-cols-2">
-        <%= render 'roles/candidates', stage:stage %>
-      </div>
-    </div>
+    <div class="d-flex">
+      <% stage.stage_interviewers.each do |interview| %>
+        <%= image_tag interview.user.photo, alt: "text", class:"avatar-large" %>
+        <div>
+          <h2> <%= interview.user.first_name %> </h2>
+        </div>
+      <% end %>
+    </button>
   </div>
+  <div class="row row-cols-2">
+    <%= render 'stages/questions', stage: stage %>
+  </div>
+  <div class="row row-cols-2">
+    <%= render 'roles/candidates', stage:stage %>
+  </div>
+</div>
+</div>
 </div>
 <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
   <div class="modal-dialog modal-xl">

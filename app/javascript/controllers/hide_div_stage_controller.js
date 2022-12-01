@@ -4,9 +4,12 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["div"]
   connect() {
+    console.log("hi")
   }
 
   hide() {
+
+    console.log(this.divTarget.style.display)
     if (this.divTarget.style.display == "block") {
       this.divTarget.style.display = "none";
     } else {
