@@ -1,10 +1,10 @@
 <div class="card-container">
   <% stage.candidates.each do |candidate| %>
     <div id="candidate" class="category-card d-flex pr-3 flex-wrap">
-      <div class="me-2">
+      <div>
         <%= user_avatar(candidate.full_name) %>
       </div>
-      <p class="candidate-name-link me-2">
+      <p class="candidate-name-link mb-0">
         <%= link_to candidate_path(candidate) do %>
           <%= candidate.full_name %>
         <% end %>
