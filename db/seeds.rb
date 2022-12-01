@@ -87,10 +87,10 @@ savi = Candidate.create!(
   stage: front.stages.first
 )
 # Second stage (Technical)
-# clement = Candidate.create!(
-#   first_name: "Clement", last_name: "Choi", profile: 'https://www.linkedin.com/in/clement-choi-5212a213a/',
-#   stage: front.stages.second
-# )
+clement = Candidate.create!(
+  first_name: "Clement", last_name: "Choi", profile: 'https://www.linkedin.com/in/clement-choi-5212a213a/',
+  stage: front.stages.second
+)
 # Third stage (Pair-Programming)
 # patrick = Candidate.create!(
 #   first_name: "Patrick", last_name: "Stark", profile: 'https://www.linkedin.com/in/patrick-stark/',
@@ -113,10 +113,6 @@ StageInterviewer.create!(
   user: mo,
   stage: sales.stages.first
 )
-# StageInterviewer.create!(
-#   user: mo,
-#   stage: joyce.stage
-# )
 StageInterviewer.create!(
   user: ayanori,
   stage: sales.stages.second
@@ -126,10 +122,10 @@ StageInterviewer.create!(
   user: sammy,
   stage: front.stages.first
 )
-# StageInterviewer.create!(
-#   user: tom,
-#   stage: clement.stage
-# )
+StageInterviewer.create!(
+  user: tom,
+  stage: front.stages.second
+)
 # StageInterviewer.create!(
 #   user: ayanori,
 #   stage: patrick.stage
@@ -170,18 +166,25 @@ Interview.create!(
 # Front-End Developer
 Interview.create!(
   user: sammy, candidate: savi,
-  stage: savi.stage, rating: 4,
+  stage: front.stages.first, rating: 4,
   feedback: "Great portfolio. Worked well with others.",
   date: DateTime.new(2022, 11, 29, 11, 30),
   status: 'Passed'
 )
-# Interview.create!(
-#   user: tash, candidate: clement,
-#   stage: clement.stage, rating: 4,
-#   feedback: "Extensive technical skills. Writes clean code.",
-#   date: DateTime.new(2022, 11, 29, 13, 30),
-#   status: 'Passed'
-# )
+Interview.create!(
+  user: sammy, candidate: clement,
+  stage: front.stages.first, rating: 3,
+  feedback: "Good technical experience. Wide framework knowledge.",
+  date: DateTime.new(2022, 10, 29, 13, 30),
+  status: 'Passed'
+)
+Interview.create!(
+  user: tom, candidate: clement,
+  stage: front.stages.second, rating: 3,
+  feedback: "Extensive technical skills. Writes clean code.",
+  date: DateTime.new(2022, 11, 15, 13, 30),
+  status: 'Passed'
+)
 # Interview.create!(
 #   user: ayanori, candidate: patrick,
 #   stage: patrick.stage, rating: 4,
