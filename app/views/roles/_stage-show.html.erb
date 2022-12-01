@@ -9,6 +9,9 @@
     <div class="d-flex">
       <% stage.stage_interviewers.each do |interview| %>
         <%= image_tag interview.user.photo, alt: "text", class:"avatar-large" %>
+        <div>
+          <h2> <%= interview.user.first_name %> </h2>
+        </div>
       <% end %>
       <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">
         <i class="fa-solid fa-user-plus"></i>
