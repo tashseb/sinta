@@ -4,7 +4,7 @@
       <div class="col-12">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h1 style="padding-left: 6px;color: $green;"><%= @role.title %></h1>
-          <%= link_to "Add Interview Stage", new_interview_path(@role), class: 'btn btn-orange' %>
+          <%= render 'roles/create-interview', stage:@stage %>
         </div>
         <div class= 'row'>
           <div class="c_breadcrumb">

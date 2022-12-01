@@ -1,0 +1,23 @@
+<div class="d-flex flex-row-reverse">
+  <button type="button" class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#stageModal-<%= stage.id %>">
+    New Interview
+  </button>
+</div>
+<div class="modal fade" id="stageModal-<%= stage.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= stage.name %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for([@role, @stage]) do |f| %>
+          <%= f.input :name, label: "Stage Name" %>
+          <div class="d-flex flex-row-reverse">
+            <%= f.submit "Submit", class: "btn btn-orange" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

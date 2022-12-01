@@ -1,4 +1,6 @@
-<h5>Interviewers</h5>
+<h5>Interviewers<button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">
+    <i class="fa-solid fa-user-plus"></i>
+  </button></h5>
 <div class="d-flex" style="margin-bottom: 4%; margin-top: 6%;margin-left: 0%">
   <% stage.stage_interviewers.each do |interview| %>
     <%= image_tag interview.user.photo, alt: "text", class:"avatar mt-2", style:"margin-left: 1%; width: 100px; height: 100px";%>

@@ -11,7 +11,7 @@ class StageInterviewersController < ApplicationController
     @stage_interviewer.stage = @stage
     @role = @stage.role
     if @stage_interviewer.save
-      redirect_to role_path(@role, tab: "stages")
+      redirect_to role_path(@role, tab: @stage.name)
     else
       render :new, status: :unprocessable_entity
     end
