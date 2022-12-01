@@ -298,28 +298,288 @@ BASE_QUESTIONS = {
 }
 # Adding 4 questions per stage
 # Sales Engineering
-puts "Addings questions for the Stages..."
+puts "Addings questions for the Sales Engineering..."
 Question.create!(
   stage: sales.stages.first,
-  description: "Tell us a little about yourself and your interests.?"
-)
-Question.create!(
-  stage: sales.stages.first,
-  description: "What interested you in applying for a position at our company??"
+  description: BASE_QUESTIONS["screening"][0]
 )
 Question.create!(
   stage: sales.stages.first,
-  description: "Are you familiar with our mission and values?"
+  description: BASE_QUESTIONS["screening"][1]
 )
 Question.create!(
   stage: sales.stages.first,
-  description: "How do you typically handle conflict in the workplace?"
+  description: BASE_QUESTIONS["screening"][2]
 )
 Question.create!(
-  stage: Stage.first(2)[1],
-  description: "How did you manage to achieve something while in conflict with a client?"
+  stage: sales.stages.first,
+  description: BASE_QUESTIONS["screening"][3]
 )
 Question.create!(
-  stage: Stage.first(2)[1],
-  description: "Why do you want to be a part of our team?"
+  stage: sales.stages.second,
+  description: BASE_QUESTIONS["technical"][0]
+)
+Question.create!(
+  stage: sales.stages.second,
+  description: BASE_QUESTIONS["technical"][1]
+)
+Question.create!(
+  stage: sales.stages.second,
+  description: BASE_QUESTIONS["technical"][2]
+)
+Question.create!(
+  stage: sales.stages.second,
+  description: BASE_QUESTIONS["technical"][3]
+)
+Question.create!(
+  stage: sales.stages.third,
+  description: BASE_QUESTIONS["behavioral"][0]
+)
+Question.create!(
+  stage: sales.stages.third,
+  description: BASE_QUESTIONS["behavioral"][1]
+)
+Question.create!(
+  stage: sales.stages.third,
+  description: BASE_QUESTIONS["behavioral"][2]
+)
+Question.create!(
+  stage: sales.stages.third,
+  description: BASE_QUESTIONS["behavioral"][3]
+)
+
+# Front
+puts "Addings questions for the Front End Developer..."
+Question.create!(
+  stage: front.stages.first,
+  description: BASE_QUESTIONS["screening"][0]
+)
+Question.create!(
+  stage: front.stages.first,
+  description: BASE_QUESTIONS["screening"][1]
+)
+Question.create!(
+  stage: front.stages.first,
+  description: BASE_QUESTIONS["screening"][2]
+)
+Question.create!(
+  stage: front.stages.first,
+  description: BASE_QUESTIONS["screening"][3]
+)
+Question.create!(
+  stage: front.stages.second,
+  description: BASE_QUESTIONS["technical"][0]
+)
+Question.create!(
+  stage: front.stages.second,
+  description: BASE_QUESTIONS["technical"][1]
+)
+Question.create!(
+  stage: front.stages.second,
+  description: BASE_QUESTIONS["technical"][2]
+)
+Question.create!(
+  stage: front.stages.second,
+  description: BASE_QUESTIONS["technical"][3]
+)
+Question.create!(
+  stage: front.stages.third,
+  description: BASE_QUESTIONS["pair"][0]
+)
+Question.create!(
+  stage: front.stages.third,
+  description: BASE_QUESTIONS["pair"][1]
+)
+Question.create!(
+  stage: front.stages.third,
+  description: BASE_QUESTIONS["pair"][2]
+)
+Question.create!(
+  stage: front.stages.third,
+  description: BASE_QUESTIONS["pair"][3]
+)
+Question.create!(
+  stage: front.stages.fourth,
+  description: BASE_QUESTIONS["ceo"][0]
+)
+Question.create!(
+  stage: front.stages.fourth,
+  description: BASE_QUESTIONS["ceo"][1]
+)
+Question.create!(
+  stage: front.stages.fourth,
+  description: BASE_QUESTIONS["ceo"][2]
+)
+Question.create!(
+  stage: front.stages.fourth,
+  description: BASE_QUESTIONS["ceo"][3]
+)
+
+# Back End
+puts "Addings questions for the Back End..."
+Question.create!(
+  stage: back.stages.first,
+  description: BASE_QUESTIONS["screening"][0]
+)
+Question.create!(
+  stage: back.stages.first,
+  description: BASE_QUESTIONS["screening"][1]
+)
+Question.create!(
+  stage: back.stages.first,
+  description: BASE_QUESTIONS["screening"][2]
+)
+Question.create!(
+  stage: back.stages.first,
+  description: BASE_QUESTIONS["screening"][3]
+)
+Question.create!(
+  stage: back.stages.second,
+  description: BASE_QUESTIONS["technical"][0]
+)
+Question.create!(
+  stage: back.stages.second,
+  description: BASE_QUESTIONS["technical"][1]
+)
+Question.create!(
+  stage: back.stages.second,
+  description: BASE_QUESTIONS["technical"][2]
+)
+Question.create!(
+  stage: back.stages.second,
+  description: BASE_QUESTIONS["technical"][3]
+)
+Question.create!(
+  stage: back.stages.third,
+  description: BASE_QUESTIONS["pair"][0]
+)
+Question.create!(
+  stage: back.stages.third,
+  description: BASE_QUESTIONS["pair"][1]
+)
+Question.create!(
+  stage: back.stages.third,
+  description: BASE_QUESTIONS["pair"][2]
+)
+Question.create!(
+  stage: back.stages.third,
+  description: BASE_QUESTIONS["pair"][3]
+)
+
+# Software Engineering
+puts "Addings questions for the Software Engineer..."
+Question.create!(
+  stage: software.stages.first,
+  description: BASE_QUESTIONS["screening"][0]
+)
+Question.create!(
+  stage: software.stages.first,
+  description: BASE_QUESTIONS["screening"][1]
+)
+Question.create!(
+  stage: software.stages.first,
+  description: BASE_QUESTIONS["screening"][2]
+)
+Question.create!(
+  stage: software.stages.first,
+  description: BASE_QUESTIONS["screening"][3]
+)
+Question.create!(
+  stage: software.stages.second,
+  description: BASE_QUESTIONS["technical"][0]
+)
+Question.create!(
+  stage: software.stages.second,
+  description: BASE_QUESTIONS["technical"][1]
+)
+Question.create!(
+  stage: software.stages.second,
+  description: BASE_QUESTIONS["technical"][2]
+)
+Question.create!(
+  stage: software.stages.second,
+  description: BASE_QUESTIONS["technical"][3]
+)
+Question.create!(
+  stage: software.stages.third,
+  description: BASE_QUESTIONS["pair"][0]
+)
+Question.create!(
+  stage: software.stages.third,
+  description: BASE_QUESTIONS["pair"][1]
+)
+Question.create!(
+  stage: software.stages.third,
+  description: BASE_QUESTIONS["pair"][2]
+)
+Question.create!(
+  stage: software.stages.third,
+  description: BASE_QUESTIONS["pair"][3]
+)
+Question.create!(
+  stage: software.stages.fourth,
+  description: BASE_QUESTIONS["manager"][0]
+)
+Question.create!(
+  stage: software.stages.fourth,
+  description: BASE_QUESTIONS["manager"][1]
+)
+Question.create!(
+  stage: software.stages.fourth,
+  description: BASE_QUESTIONS["manager"][2]
+)
+Question.create!(
+  stage: software.stages.fourth,
+  description: BASE_QUESTIONS["manager"][3]
+)
+
+# DevOps
+puts "Addings questions for the DevOps..."
+Question.create!(
+  stage: dev.stages.first,
+  description: BASE_QUESTIONS["screening"][0]
+)
+Question.create!(
+  stage: dev.stages.first,
+  description: BASE_QUESTIONS["screening"][1]
+)
+Question.create!(
+  stage: dev.stages.first,
+  description: BASE_QUESTIONS["screening"][2]
+)
+Question.create!(
+  stage: dev.stages.first,
+  description: BASE_QUESTIONS["screening"][3]
+)
+Question.create!(
+  stage: dev.stages.second,
+  description: BASE_QUESTIONS["technical"][0]
+)
+Question.create!(
+  stage: dev.stages.second,
+  description: BASE_QUESTIONS["technical"][1]
+)
+Question.create!(
+  stage: dev.stages.second,
+  description: BASE_QUESTIONS["technical"][2]
+)
+Question.create!(
+  stage: dev.stages.second,
+  description: BASE_QUESTIONS["technical"][3]
+)
+Question.create!(
+  stage: dev.stages.third,
+  description: BASE_QUESTIONS["pair"][0]
+)
+Question.create!(
+  stage: dev.stages.third,
+  description: BASE_QUESTIONS["pair"][1]
+)
+Question.create!(
+  stage: dev.stages.third,
+  description: BASE_QUESTIONS["pair"][2]
+)
+Question.create!(
+  stage: dev.stages.third,
+  description: BASE_QUESTIONS["pair"][3]
 )
