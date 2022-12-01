@@ -1,7 +1,7 @@
 <div class="d-flex" style="margin-bottom: 4%; margin-top: 6%;margin-left: 0%">
   <% stage.stage_interviewers.each do |interview| %>
     <%= image_tag interview.user.photo, alt: "text", class:"avatar-large", style:"margin-left: 1%";%>
-    <div style= 'margin-left: 2%; margin-top: 3%;'>
+    <div style= 'margin-left: 5%; margin-top: 7%;'>
       <h6 class= "mt-3"> Interviewer: <%= interview.user.first_name %> <%= interview.user.last_name %> </h6>
       <h6> Position: <%= interview.user.position %> </h6>
       <h6> Dept: <%= interview.user.department %> </h6>
