@@ -14,7 +14,7 @@
             </ul>
             <div class="tab-content" id="pills-tabContent">
               <% @role.stages.each do |stage| %>
-                <div class="tab-pane fade <%= params[:tab] == "questions" ? " show active" : "NULL" %> " id="pills-<%= stage.name %>" role="tabpanel" aria-labelledby="pills-questions-tab" tabindex="2"><%= render 'roles/stage-show', stage:stage %></div>
+                <div class="tab-pane fade <%= params[:tab] == "questions" ? " show active" : "NULL" %> " id="pills-<%= stage.name %>" role="tabpanel" aria-labelledby="pills-questions-tab" tabindex="2"><%= render 'roles/stage-show', stage:stasge %></div>
               <% end %>
             </div>
           </div>
