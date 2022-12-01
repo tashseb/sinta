@@ -2,15 +2,18 @@
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
       <div class="mb-3">
-        <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+        <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       </div>
       <% @interviews.each do |interview| %>
-        <div class="card-product position-relative" style="border-top-left-radius: 80px 80px; border-bottom-left-radius: 80px 80px; overflow: visible;">
+        <div class="card-product position-relative mb-4" style="border-top-left-radius: 80px 80px; border-top-right-radius: 20px 20px; border-bottom-left-radius: 80px 80px; overflow: visible;">
           <img class="avatar" src="<%= interview.user.photo %>" />
-          <i style="" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
+          <i style="color: green;" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
           <div class="card-product-infos w-100 h-100 position-relative">
-            <h2 class="mb-2"><%= interview.stage.name %></h2>
-            <p><%= interview.feedback %></p>
+            <div class="">
+              <h2 class="mb-0 fs-4">Stage - <%= interview.stage.name %></h2>
+              <p class="mt-0 fs-6">Interviewer - <%= interview.user.first_name %></p>
+            </div>
+            <p class="fs-5"><%= interview.feedback %></p>
             <h5 class="position-absolute" style="color: gold; bottom: 10px; right: 20px;">
               <% interview.rating.to_i.times do %>
                 <i class="fa-solid fa-star"></i>
