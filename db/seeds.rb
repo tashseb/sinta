@@ -192,6 +192,7 @@ Interview.create!(
   status: 'accepted'
 )
 Interview.create!(
+
   user: mo, candidate: soren,
   stage: soren.stage, rating: 4,
   feedback: "Over qualified for the role. Better for senior position",
@@ -255,6 +256,7 @@ Interview.create!(
   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
   date: DateTime.new(2022, 11, 15, 10, 30),
   status: 'accepted'
+
 )
 puts "Added #{Interview.all.count} interviews."
 
