@@ -6,15 +6,42 @@
       width: 50%;
       background-size: cover;">
     </div>
-    <div class="d-flex justify-content-center align-items-center m-3">
-      <div class="text-green">
-        <h1>Welcome back, <%= current_user.first_name%> 👋</h1>
-        <p>You've successfully completed nothing today 😊</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <%=  link_to 'Check pending interviews', interviews_path, class: "btn btn-orange" %>
-          <%=  link_to 'Create Role', new_role_path, class: "btn btn-orange" %>
+    <div>
+      <div class="d-flex justify-content-center align-items-center m-3">
+        <div class="text-green">
+          <h1>Welcome back, <%= current_user.first_name%> 👋</h1>
+          <p>You've successfully completed nothing today 😊</p>
+          <div style="width: 90%;">
+            <div class="d-grid gap-2 d-md-flex justify-content-between">
+              <%=  link_to 'Check pending interviews', interviews_path, class: "btn btn-orange" %>
+              <%=  link_to 'Create Role', new_role_path, class: "btn btn-orange" %>
+            </div>
+            <div class="card stages-list border-0 mt-3">
+              <div class="card-body">
+                <div class="d-flex">
+                  <i class="fa-solid fa-list-check"></i>
+                  <h5 class="ms-2">Pending Tasks</h5>
+                </div>
+                <% @roles.each do |role| %>
+                  <div>
+                    <% if role.interviews.count > 0%>
+                      <div class="d-flex flex-row justify-content-between border-bottom">
+                        <div class="p2">
+                          <%= role.title %>
+                        </div>
+                        <div class="number-of-interview">
+                          <%= role.interviews.count %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <% sum = 0 %>
     </div>
   </div>
 </div>

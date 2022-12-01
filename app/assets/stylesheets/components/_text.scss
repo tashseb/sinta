@@ -15,3 +15,12 @@
 .candidate-name-link > a {
   text-decoration: none;
 }
+
+.number-of-interview {
+  background-color: #ff3f3f;
+  color: $white;
+  border-radius: 50%;
+  width: 25px;
+  text-align: center;
+  margin: 2px;
+}
