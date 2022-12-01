@@ -1,0 +1,57 @@
+<div class="mx-3" data-controller="hide-div-stage">
+  <div class="stages-list-card mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="mb-3"><%= @role.title %></h1>
+      <div class="mb-3">
+        <%= link_to "Add Candidate", new_role_candidate_path(@role), class: 'btn btn-orange' %>
+      </div>
+    </div>
+    <% @role.stages.each do |stage| %>
+      <div class="stages-main-list">
+        <div class="stages-list stages-list-top">
+          <div class="d-flex justify-content-between align-items-center">
+            <p id="stage-title"><%= stage.name %> Interview</p>
+            <div class="d-flex">
+              <% stage.stage_interviewers.each do |interview| %>
+                <%= image_tag interview.user.photo, alt: "text", class: "avatar-bordered" %>
+              <% end %>
+              <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">
+                <i class="fa-solid fa-user-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= render 'stages/candidates', stage: stage %>
+        </div>
+        <div>
+          <%= render 'stages/questions', stage: stage %>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render 'stage_interviewers/interviewer-form', stage:stage %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="d-flex flex-row-reverse">
+    <button type="button" data-action="click->hide-div-stage#hide" class="btn btn-orange">New Interview</button>
+  </div>
+  <div class="stage-card-form" data-hide-div-stage-target="div" style="display: none;">
+    <%= simple_form_for [@role, @stage] do |f| %>
+      <%= f.input :name, label: "Stage Name" %>
+      <div class="d-flex flex-row-reverse">
+        <%= f.submit "Submit", class: "btn btn-orange" %>
+      </div>
+    <% end %>
+  </div>
+</div>
