@@ -6,6 +6,13 @@
       </div>
       <% @interviews.each do |interview| %>
         <%# <h4 class="my-2">Candidate Score Card</h4> %>
+        <div class="card-product">
+          <img src="<%= interview.user.first_name %>" />
+          <div class="card-product-infos">
+            <h2><%= interview.stage.name %></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+          </div>
+        </div>
         <div class="candidates-list mb-4">
           <table class="table table-bordered mt-3">
             <thead class="text-primary">
