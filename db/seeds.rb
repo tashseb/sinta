@@ -66,11 +66,6 @@ dev = Role.create!(
   description: "Experience and knowlodge with Python, Ruby, Python, Java, Javascript, PHP, Bash, Shell and Node. js.",
   user_id: User.first.id
 )
-manager = Role.create!(
-  title: "Project Manager",
-  description: "Create and lead the team and monitor project progress, deadlines, budget and system performance",
-  user_id: User.first.id
-)
 puts "Added #{Role.all.count} roles."
 
 # puts 'Adding stages for the Sales Engineer role...'
@@ -261,31 +256,70 @@ Interview.create!(
   date: DateTime.new(2022, 11, 15, 10, 30),
   status: 'accepted'
 )
-
 puts "Added #{Interview.all.count} interviews."
-# something
-# puts "Addings questions for the Stages..."
-# Question.create!(
-#   stage: Stage.first,
-#   description: "Could you tell me something about yourself?"
-# )
-# Question.create!(
-#   stage: Stage.first,
-#   description: "Could you tell me about your responsibilities in your current/previous role?"
-# )
-# Question.create!(
-#   stage: Stage.first,
-#   description: "Why do you want to leave your current position?"
-# )
-# Question.create!(
-#   stage: Stage.first(2)[1],
-#   description: "How do you meet deadlines under pressure?"
-# )
-# Question.create!(
-#   stage: Stage.first(2)[1],
-#   description: "How did you manage to achieve something while in conflict with a client?"
-# )
-# Question.create!(
-#   stage: Stage.first(2)[1],
-#   description: "Why do you want to be a part of our team?"
-# )
+
+BASE_QUESTIONS = {
+  "screening" => [
+    "Tell us a little about yourself and your interests.?",
+    "What interested you in applying for a position at our company?",
+    "Why do you want to apply for this position?",
+    "Do you have any question?"
+  ],
+  "technical" => [
+    "What is an N+query? Is it good or bad?",
+    "Can you make a simple database for Student and Teacher?",
+    "What is MVC?",
+    "What are the characteristics of an OOP languange?"
+  ],
+  "pair" => [
+    "Get the value of an object and put in an array.",
+    "Fizz Buzz exercise",
+    "Palindrome exercise",
+    "Right triangle challenge using only console.log "
+  ],
+  "behavioral" => [
+    "What makes an ideal coworker in your eyes?",
+    "How do you prioritize projects under pressure?",
+    "How would handle your schedule when it's interrupted?",
+    "Have you ever bent company policy to satisfy a client?"
+  ],
+  "manager" => [
+    "What's your management style?",
+    "How do you see a manager's role on a team?",
+    "How do you motivate a team?",
+    "Tell me about a time you dealt with a difficult employee."
+  ],
+  "ceo" => [
+    "What do you think our company's mission and vision are?",
+    "What changes would you implement during your first year in the company?",
+    "What would you do in your first 30 days as CEO of our organization?",
+    "Who do you believe are our biggest competitors?"
+  ]
+}
+# Adding 4 questions per stage
+# Sales Engineering
+puts "Addings questions for the Stages..."
+Question.create!(
+  stage: sales.stages.first,
+  description: "Tell us a little about yourself and your interests.?"
+)
+Question.create!(
+  stage: sales.stages.first,
+  description: "What interested you in applying for a position at our company??"
+)
+Question.create!(
+  stage: sales.stages.first,
+  description: "Are you familiar with our mission and values?"
+)
+Question.create!(
+  stage: sales.stages.first,
+  description: "How do you typically handle conflict in the workplace?"
+)
+Question.create!(
+  stage: Stage.first(2)[1],
+  description: "How did you manage to achieve something while in conflict with a client?"
+)
+Question.create!(
+  stage: Stage.first(2)[1],
+  description: "Why do you want to be a part of our team?"
+)
