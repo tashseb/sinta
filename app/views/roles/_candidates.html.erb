@@ -3,7 +3,12 @@
   </button></h5>
 <div class="card-container flex-wrap w-100">
   <% stage.candidates.each do |candidate| %>
-    <div id="candidate" class="category-card d-flex pr-3">
+    <div id="candidate" class="category-card d-flex pr-3 position-relative">
+      <% candidate.interviews.each do |interview| %>
+        <% if interview.feedback  %>
+          <p style="color: red; top: -4px; right: -4px;" class="position-absolute"> <i class="fa-solid fa-circle-exclamation fs-4"></i> </p>
+        <% end %>
+      <% end %>
       <div>
         <%= user_avatar(candidate.full_name) %>
       </div>
