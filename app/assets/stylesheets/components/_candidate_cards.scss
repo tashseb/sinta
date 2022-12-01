@@ -2,10 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 60%;
+  overflow-y:scroll;
+  height:360px;
 }
 
 #candidate {
   min-width: 240px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
