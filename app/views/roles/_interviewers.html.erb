@@ -1,10 +1,10 @@
+<h5>Interviewers</h5>
 <div class="d-flex" style="margin-bottom: 4%; margin-top: 6%;margin-left: 0%">
   <% stage.stage_interviewers.each do |interview| %>
-    <%= image_tag interview.user.photo, alt: "text", class:"avatar-large", style:"margin-left: 1%";%>
-    <div style= 'margin-left: 5%; margin-top: 7%;'>
-      <h6 class= "mt-3"> Interviewer: <%= interview.user.first_name %> <%= interview.user.last_name %> </h6>
-      <h6> Position: <%= interview.user.position %> </h6>
-      <h6> Dept: <%= interview.user.department %> </h6>
+    <%= image_tag interview.user.photo, alt: "text", class:"avatar mt-2", style:"margin-left: 1%; width: 100px; height: 100px";%>
+    <div style= 'margin-left: 5%;'>
+      <p class= "mt-3"> <strong><%= interview.user.first_name %> <%= interview.user.last_name %></strong> </p>
+      <p> Position: <strong><%= interview.user.position %></strong> </p>
     </div>
     <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">
       <i class="fa-solid fa-user-plus"></i>
