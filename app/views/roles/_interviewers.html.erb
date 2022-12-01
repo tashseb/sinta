@@ -6,5 +6,21 @@
       <h6> Position: <%= interview.user.position %> </h6>
       <h6> Dept: <%= interview.user.department %> </h6>
     </div>
-  <% end %>
-</div>
+    <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#teammembers<%= stage.id %>">
+      <i class="fa-solid fa-user-plus"></i>
+    </button>
+  </div>
+  <div class="modal" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render 'stage_interviewers/interviewer-form', stage:stage %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
