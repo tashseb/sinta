@@ -14,15 +14,14 @@
           <h2> <%= interview.user.first_name %> </h2>
         </div>
       <% end %>
-    </button>
+    </div>
+    <div class="row row-cols-2">
+      <%= render 'stages/questions', stage: stage %>
+    </div>
+    <div class="row row-cols-2">
+      <%= render 'roles/candidates', stage:stage %>
+    </div>
   </div>
-  <div class="row row-cols-2">
-    <%= render 'stages/questions', stage: stage %>
-  </div>
-  <div class="row row-cols-2">
-    <%= render 'roles/candidates', stage:stage %>
-  </div>
-</div>
 </div>
 </div>
 <div class="modal fade" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
