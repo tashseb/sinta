@@ -41,32 +41,32 @@ ayanori = User.create!(
 puts "Added #{User.all.count} users."
 
 puts "Adding Roles in the system..."
-Role.create!(
+sales = Role.create!(
   title: "Sales Engineer",
   description: "Generating high-quality sales leads, following up after initial contact, securing and renewing orders.",
   user_id: User.first.id
 )
-Role.create!(
+front = Role.create!(
   title: "Front-End Developer",
   description: "Bachelor's degree with 3 years of experience. 1 year rich application experience with HTML, CSS and JS",
   user_id: User.first.id
 )
-Role.create!(
+back = Role.create!(
   title: "Back-End Developer",
   description: "Responsible for creating and maintaining technology at the back end of a website (the server, database).",
   user_id: User.first.id
 )
-Role.create!(
+software = Role.create!(
   title: "Software Engineer",
   description: "Design, develop, and test software and applications for computers while ensuring system's performance.",
   user_id: User.first.id
 )
-Role.create!(
+dev = Role.create!(
   title: "DevOps Engineer",
   description: "Experience and knowlodge with Python, Ruby, Python, Java, Javascript, PHP, Bash, Shell and Node. js.",
   user_id: User.first.id
 )
-Role.create!(
+manager = Role.create!(
   title: "Project Manager",
   description: "Create and lead the team and monitor project progress, deadlines, budget and system performance",
   user_id: User.first.id
@@ -91,52 +91,52 @@ puts 'Adding candidates for the Sales Engineering position...'
 # First stage (Screening) of Sales Engineer
 mattias = Candidate.create!(
   first_name: "Mattias", last_name: "Welamsson", profile: 'https://www.linkedin.com/in/mattias-welamsson',
-  stage: Stage.first
+  stage: sales.stages.first
 )
 soren = Candidate.create!(
   first_name: "Soren", last_name: "Umstot", profile: 'https://www.linkedin.com/in/soren-umstot',
-  stage: Stage.first
+  stage: sales.stages.first
 )
 # Second stage (Technical)
 joyce = Candidate.create!(
   first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan',
-  stage: Stage.second
+  stage: sales.stages.second
 )
 puts 'Adding candidate for Front-End Engineer'
 # First stage (Screening)
 savi = Candidate.create!(
   first_name: "Savi", last_name: "Wewala", profile: 'https://www.linkedin.com/in/savithri-wewala-507308a1',
-  stage: Stage.fourth
+  stage: front.stages.first
 )
 # Second stage (Technical)
 clement = Candidate.create!(
   first_name: "Clement", last_name: "Choi", profile: 'https://www.linkedin.com/in/clement-choi-5212a213a/',
-  stage: Stage.fifth
+  stage: front.stages.second
 )
 # Third stage (Pair-Programming)
 patrick = Candidate.create!(
   first_name: "Patrick", last_name: "Stark", profile: 'https://www.linkedin.com/in/patrick-stark/',
-  stage: Role.second.stages.third
+  stage: front.stages.third
 )
 puts 'Adding candidate for Back-End Engineer'
 # First stage (Screening)
 yulia = Candidate.create!(
   first_name: "Yuliia", last_name: "Naumenko", profile: 'https://www.linkedin.com/in/yuliia-naumenko-bba121119/',
-  stage: Stage.fourth
+  stage: back.stages.first
 )
 # Second stage (Technical)
 ayhem = Candidate.create!(
   first_name: "Ayhem", last_name: "Chet", profile: 'https://www.linkedin.com/in/al5311245/',
-  stage: Stage.fifth
+  stage: back.stages.first
 )
 # Third stage (Pair-Programming)
 sho = Candidate.create!(
   first_name: "Sho", last_name: "Fujiwara", profile: 'https://www.linkedin.com/in/sho-fujiwara-a747b520a/',
-  stage: Role.second.stages.third
+  stage: back.stages.first
 )
 patrik = Candidate.create!(
   first_name: "Patrik", last_name: "Moledo", profile: 'https://www.linkedin.com/in/patrik-moledo-0449641a0/',
-  stage: Role.second.stages.third
+  stage: back.stages.second
 )
 puts "Added #{Candidate.all.count} candidates in the system."
 
@@ -169,6 +169,23 @@ StageInterviewer.create!(
   user: ayanori,
   stage: patrick.stage
 )
+# Back-End
+StageInterviewer.create!(
+  user: mo,
+  stage: yulia.stage
+)
+StageInterviewer.create!(
+  user: mo,
+  stage: ayhem.stage
+)
+StageInterviewer.create!(
+  user: mo,
+  stage: sho.stage
+)
+StageInterviewer.create!(
+  user: ayanori,
+  stage: patrik.stage
+)
 
 puts "Adding interviews..."
 # Sales Engineer
@@ -181,8 +198,10 @@ Interview.create!(
 )
 Interview.create!(
   user: mo, candidate: soren,
-  stage: soren.stage,
-  date: DateTime.new(2022, 12, 1, 13, 30)
+  stage: soren.stage, rating: 4,
+  feedback: "Over qualified for the role. Better for senior position",
+  date: DateTime.new(2022, 12, 1, 13, 30),
+  status: 'rejected'
 )
 Interview.create!(
   user: ayanori, candidate: joyce,
@@ -194,19 +213,52 @@ Interview.create!(
 # Front-End Developer
 Interview.create!(
   user: sammy, candidate: savi,
-  stage: savi.stage,
-  date: DateTime.new(2022, 12, 1, 11, 30)
+  stage: savi.stage, rating: 4,
+  feedback: "Great portfolio. Worked well with others.",
+  date: DateTime.new(2022, 11, 29, 11, 30),
+  status: 'accepted'
 )
 Interview.create!(
   user: tash, candidate: clement,
-  stage: clement.stage,
-  date: DateTime.new(2022, 12, 1, 11, 30)
+  stage: clement.stage, rating: 4,
+  feedback: "Extensive technical skills. Writes clean code.",
+  date: DateTime.new(2022, 11, 29, 13, 30),
+  status: 'accepted'
 )
 Interview.create!(
   user: ayanori, candidate: patrick,
   stage: patrick.stage, rating: 4,
   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
-  date: DateTime.new(2022, 12, 1, 10, 30),
+  date: DateTime.new(2022, 11, 28, 10, 30),
+  status: 'accepted'
+)
+# Back-End Developer
+Interview.create!(
+  user: mo, candidate: yulia,
+  stage: savi.stage, rating: 4,
+  feedback: "Great portfolio. Worked well with others.",
+  date: DateTime.new(2022, 11, 24, 11, 30),
+  status: 'accepted'
+)
+Interview.create!(
+  user: mo, candidate: ayhem,
+  stage: clement.stage, rating: 4,
+  feedback: "Extensive technical skills. Writes clean code.",
+  date: DateTime.new(2022, 11, 29, 10, 30),
+  status: 'accepted'
+)
+Interview.create!(
+  user: mo, candidate: sho,
+  stage: patrick.stage, rating: 4,
+  feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
+  date: DateTime.new(2022, 11, 25, 10, 30),
+  status: 'accepted'
+)
+Interview.create!(
+  user: ayanori, candidate: patrik,
+  stage: patrick.stage, rating: 4,
+  feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
+  date: DateTime.new(2022, 11, 15, 10, 30),
   status: 'accepted'
 )
 
