@@ -21,9 +21,9 @@ sammy = User.create!(
   email: "sammy@sintaapp.com", password: "lalala", first_name: "Sammy",
   last_name: "Kavanaugh", position: "Product Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/113871255?v=4'
 )
-User.create!(
+tom = User.create!(
   email: "tom@sintaapp.com", password: "lalala", first_name: "Tom",
-  last_name: "Price", position: "Project Manager", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
+  last_name: "Price", position: "Front-End Engineer", department: "Engineering", photo: 'https://avatars.githubusercontent.com/u/91389023?v=4'
 )
 User.create!(
   email: "doug@sintaapp.com", password: "lalala", first_name: "Doug",
@@ -68,35 +68,18 @@ dev = Role.create!(
 )
 puts "Added #{Role.all.count} roles."
 
-# puts 'Adding stages for the Sales Engineer role...'
-# Stage.create!(name: "Screening", role: Role.first)
-# Stage.create!(name: "Operational Interview", role: Role.first)
-# Stage.create!(name: "Behavioral Interview", role: Role.first)
-# Stage.create!(name: "Final Interview", role: Role.first)
-
-# puts 'Adding stages for the Front-End Engineer role...'
-# Stage.create!(name: "Screening", role: Role.last)
-# Stage.create!(name: "Technical Interview", role: Role.last)
-# Stage.create!(name: "Pair Programming", role: Role.last)
-# Stage.create!(name: "CEO Interview", role: Role.last)
-# Stage.create!(name: "Final Interview", role: Role.last)
-# puts "Added #{Stage.all.count} stages in the system."
-
 puts 'Adding candidates for the Sales Engineering position...'
-# First stage (Screening) of Sales Engineer
-mattias = Candidate.create!(
-  first_name: "Mattias", last_name: "Welamsson", profile: 'https://www.linkedin.com/in/mattias-welamsson',
-  stage: sales.stages.first
-)
+# Soren - screening
 soren = Candidate.create!(
   first_name: "Soren", last_name: "Umstot", profile: 'https://www.linkedin.com/in/soren-umstot',
   stage: sales.stages.first
 )
-# Second stage (Technical)
+# Joyce - Screening and Second stage (Technical)
 joyce = Candidate.create!(
   first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan',
-  stage: sales.stages.second
+  stage: sales.stages.first
 )
+
 puts 'Adding candidate for Front-End Engineer'
 # First stage (Screening)
 savi = Candidate.create!(
@@ -104,95 +87,66 @@ savi = Candidate.create!(
   stage: front.stages.first
 )
 # Second stage (Technical)
-clement = Candidate.create!(
-  first_name: "Clement", last_name: "Choi", profile: 'https://www.linkedin.com/in/clement-choi-5212a213a/',
-  stage: front.stages.second
-)
+# clement = Candidate.create!(
+#   first_name: "Clement", last_name: "Choi", profile: 'https://www.linkedin.com/in/clement-choi-5212a213a/',
+#   stage: front.stages.second
+# )
 # Third stage (Pair-Programming)
-patrick = Candidate.create!(
-  first_name: "Patrick", last_name: "Stark", profile: 'https://www.linkedin.com/in/patrick-stark/',
-  stage: front.stages.third
-)
+# patrick = Candidate.create!(
+#   first_name: "Patrick", last_name: "Stark", profile: 'https://www.linkedin.com/in/patrick-stark/',
+#   stage: front.stages.third
+# )
 puts 'Adding candidate for Back-End Engineer'
 # First stage (Screening)
 yulia = Candidate.create!(
   first_name: "Yuliia", last_name: "Naumenko", profile: 'https://www.linkedin.com/in/yuliia-naumenko-bba121119/',
   stage: back.stages.first
 )
-# Second stage (Technical)
-ayhem = Candidate.create!(
-  first_name: "Ayhem", last_name: "Chet", profile: 'https://www.linkedin.com/in/al5311245/',
-  stage: back.stages.first
-)
-# Third stage (Pair-Programming)
-sho = Candidate.create!(
-  first_name: "Sho", last_name: "Fujiwara", profile: 'https://www.linkedin.com/in/sho-fujiwara-a747b520a/',
-  stage: back.stages.first
-)
-patrik = Candidate.create!(
-  first_name: "Patrik", last_name: "Moledo", profile: 'https://www.linkedin.com/in/patrik-moledo-0449641a0/',
-  stage: back.stages.second
-)
+# patrik = Candidate.create!(
+#   first_name: "Patrik", last_name: "Moledo", profile: 'https://www.linkedin.com/in/patrik-moledo-0449641a0/',
+#   stage: back.stages.second
+# )
 puts "Added #{Candidate.all.count} candidates in the system."
 
-
 puts "Adding Interviewer to some stages of a role"
-# Sales Engineer
 StageInterviewer.create!(
   user: mo,
-  stage: mattias.stage
+  stage: sales.stages.first
 )
-# Soren's interview result is still pending
-StageInterviewer.create!(
-  user: mo,
-  stage: soren.stage
-)
+# StageInterviewer.create!(
+#   user: mo,
+#   stage: joyce.stage
+# )
 StageInterviewer.create!(
   user: ayanori,
-  stage: joyce.stage
+  stage: sales.stages.second
 )
 # Front-End
 StageInterviewer.create!(
   user: sammy,
-  stage: savi.stage
+  stage: front.stages.first
 )
-StageInterviewer.create!(
-  user: tash,
-  stage: clement.stage
-)
-StageInterviewer.create!(
-  user: ayanori,
-  stage: patrick.stage
-)
+# StageInterviewer.create!(
+#   user: tom,
+#   stage: clement.stage
+# )
+# StageInterviewer.create!(
+#   user: ayanori,
+#   stage: patrick.stage
+# )
 # Back-End
 StageInterviewer.create!(
   user: mo,
-  stage: yulia.stage
+  stage: back.stages.first
 )
-StageInterviewer.create!(
-  user: mo,
-  stage: ayhem.stage
-)
-StageInterviewer.create!(
-  user: mo,
-  stage: sho.stage
-)
-StageInterviewer.create!(
-  user: ayanori,
-  stage: patrik.stage
-)
+# StageInterviewer.create!(
+#   user: ayanori,
+#   stage: patrik.stage
+# )
 
 puts "Adding interviews..."
-# Sales Engineer
-Interview.create!(
-  user: mo, candidate: mattias,
-  stage: mattias.stage, rating: 3,
-  feedback: "Great sales experience. Highly motivated. Personable",
-  date: DateTime.new(2022, 11, 29, 16, 30),
-  status: 'Passed'
-)
-Interview.create!(
 
+Interview.create!(
   user: mo, candidate: soren,
   stage: soren.stage, rating: 4,
   feedback: "Over qualified for the role. Better for senior position",
@@ -200,8 +154,15 @@ Interview.create!(
   status: 'Failed'
 )
 Interview.create!(
+  user: mo, candidate: joyce,
+  stage: sales.stages.first, rating: 4,
+  feedback: "Enthusiastic to learn new skills. Seems very flexible with time.",
+  date: DateTime.new(2022, 11, 28, 16, 30),
+  status: 'Passed'
+)
+Interview.create!(
   user: ayanori, candidate: joyce,
-  stage: joyce.stage, rating: 4,
+  stage: sales.stages.second, rating: 4,
   feedback: "Extensive technical skills. Had several internship with big IT companies.",
   date: DateTime.new(2022, 11, 28, 16, 30),
   status: 'Passed'
@@ -214,20 +175,20 @@ Interview.create!(
   date: DateTime.new(2022, 11, 29, 11, 30),
   status: 'Passed'
 )
-Interview.create!(
-  user: tash, candidate: clement,
-  stage: clement.stage, rating: 4,
-  feedback: "Extensive technical skills. Writes clean code.",
-  date: DateTime.new(2022, 11, 29, 13, 30),
-  status: 'Passed'
-)
-Interview.create!(
-  user: ayanori, candidate: patrick,
-  stage: patrick.stage, rating: 4,
-  feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
-  date: DateTime.new(2022, 11, 28, 10, 30),
-  status: 'Passed'
-)
+# Interview.create!(
+#   user: tash, candidate: clement,
+#   stage: clement.stage, rating: 4,
+#   feedback: "Extensive technical skills. Writes clean code.",
+#   date: DateTime.new(2022, 11, 29, 13, 30),
+#   status: 'Passed'
+# )
+# Interview.create!(
+#   user: ayanori, candidate: patrick,
+#   stage: patrick.stage, rating: 4,
+#   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
+#   date: DateTime.new(2022, 11, 28, 10, 30),
+#   status: 'Passed'
+# )
 # Back-End Developer
 Interview.create!(
   user: mo, candidate: yulia,
@@ -236,27 +197,27 @@ Interview.create!(
   date: DateTime.new(2022, 11, 24, 11, 30),
   status: 'Passed'
 )
-Interview.create!(
-  user: mo, candidate: ayhem,
-  stage: clement.stage, rating: 4,
-  feedback: "Extensive technical skills. Writes clean code.",
-  date: DateTime.new(2022, 11, 29, 10, 30),
-  status: 'Passed'
-)
-Interview.create!(
-  user: mo, candidate: sho,
-  stage: patrick.stage, rating: 4,
-  feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
-  date: DateTime.new(2022, 11, 25, 10, 30),
-  status: 'Passed'
-)
-Interview.create!(
-  user: ayanori, candidate: patrik,
-  stage: patrick.stage, rating: 4,
-  feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
-  date: DateTime.new(2022, 11, 15, 10, 30),
-  status: 'Passed'
-)
+# Interview.create!(
+#   user: mo, candidate: ayhem,
+#   stage: clement.stage, rating: 4,
+#   feedback: "Extensive technical skills. Writes clean code.",
+#   date: DateTime.new(2022, 11, 29, 10, 30),
+#   status: 'Passed'
+# )
+# Interview.create!(
+#   user: mo, candidate: sho,
+#   stage: patrick.stage, rating: 4,
+#   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
+#   date: DateTime.new(2022, 11, 25, 10, 30),
+#   status: 'Passed'
+# )
+# Interview.create!(
+#   user: ayanori, candidate: patrik,
+#   stage: patrick.stage, rating: 4,
+#   feedback: "Well versed with HTML, CSS, and JS. Clean and professional design.",
+#   date: DateTime.new(2022, 11, 15, 10, 30),
+#   status: 'Passed'
+# )
 puts "Added #{Interview.all.count} interviews."
 
 BASE_QUESTIONS = {
