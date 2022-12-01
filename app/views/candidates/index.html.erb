@@ -2,14 +2,11 @@
   <div class="pagetitle m-4">
     <h1>Review Candidates</h1>
   </div>
-  <% @roles.each do |role| %>
-    <%= role.title %>
-    <% role.stages.each do |stage| %>
-      <% stage.candidates.each do |candidate| %>
-        <%= candidate.first_name %>
-      <% end %>
-    <% end %>
-  <% end %>
-  <div class="d-flex gap-3 ms-4">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
   </div>
 </div>

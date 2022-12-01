@@ -24,7 +24,7 @@ class CandidatesController < ApplicationController
   def update
     @candidate = Candidate.find(params[:id])
     last_interview = @candidate.interviews.last
-    last_interview.status = "accepted"
+    last_interview.status = "Passed"
     last_interview.save
     @candidate.update(candidate_params)
     @interview = Interview.create!(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
@@ -37,6 +37,12 @@ class CandidatesController < ApplicationController
     @role = @candidate.stage.role
     @interviews = @candidate.interviews.where(stage: @role.stages)
     @next_stage = @role.stages.where.not(id: @candidate.stages).order(:created_at).first
+    flash[:notice] = "Email sent!" if params[:send]
+    flash[:alert] = "Rejection sent" if params[:reject]
+  end
+
+  def index
+    @candidate = Candidate.all
   end
 
   private

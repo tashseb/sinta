@@ -1,13 +1,17 @@
-<div class="container bg-white p-4">
-  <div class="d-grid gap-2 justify-content-md-start mb-3">
-    <%= link_to 'Back', roles_path, class: 'btn btn-ghost'  %>
-  </div>
-  <h1 class="text-header">Add New Role</h1>
-  <%= simple_form_for @role do |f| %>
-    <%= f.input :title, collection: Role::BASE_ROLES.keys%>
-    <%= f.input :description %>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <%= f.submit class: 'btn btn-flat mt-2' %>
+<div id="content-container">
+  <div class="mx-3 p-4">
+    <div class="stages-list-card mt-3">
+      <div class="d-grid gap-2 justify-content-md-start mb-3">
+      </div>
+      <h1 class="text-header">Add New Role</h1>
+      <%= simple_form_for @role do |f| %>
+        <%= f.input :title, collection: Role::BASE_ROLES.keys%>
+        <%= f.input :description %>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <%= link_to 'Back', roles_path, class: 'btn btn-orange mt-2'  %>
+          <%= f.submit class: 'btn btn-orange mt-2' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
