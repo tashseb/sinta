@@ -1,38 +1,31 @@
 <div id="content-container">
   <div class="container-fluid">
     <div class="candidates-list-card mt-3">
-      <div class="header">
-        <h1 style="padding-left: 6px;"> <%= "#{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
+      <div class="mb-4 d-flex justify-content-between">
+        <h1 style="padding-left: 6px;"> <%= "Candidate - #{@candidate.first_name.capitalize} #{@candidate.last_name.capitalize}" %></h1>
       </div>
       <% @interviews.each do |interview| %>
-        <%# <h4 class="my-2">Candidate Score Card</h4> %>
-        <div class="candidates-list mb-4">
-          <table class="table table-bordered mt-3">
-            <thead class="text-primary">
-              <tr>
-                <th style="width: 100px;" scope="col">Stage</th>
-                <th style="width: 100px;" scope="col">Interviewer</th>
-                <th style="width: 100px;" scope="col">Status</th>
-                <th scope="col">Key Summary</th>
-                <th style="width: 100px;" scope="col">Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= interview.stage.name %></td>
-                <td><%= interview.user.first_name %></td>
-                <td style="<%= interview.status == "passed" ? "color: green;" : "" %>"><%= interview.status.capitalize %></td>
-                <td><%= interview.feedback %></td>
-                <td><% interview.rating.to_i.times do %>
-                    <i style="color: gold;" class="fa-solid fa-star"></i>
-                  <% end %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="card-product position-relative mt-4" style="border-top-left-radius: 80px 80px; border-top-right-radius: 20px 20px; border-bottom-left-radius: 80px 80px; overflow: visible; <%= interview == @interviews.last ? "" : "filter: grayscale(0.5); box-shadow: 0 0 8px rgba(0,0,0,0.1);" %>">
+          <img class="avatar" src="<%= interview.user.photo %>" />
+          <% if interview.feedback %>
+            <i style="color: green;" class="fa-solid fa-circle-check position-absolute top-0 start-100 translate-middle fs-2"></i>
+          <% end %>
+          <p style="top: 8px; right: 16px;" class="position-absolute"><%= interview.status %></p>
+          <div class="card-product-infos w-100 h-100 position-relative">
+            <div class="">
+              <h2 class="my-0 py-0 fs-4">Stage - <%= interview.stage.name %></h2>
+              <p class="my-0 py-0 fs-6">Interviewer - <%= interview.user.first_name %></p>
+            </div>
+            <p class="fs-5"><%= interview.feedback %></p>
+            <h5 class="position-absolute" style="color: gold; bottom: 10px; right: 20px;">
+              <% interview.rating.to_i.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+            </h5>
+          </div>
         </div>
       <% end %>
-      <div class="d-flex" role="">
+      <div class="d-flex ms-5">
         <% if @next_stage %>
           <%= simple_form_for @candidate do |f| %>
             <%= f.input :stage_id, as: :hidden, input_html:{value: @next_stage.id} %>
