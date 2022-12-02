@@ -13,9 +13,6 @@
                 <li class="nav-item position-relative" role="presentation" style= "margin-right: -1%;">
                   <button class="nav-link <%= (params[:tab].nil? && stage.name == 'Screening') || params[:tab] == stage.name ? " active" : "" %>" id="pills-<%= stage.name %>-tab" data-bs-toggle="pill" data-bs-target="#pills-<%= stage.name %>" type="button" role="tab" aria-controls="pills-stages" aria-selected="false"><%= stage.name %></button>
                   <div class="position-absolute number-of-interview fs-6" style="top: 6px; right: 40px;z-index:10;">
-                    <% if stage.interviews.where.not(feedback: nil).count > 0 %>
-                      <p class="mb-0" style="transform: translateY(2px);"><%= stage.interviews.where.not(feedback: nil).count %></p>
-                    <% end %>
                   </div>
                 </li>
               <% end %>
