@@ -16,6 +16,11 @@ class Role < ApplicationRecord
     "Project Manager" => %w[Screening Technical Operation]
   }
 
+  def pending_interviews_count
+    return 0 if stages.count.zero?
+
+    interviews.group_by(&:candidate).count { |_candidate, interviews| interviews.last.feedback }
+  end
 
   def create_default_stages
     BASE_ROLES[title]&.each do |stage|
