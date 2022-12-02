@@ -1,11 +1,15 @@
 <div class="mx-3" data-controller="hide-div-stage">
-  <div class="stages-list-card mt-3">
-    <div class="row">
-      <div class="col-6">
+  <div class="row mt-3">
+    <div class="col-6">
+      <div class="stages-list-card mb-3">
         <%= render 'roles/interviewers', stage:stage %>
+      </div>
+      <div class="stages-list-card">
         <%= render 'stages/questions', stage: stage %>
       </div>
-      <div class="col-6">
+    </div>
+    <div class="col-6">
+      <div class="stages-list-card h-100">
         <%= render 'roles/candidates', stage:stage %>
       </div>
     </div>
