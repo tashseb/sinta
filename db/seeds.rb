@@ -195,7 +195,7 @@ Interview.create!(
 # Back-End Developer
 Interview.create!(
   user: mo, candidate: yulia,
-  stage: savi.stage, rating: 4,
+  stage: back.stages.first, rating: 4,
   feedback: "Great portfolio. Worked well with others.",
   date: DateTime.new(2022, 11, 24, 11, 30),
   status: 'Passed'
