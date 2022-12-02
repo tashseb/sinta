@@ -77,7 +77,7 @@ soren = Candidate.create!(
 # Joyce - Screening and Second stage (Technical)
 joyce = Candidate.create!(
   first_name: "Joyce", last_name: "Chan", profile: 'https://www.linkedin.com/in/joycehwchan',
-  stage: sales.stages.first
+  stage: sales.stages.second
 )
 
 puts 'Adding candidate for Front-End Engineer'
@@ -160,7 +160,7 @@ Interview.create!(
   user: ayanori, candidate: joyce,
   stage: sales.stages.second, rating: 4,
   feedback: "Extensive technical skills. Had several internship with big IT companies.",
-  date: DateTime.new(2022, 11, 28, 16, 30),
+  date: DateTime.new(2022, 10, 28, 16, 30),
   status: 'Passed'
 )
 # Front-End Developer
@@ -254,7 +254,7 @@ BASE_QUESTIONS = {
     "How do you motivate a team?",
     "Tell me about a time you dealt with a difficult employee."
   ],
-  "ceo" => [
+  "culture" => [
     "What do you think our company's mission and vision are?",
     "What changes would you implement during your first year in the company?",
     "What would you do in your first 30 days as CEO of our organization?",
@@ -365,19 +365,19 @@ Question.create!(
 )
 Question.create!(
   stage: front.stages.fourth,
-  description: BASE_QUESTIONS["ceo"][0]
+  description: BASE_QUESTIONS["culture"][0]
 )
 Question.create!(
   stage: front.stages.fourth,
-  description: BASE_QUESTIONS["ceo"][1]
+  description: BASE_QUESTIONS["culture"][1]
 )
 Question.create!(
   stage: front.stages.fourth,
-  description: BASE_QUESTIONS["ceo"][2]
+  description: BASE_QUESTIONS["culture"][2]
 )
 Question.create!(
   stage: front.stages.fourth,
-  description: BASE_QUESTIONS["ceo"][3]
+  description: BASE_QUESTIONS["culture"][3]
 )
 
 # Back End
