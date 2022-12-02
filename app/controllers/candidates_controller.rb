@@ -13,7 +13,7 @@ class CandidatesController < ApplicationController
     if @candidate.save
       SlackNotifier::CLIENT.ping "🎉 New Candidate Added:🎉 #{@candidate.first_name} #{@candidate.last_name} ~ #{@role.title} Role"
       @interview =Interview.create(stage: @candidate.stage, user: @candidate.stage.users.first, candidate: @candidate)
-      SendQuestions.perform_now(@interview.reload)
+      # SendQuestions.perform_now(@interview.reload)
       redirect_to role_path(@role)
       # SendQuestions.perform_now(@interview)
     else
