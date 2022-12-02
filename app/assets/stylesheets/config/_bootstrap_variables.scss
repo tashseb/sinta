@@ -34,3 +34,6 @@ $accordion-padding-x:                     1.25rem;
 $accordion-color:                         $body-color; // Sass variable because of $accordion-button-icon
 $accordion-bg:                            $white;
 $accordion-button-active-color:           shade-color($warning, 10%);
+$accordion-button-active-bg:             white;
+$accordion-button-focus-border-color:             white;
+$accordion-button-focus-box-shadow:             white;
