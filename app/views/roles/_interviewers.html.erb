@@ -4,22 +4,22 @@
 <div class="d-flex" style="margin-bottom: 4%; margin-top: 6%;margin-left: 0%">
   <% stage.stage_interviewers.each do |interview| %>
     <%= image_tag interview.user.photo, alt: "text", class:"avatar mt-2", style:"margin-left: 1%; width: 100px; height: 100px";%>
-    <div style= 'margin-left: 5%;'>
+    <div style= 'margin-left: 5%; margin-top: auto;'>
       <p class= "mt-3"> <strong><%= interview.user.first_name %> <%= interview.user.last_name %></strong> </p>
       <p> Position: <strong><%= interview.user.position %></strong> </p>
     </div>
-  </div>
-  <div class="modal" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= render 'stage_interviewers/interviewer-form', stage:stage %>
-        </div>
+  <% end %>
+</div>
+<div class="modal" id="teammembers<%= stage.id %>" tabindex="-1" aria-labelledby="teammembers<%= stage.id %>" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="teammembers<%= stage.id %>">Select Interviewers</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'stage_interviewers/interviewer-form', stage:stage %>
       </div>
     </div>
   </div>
-<% end %>
+</div>

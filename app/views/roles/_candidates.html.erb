@@ -1,18 +1,45 @@
-<h5>Candidates</h5>
-<div class="card-container flex-wrap w-100">
-  <% stage.candidates.each do |candidate| %>
-    <div id="candidate" class="category-card d-flex pr-3">
-      <div>
-        <%= user_avatar(candidate.full_name) %>
-      </div>
-      <p class="candidate-name-link mb-0">
-        <%= link_to candidate_path(candidate) do %>
-          <%= candidate.full_name %>
-        <% end %>
-      </p>
-      <a href="https://www.linkedin.com/">
-        <i class="fa-brands fa-linkedin" style="--fa-primary-color: $green;"></i>
-      </a>
-    </div>
+<h5>Candidates <% if stage.name == "Screening"  %>
+    <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#candidates-<%= stage.id %>">
+      <i class="fa-solid fa-user-plus"></i>
+    </button>
   <% end %>
-</div>
+  <h5>
+    <div class="card-container flex-wrap w-100">
+      <% stage.candidates.each do |candidate| %>
+        <div id="candidate" class="category-card d-flex pr-3 position-relative">
+          <% candidate.interviews.each do |interview| %>
+            <% if interview.feedback  %>
+              <p style="color: red; top: -4px; right: -4px;" class="position-absolute"> <i class="fa-solid fa-circle-exclamation fs-4"></i> </p>
+            <% end %>
+          <% end %>
+          <div>
+            <%= user_avatar(candidate.full_name) %>
+          </div>
+          <p class="candidate-name-link mb-0">
+            <%= link_to candidate_path(candidate) do %>
+              <%= candidate.full_name %>
+            <% end %>
+          </p>
+          <a href="https://www.linkedin.com/">
+            <i class="fa-brands fa-linkedin" style="--fa-primary-color: $green;"></i>
+          </a>
+        </div>
+      <% end %>
+    </div>
+    <div class="modal fade" id="candidates-<%= stage.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= stage.name %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [@role, @candidate] do |f| %>
+              <%= f.input :first_name %>
+              <%= f.input :last_name %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

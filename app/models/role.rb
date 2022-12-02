@@ -7,7 +7,7 @@ class Role < ApplicationRecord
   after_create :create_default_stages
 
   BASE_ROLES = {
-    "Front-End Developer" => %w[Screening Technical Pair-Programming CEO],
+    "Front-End Developer" => %w[Screening Technical Pair-Programming Culture],
     "Back-End Developer" => %w[Screening Technical Pair-Programming],
     "Full-Stack Developer" => %w[Screening Technical Manager Pair-Programming],
     "Software Engineer" => %w[Screening Technical Manager Pair-Programming],
