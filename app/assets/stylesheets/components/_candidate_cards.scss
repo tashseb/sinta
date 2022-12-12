@@ -1,7 +1,5 @@
 .card-container {
   display: grid;
-  // flex-wrap: wrap;
-  // width: 60%;
   overflow-y:scroll;
   height:447px;
   grid-template-columns: 1fr 1fr;
@@ -12,7 +10,6 @@
 #candidate {
   height: 70px;
   width: 100%;
-  // min-width: 240px;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
