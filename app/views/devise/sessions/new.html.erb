@@ -1,11 +1,12 @@
 <div id="login-container">
   <div class="login-card">
     <div class="row">
-      <div class="col">
-        <%= image_tag("Sinta-ArtisticLogo-03.jpg", class: "rounded-circle my-3 mb-5 mx-auto", width: "80%" ) %>
+      <div class="col login-logo">
+        <%= image_tag("Sinta-ArtisticLogo-03.jpg", class: "rounded-circle my-auto mx-auto", width: "80%" ) %>
       </div>
       <div class="col">
-        <h2>Log in</h2>
+        <h2>Welcome Back!</h2>
+        <p>Login to continue</p>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,

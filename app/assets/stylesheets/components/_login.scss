@@ -8,7 +8,13 @@
 
 .login-card {
   background-color: white;
-  padding: 24px;
-  margin: 40px;
+  padding: 24px 40px;
+  margin: 80px;
   border-radius: 8px;
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
