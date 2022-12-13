@@ -13,7 +13,7 @@ Sinta is a Web app that integrates with Slack's API that allows teams to quickly
 - Setup an interview in seconds ~ interview guides based on competencies
 - Faster decisions ~ Debrief on interviews & collaborate asynchronously. Hire within days, not weeks
 
- <img width="1507" alt="Sinta Dashboard" src="https://user-images.githubusercontent.com/114022804/205541769-bc8de7fe-ce85-465d-b932-479a3a94d023.png">
+![Dashboard](https://user-images.githubusercontent.com/13973128/207238677-07fde10c-00a8-4274-8417-333907377a42.png)
 
 ### Slack Intergration
 <img width="1451" alt="Sinta Slack" src="https://user-images.githubusercontent.com/114022804/205540405-82b255b1-52b7-4913-b102-090871c0e263.png">
