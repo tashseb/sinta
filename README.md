@@ -13,10 +13,10 @@ Sinta is a Web app that integrates with Slack's API that allows teams to quickly
 - Setup an interview in seconds ~ interview guides based on competencies
 - Faster decisions ~ Debrief on interviews & collaborate asynchronously. Hire within days, not weeks
 
- <img width="1507" alt="Screen Shot 2022-12-05 at 12 14 54 PM" src="https://user-images.githubusercontent.com/114022804/205541769-bc8de7fe-ce85-465d-b932-479a3a94d023.png">
+ <img width="1507" alt="Sinta Dashboard" src="https://user-images.githubusercontent.com/114022804/205541769-bc8de7fe-ce85-465d-b932-479a3a94d023.png">
 
 ### Slack Intergration
-<img width="1451" alt="Screen Shot 2022-12-05 at 12 01 56 PM" src="https://user-images.githubusercontent.com/114022804/205540405-82b255b1-52b7-4913-b102-090871c0e263.png">
+<img width="1451" alt="Sinta Slack" src="https://user-images.githubusercontent.com/114022804/205540405-82b255b1-52b7-4913-b102-090871c0e263.png">
 
 
 
@@ -120,5 +120,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## More Screenshots of Platform
- <img width="1512" alt="Screen Shot 2022-12-05 at 11 26 59 AM" src="https://user-images.githubusercontent.com/114022804/205537458-505ac56b-4b6d-4255-8167-59f9acc72ea8.png">
-<img width="1512" alt="Screen Shot 2022-12-05 at 11 27 44 AM" src="https://user-images.githubusercontent.com/114022804/205537471-b34c6215-0c4b-4334-8c01-98a2eee62582.png">
+![Sinta](https://user-images.githubusercontent.com/13973128/207225977-147885b5-ef18-4963-9f8f-a45f4d86290f.gif)
+![Candidate](https://user-images.githubusercontent.com/13973128/207226218-93fdd7ce-7728-4093-b14f-18d1ac6538a9.png)
