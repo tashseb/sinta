@@ -120,5 +120,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## More Screenshots of Platform
-![Sinta](https://user-images.githubusercontent.com/13973128/207225977-147885b5-ef18-4963-9f8f-a45f4d86290f.gif)
+![Sinta](https://user-images.githubusercontent.com/13973128/207237758-3bff6ea4-5fd3-4de3-8fbe-f8fa1b2f5dcf.gif)
 ![Candidate](https://user-images.githubusercontent.com/13973128/207226218-93fdd7ce-7728-4093-b14f-18d1ac6538a9.png)
