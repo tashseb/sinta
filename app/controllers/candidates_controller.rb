@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @role = Role.find(params[:role_id])

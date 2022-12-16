@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!
   # before_action :set_interview, only: %i[new create ]
 
   def index
