@@ -1,4 +1,3 @@
-  
 <div id="dash-container" class="bg-white">
   <div class="d-flex flex-row-reverse align-items-center justify-content-center" style="height: 100vh;">
     <div class="image"  style="
@@ -17,28 +16,30 @@
               <%=  link_to 'Check pending interviews', interviews_path, class: "btn btn-orange" %>
               <%=  link_to 'Create Role', new_role_path, class: "btn btn-orange" %>
             </div>
-            <div class="card stages-list border-0 mt-3">
-              <div class="card-body">
-                <div class="d-flex">
-                  <i class="fa-solid fa-list-check"></i>
-                  <h5 class="ms-2">Pending Tasks</h5>
-                </div>
-                <% @roles.each do |role| %>
-                  <div>
-                    <% if role.interviews.count > 0%>
-                      <div class="d-flex flex-row justify-content-between border-bottom">
-                        <div id="link-role-no-deco" class="p2">
-                          <%= link_to "#{role.title }", role_path(role) %>
-                        </div>
-                        <div class="number-of-interview">
-                          <%= role.pending_interviews_count %>
-                        </div>
-                      </div>
-                    <% end %>
+            <% if @roles.present? %>
+              <div class="card stages-list border-0 mt-3">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h5 class="ms-2">Pending Tasks</h5>
                   </div>
-                <% end %>
+                  <% @roles.each do |role| %>
+                    <div>
+                      <% if role.interviews.count > 0%>
+                        <div class="d-flex flex-row justify-content-between border-bottom">
+                          <div id="link-role-no-deco" class="p2">
+                            <%= link_to "#{role.title }", role_path(role) %>
+                          </div>
+                          <div class="number-of-interview">
+                            <%= role.pending_interviews_count %>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
