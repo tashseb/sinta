@@ -17,5 +17,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "package": "^1.0.1"
   }
 }
