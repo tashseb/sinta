@@ -1,5 +1,5 @@
 class RolesController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @roles = Role.all
